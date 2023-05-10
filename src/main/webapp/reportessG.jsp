@@ -20,11 +20,11 @@
                 <link rel="stylesheet" href="headerStyle.css">
                 <header class="headersito" id="header">
                     <a href="cierreSesion.jsp" class="logoin">
-                        <img src="imagenes/logo_nimo.png" alt="" class="logoni" draggable="false">
+                        <img src="imagenes/KihonPNG.png" alt="" class="logoni" draggable="false">
                     </a>
                     <c:if test="${sessionScope.gerenteS eq 'gerenSop1'}">
                     <ul class="nav">
-                        <a href="/Kihon/ControlerZ">Volver</a>
+                        <a href="/ModuloSoporte/ControlerZ">Volver</a>
                     </ul>
                     </c:if>
                     <ul class="nav">

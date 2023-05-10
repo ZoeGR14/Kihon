@@ -19,16 +19,6 @@
                 tipo = sesion.getAttribute("tipo_usuario").toString();
 
         %>
-        <link rel="stylesheet" href="headerStyle.css">
-        <header class="headersito" id="header">
-        <a href="cierreSesion.jsp" class="logoin">
-                <img src="imagenes/logo_nimo.png" alt="" class="logoni" draggable="false">
-            </a>
-            <ul class="nav">
-                
-                <a href="cierreSesion.jsp" class="">Cerrar Sesión</a>
-            </ul>
-        </header>
         
         <link rel="stylesheet" href="styleAsistente.css">
         <section id="explorar" class="explore">
@@ -38,7 +28,7 @@
                      <h5 align="center">Estatus de reportes escritos por:&nbsp;<%out.println(usuario);%></h5>
                      <table border="1" width="700" align="center" class="tablita" cellSpacing=1 cellPadding=1>
             
-            <tr style="color: #4b277a; border-radius:10px;">
+            <tr style="color: #001c27; border-radius:10px;">
                 <th style="border-radius:10px;">Id</th>
                 <th style="border-radius:10px;">Usuario</th>
                 <th style="border-radius:10px;">Estatus</th>
@@ -61,7 +51,7 @@
                     while (rs.next()) { 
                         int ids = Integer.parseInt(rs.getString(1));
                         sta2 = cnx.createStatement();
-                        rs2 = sta2.executeQuery("select * from cliente_reporte where id_reporte='"+ids+"'");
+                        rs2 = sta2.executeQuery("select * from trabajador_reporte where id_reporte='"+ids+"'");
                         while (rs2.next()) { 
                             int idsR = Integer.parseInt(rs2.getString(1));
                             sta3 = cnx.createStatement();

@@ -20,20 +20,24 @@
                 <link rel="stylesheet" href="headerStyle.css">
                 <header class="headersito" id="header">
                     <a href="cierreSesion.jsp" class="logoin">
-                        <img src="imagenes/logo_nimo.png" alt="" class="logoni" draggable="false">
+                        <img src="imagenes/KihonPNG.png" alt="" class="logoni" draggable="false">
                     </a>
                     <ul class="nav">
 
                         <a href="cierreSesion.jsp" class="">Cerrar Sesión</a>
                     </ul>
-                </header>
+                </header><br><br><br>
+
                 <h2 class="tituloo">¡Bienvenido, Ingeniero de Soporte!</h2>
                 <div class="container">
                     <input type="text" class="myInput" id="myInput" onkeyup="myFunction()" placeholder="Busca por reporte" title="Escribe un estatus">
-                    <br><form action="ControlerJ" method="post">
+                    <c:if test="${sessionScope.gerenteS eq 'gerenSop1'}">
+                        <button class="visualizar" onclick="window.location.href = 'reportes.jsp'">Volver</button>
+                    </c:if>
+<!--                    <br><form action="ControlerJ" method="post">
                         <button  class="visualizar" name="accion" value="verTabla">Visualizar la tabla de contenido</button>    
                     </form>
-                    <br>
+                    <br>-->
                     <center>
                         <table class="tablaa" id="a">
                             <tr>
@@ -56,10 +60,9 @@
                                     <td>${lista.getSolucion()}</td>
 
                                     <td>
-                                        <form action="ControlerJ?accion=verReporte" method="post"><button class="botoncito" name="reporte" value="${lista.getId_reporte()}">Ver</button></form>
                                         <c:choose>
                                             <c:when test="${empty lista.getSolucion()}">
-                                                <button disabled class="botoncito" name="reporte" value="${lista.getId_reporte()}">Cerrar</button>
+                                                <form action="ControlerJ?accion=verReporte" method="post"><button class="botoncito" name="reporte" value="${lista.getId_reporte()}">Solucionar</button></form>
                                             </c:when>
                                             <c:otherwise>
                                                 <form action="ControlerJ?accion=cerrarReporte" method="post"><button class="botoncito" name="reporte" value="${lista.getId_reporte()}">Cerrar</button></form>
@@ -80,7 +83,7 @@
                         table = document.getElementById("a");
                         tr = table.getElementsByTagName("tr");
                         for (i = 0; i < tr.length; i++) {
-                            td = tr[i].getElementsByTagName("td")[1];
+                            td = tr[i].getElementsByTagName("td")[2];
                             if (td) {
                                 txtValue = td.textContent || td.innerText;
                                 if (txtValue.toUpperCase().indexOf(filter) > -1) {

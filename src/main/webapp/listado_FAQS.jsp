@@ -26,7 +26,7 @@
                          <h5 align="center">FAQS:</h5>
                          <table border="1" width="700" align="center" class="tablita" cellSpacing=1 cellPadding=1>
 
-                <tr style="color: #4b277a; border-radius:10px;">
+                <tr style="color: #001c27; border-radius:10px;">
                     <th>Pregunta frecuente</th>
                     <th>Respuesta</th>
                 </tr>

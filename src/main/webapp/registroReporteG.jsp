@@ -35,24 +35,22 @@
             }
             try{
                 sta.executeUpdate("insert into reportes (id_reporte,descripcion,estatus,solucion) values(null,'"+desc+"','"+estatus+"','"+solucion+"');");
-                sta.executeUpdate("insert into cliente_reporte values(null,'"+client+"');");
+                sta.executeUpdate("insert into trabajador_reporte values(null,'"+client+"');");
                 sta.executeUpdate("insert into cerrado_FAQ values(null, 0)");
                 sta.executeUpdate("insert into escritor values(null,'"+escribe+"');");
                 out.println("<script>Swal.fire('Registro guardado exitosamente','Hasta luego','success')</script>");
-                HttpSession sesion = request.getSession();
-                String gerenteS = sesion.getAttribute("user").toString();
-                sesion.setAttribute("gerenteS", gerenteS);
-                out.println("<script>function saludos(){location.href ='reportes.jsp';}</script>");
+                out.println("<script>function saludos(){location.href ='/ModuloSoporte/ControlerZ';}</script>");
                 out.println("<script>setTimeout(saludos, 1500);</script>");
                 conx.close();
                 sta.close();
             }
             catch(SQLException error){
                 out.println("<script>Swal.fire({icon: 'error',title: 'Algo salió mal',text: 'Inténtelo de nuevo'});</script>");
-                    out.println("<script>function saludos(){location.href ='reportes.jsp';}</script>");
+                    out.println("<script>function saludos(){location.href ='asistenteG.jsp';}</script>");
                     out.println("<script>setTimeout(saludos, 1500);</script>");
             }
                 
         %>    
     </body>
 </html>
+

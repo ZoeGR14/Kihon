@@ -23,7 +23,7 @@
         <link rel="stylesheet" href="headerStyle.css">
         <header class="headersito" id="header">
         <a href="cierreSesion.jsp" class="logoin">
-                <img src="imagenes/logo_nimo.png" alt="" class="logoni" draggable="false">
+                <img src="imagenes/KihonPNG.png" alt="" class="logoni" draggable="false">
             </a>
             <ul class="nav">
                 
@@ -45,10 +45,6 @@
                             <span class="botmag_text">
                                 Búsqueda de usuario
                             </span>
-                            <img src="imagenes/carita_6.png" alt="" class="botmag_img1">
-                            <img src="imagenes/carita_3.png" alt="" class="botmag_img2">
-                            <img src="imagenes/carita_4.png" alt="" class="botmag_img3">
-                            <img src="imagenes/carita_7.png" alt="" class="botmag_img4">
                         </button>
                         
                         <dialog id="modal">
@@ -71,10 +67,6 @@
                     <span class="botmag_text">
                         Estatus de Reportes
                     </span>
-                    <img src="imagenes/carita_6.png" alt="" class="botmag_img1">
-                    <img src="imagenes/carita_3.png" alt="" class="botmag_img2">
-                    <img src="imagenes/carita_4.png" alt="" class="botmag_img3">
-                    <img src="imagenes/carita_7.png" alt="" class="botmag_img4">
                 </a></center>
                 </div>        
 

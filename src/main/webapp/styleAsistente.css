@@ -1,9 +1,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
+*{
+    font-family: "Poppins", sans-serif;
+}
 body{
-    background: url('imagenes/fondohuehue.png') no-repeat;
+    background-color: #a1bfca;
+    background-image: url(imagenes/lol.png);
+}
+*::selection{
+    background: #144255;
+    color: black;
+}
+    /*--scrollbar--*/
+*::-webkit-scrollbar{
+    width: 9px;
+}
+::-webkit-scrollbar-thumb:active{
+    background: #365482;
+}
+*::-webkit-scrollbar-thumb{
+    background: #144255;
+    border-radius: 15px;
 }
 .explore{
     margin: 0;
@@ -18,10 +38,27 @@ body{
 }
 
 .tablita{
-    border-left-color: #4b277a; 
-    border-right-color: #4b277a; 
-    border-top-color: #4b277a; 
-    border-bottom-color: #4b277a; 
+    border-left-color: #001c27; 
+    border-right-color: #001c27; 
+    border-top-color: #001c27; 
+    border-bottom-color: #001c27; 
+}
+.tablita2{
+    overflow-y: scroll;
+    position: relative;
+    width: 1200px;
+    height: 700px;
+    margin: 50px;
+    box-shadow: 20px 20px 50px rgba(0,0,0,0.5);
+    border-radius: 15px;
+    background: rgba(255,255,255,0.1);
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    border-top: 2px solid grey;
+    border-left: 2px solid grey;
+    backdrop-filter: blur(10px);
+    
 }
 
 .ini_acci{
@@ -41,7 +78,7 @@ body{
     backdrop-filter: blur(10px);
 }
 .margensito h5{
-    color: #4b277a;
+    color: #001c27;
     font-family: 'Fredoka One', cursive;
     font-weight: lighter;
     font-size: 25px;
@@ -54,7 +91,7 @@ body{
 
 .bot-mag{
     position: relative;
-    background-color: #4b277a;
+    background-color: #001c27;
     color: white;
     padding:  1rem 2.5rem;
     border-radius: 3rem;
@@ -67,7 +104,6 @@ body{
     content: "";
     width: 80%;
     height: 40%;
-    background: linear-gradient(to right, #a362e5, #8b43ff);
     position: absolute;
     left: 0;
     right: 0;
@@ -85,35 +121,6 @@ body{
     z-index: 99;
 }
 
-.bot-mag img{
-    position: absolute;
-    inset: 0;
-    margin: auto;
-    pointer-events: none;
-    transition: .7s;
-    opacity: 0;
-}
-
-.botmag_img1{
-    width: 22px;
-    transform: translate(-60px, -10px) rotate(50deg);
-}
-
-.botmag_img2{
-    width: 33px;
-    transform: translate(60px, -15px) rotate(-70deg);
-}
-
-.botmag_img3{
-    width: 44px;
-    transform: translate(0px, -30px) rotate(-40deg);
-}
-
-.botmag_img4{
-    width: 33px;
-    transform: translate(0px, 30px) rotate(50deg);
-}
-
 .bot-mag:hover::after{
     opacity: 1;
 }
@@ -123,25 +130,6 @@ body{
     color: white;
 }
 
-.bot-mag:hover img{
-    opacity: 1;
-}
-
-.bot-mag:hover .botmag_img1{
-    transform: translate(-80px, -10px) scale(1.2);
-}
-
-.bot-mag:hover .botmag_img2{
-    transform: translate(80px, -10px) scale(1.1);
-}
-
-.bot-mag:hover .botmag_img3{
-    transform: translate(10px, -50px) scale(1.2);
-}
-
-.bot-mag:hover .botmag_img4{
-    transform: translate(20px, 45px) scale(1.1);
-}
 
 
 #modal::backdrop{
@@ -168,15 +156,15 @@ body{
 }
 
 #modal h3{
-    color: #4b277a;
+    color: #001c27;
     font-family: 'Fredoka One', cursive;
     font-weight: lighter;
 }
 
 #modal input[type="text"]{
     display: inline;
-    border:  #4b277a;
-    outline: #4b277a;
+    border:  #001c27;
+    outline: #001c27;
     background: rgba(0,0,0,0.1);
     padding: 1rem 1.5rem;
     margin-top: 30px;
@@ -186,7 +174,7 @@ body{
 }
 
 #btn-cerrar-modal{
-    background-color: #4b277a;
+    background-color: #001c27;
     color: white;
     padding:  0.5rem 2rem;
     border-radius: 3rem;
@@ -196,7 +184,7 @@ body{
 }
 
 #btn-enviar-modal{
-    background-color: #4b277a;
+    background-color: #001c27;
     color: white;
     padding:  0.5rem 2rem;
     border-radius: 3rem;

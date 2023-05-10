@@ -3,7 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
 
 body{
-    background: url('imagenes/fondohuehue.png') no-repeat;
+    background: url('imagenes/fondoo.png') no-repeat;
 }
 .explore{
     margin: 0;
@@ -18,10 +18,10 @@ body{
 }
 
 .tablita{
-    border-left-color: #4b277a; 
-    border-right-color: #4b277a; 
-    border-top-color: #4b277a; 
-    border-bottom-color: #4b277a; 
+    border-left-color: #001c27; 
+    border-right-color: #001c27; 
+    border-top-color: #001c27; 
+    border-bottom-color: #001c27; 
 }
 
 .ini_acci{
@@ -41,7 +41,7 @@ body{
     backdrop-filter: blur(10px);
 }
 .margensito h5{
-    color: #4b277a;
+    color: #001c27;
     font-family: 'Fredoka One', cursive;
     font-weight: lighter;
     font-size: 25px;
@@ -54,7 +54,7 @@ body{
 
 .bot-mag{
     position: relative;
-    background-color: #4b277a;
+    background-color: #001c27;
     color: white;
     padding:  1rem 2.5rem;
     border-radius: 3rem;
@@ -168,15 +168,15 @@ body{
 }
 
 #modal h3{
-    color: #4b277a;
+    color: #001c27;
     font-family: 'Fredoka One', cursive;
     font-weight: lighter;
 }
 
 #modal input[type="text"]{
     display: inline;
-    border:  #4b277a;
-    outline: #4b277a;
+    border:  #001c27;
+    outline: #001c27;
     background: rgba(0,0,0,0.1);
     padding: 1rem 1.5rem;
     margin-top: 30px;
@@ -186,7 +186,7 @@ body{
 }
 
 #btn-cerrar-modal{
-    background-color: #4b277a;
+    background-color: #001c27;
     color: white;
     padding:  0.5rem 2rem;
     border-radius: 3rem;
@@ -196,7 +196,7 @@ body{
 }
 
 #btn-enviar-modal{
-    background-color: #4b277a;
+    background-color: #001c27;
     color: white;
     padding:  0.5rem 2rem;
     border-radius: 3rem;

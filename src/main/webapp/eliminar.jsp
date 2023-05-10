@@ -17,7 +17,8 @@
                 Class.forName("com.mysql.jdbc.Driver");
                 cnx  = DriverManager.getConnection("jdbc:mysql://localhost:3306/baseDatSop?autoReconnect=true&useSSL=false","root","n0m3l0");
                 sta = cnx.createStatement();
-                sta.executeUpdate("delete from editor where id_FAQ ='"+id+"';");
+                sta.executeUpdate("delete from editor where id_FAQ ="+id+"");
+                sta.executeUpdate("update cerrado_FAQ set estado = 0 where id_reporte = "+id+"");
                 request.getRequestDispatcher("listado.jsp").forward(request,response);
                 sta.close();
                 rs.close();

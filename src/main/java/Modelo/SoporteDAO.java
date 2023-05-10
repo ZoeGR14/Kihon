@@ -24,7 +24,35 @@ public class SoporteDAO {
 
     public List listar(String trabajador) {
         List<Soporte> lista = new ArrayList<>();
-        String sql = "select * from reportes inner join cliente_reporte on cliente_reporte.id_reporte=reportes.id_reporte where encargado='" + trabajador + "' and estatus = 'En Proceso'";
+        String sql = "select * from reportes inner join trabajador_reporte on trabajador_reporte.id_reporte=reportes.id_reporte where encargado='" + trabajador + "' and estatus = 'En Proceso'";
+        try {
+            con = cn.getConnection();
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                System.out.println("statement");
+                Soporte s = new Soporte();
+                s.setId_reporte(rs.getInt(1));
+                s.setDescripcion(rs.getString(2));
+                s.setEstatus(rs.getString(3));
+                s.setEncargado(rs.getString(4));
+                s.setFecha_hora(rs.getString(5));
+                s.setSolucion(rs.getString(6));
+                s.setCliente(rs.getString(8));
+                lista.add(s);
+            }
+            rs.close();
+            ps.close();
+            con.close();
+        } catch (Exception e) {
+            System.out.println("Error 'tás bien mensa al listar :DD");
+        }
+        return lista;
+    }
+
+    public List listar2() {
+        List<Soporte> lista = new ArrayList<>();
+        String sql = "select * from reportes inner join trabajador_reporte on trabajador_reporte.id_reporte=reportes.id_reporte where estatus = 'En Proceso'";
         try {
             con = cn.getConnection();
             ps = con.prepareStatement(sql);

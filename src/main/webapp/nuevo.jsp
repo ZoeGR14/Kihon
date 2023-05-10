@@ -7,27 +7,9 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Registro FAQ</title>
         <link rel="stylesheet" href="loginn.css">
-        <style>
-            body{
-                background: url('imagenes/fondohuehue.png') no-repeat;
-            }
-        </style>
     </head>
     <body>
-        <c:choose>
-            <c:when test="${not empty sessionScope.editor}">
-        <link rel="stylesheet" href="headerStyle.css">
-        <header class="headersito" id="header">
-        <a href="cierreSesion.jsp" class="logoin">
-                <img src="imagenes/logo_nimo.png" alt="" class="logoni" draggable="false">
-            </a>
-            <ul class="nav">
-                
-                <a href="cierreSesion.jsp" class="">Cerrar Sesión</a>
-            </ul>
-        </header>
-
-                <br>
+        <br>
                 <div class="login-card-container">
                     <div class="login-card">
                         <div class="login-card-header">
@@ -53,7 +35,7 @@
                     if (request.getParameter("btnFAQ") != null) {
                         String preguntaFAQ = request.getParameter("txtpreguntaFAQ");
                         String respuestaFAQ = request.getParameter("txtrespuestaFAQ");
-                        cad = "insert into editor(preguntaFAQ,respuestaFAQ) values ('" + preguntaFAQ + "','" + respuestaFAQ + "')";
+                        cad = "insert into editor(preguntaFAQ,respuestaFAQ,tipoFAQ) values ('" + preguntaFAQ + "','" + respuestaFAQ + "','A')";
                         Connection cnx = null;
                         ResultSet rs = null;
                         Statement sta = null;
@@ -69,9 +51,4 @@
                     }
                 %>
             </body>
-        </c:when>
-        <c:otherwise>
-            <script>location.replace('inicioSPersonal.html');</script>
-        </c:otherwise>
-    </c:choose>
 </html>

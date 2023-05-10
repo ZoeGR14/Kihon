@@ -19,7 +19,7 @@
     justify-content: space-between;
     align-items: center;
     transition: .5s;
-    background-color: #4b277a;
+    background-color: #001c27;
     text-decoration: none;
 }
 
@@ -45,7 +45,7 @@
 }
 
 .nav a:hover{
-    color: #c59bfb;
+    color: #357088;
     font-weight: 300;
     text-transform: capitalize;
     text-decoration: none;

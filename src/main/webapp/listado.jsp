@@ -3,32 +3,39 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <c:choose>
-        <c:when test="${not empty sessionScope.editor}">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Listado FAQS</title>
         <style>
-            body{
-                background: url('imagenes/fondohuehue.png') no-repeat;
+            @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+            *{
+                    font-family: 'Poppins', sans-serif;
             }
+            body{
+                background: url('imagenes/fondoo.png') no-repeat;
+            }
+            .aa{
+                color: #357088;
+            }
+            
         </style>
     </head>
-            
         <body>
             <link rel="stylesheet" href="headerStyle.css">
-        <header class="headersito" id="header">
-        <a href="cierreSesion.jsp" class="logoin">
-                <img src="imagenes/logo_nimo.png" alt="" class="logoni" draggable="false">
-            </a>
-            <ul class="nav">
-                
-                <a href="cierreSesion.jsp" class="">Cerrar Sesión</a>
-            </ul>
-        </header>
+                <header class="headersito" id="header">
+                    <a href="cierreSesion.jsp" class="logoin">
+                        <img src="imagenes/KihonPNG.png" alt="" class="logoni" draggable="false">
+                    </a>
+                    <ul class="nav">
+                        <a href="/ModuloSoporte/ControlerZ">Volver</a>
+                    </ul>
+                    <ul class="nav">
+                        <a href="cierreSesion.jsp" class="">Cerrar Sesión</a>
+                    </ul>
+                </header>
             <link rel="stylesheet" href="styleAsistente.css">
             <section class="explore">
-                 <div class="ini_acci" >
+                 <div class="tablita2" >
 
                      <div class="margensito" style="margin-top: 70px; align-content: center; justify-content: center;">
                          <h5 align="center">FAQS:</h5>
@@ -36,16 +43,12 @@
 
 
                 <th>
-                    <a href="nuevo.jsp">
-                        <img src="imagenes/editar.png" width="50" height="50">
-                    </a>
+                    <a class="aa" href="nuevo.jsp">Nueva FAQ</a>
                 </th>
                 <th>
-                    <a href="reportesCerrados.jsp">
-                        <img src="imagenes/reportes.png" width="50" height="50">
-                    </a>
+                    <a class="aa" href="reportesCerrados.jsp">Reportes Cerrados</a>
                 </th>
-                <tr style="color: #4b277a; border-radius:10px;">
+                <tr style="color: #001c27; border-radius:10px;">
                     <th>Id</th>
                     <th>Pregunta frecuente</th>
                     <th>Respuesta</th>
@@ -61,7 +64,8 @@
                         cnx  = DriverManager.getConnection("jdbc:mysql://localhost:3306/baseDatSop?autoReconnect=true&useSSL=false","root","n0m3l0");
                         sta = cnx.createStatement();
                         rs = sta.executeQuery("select * from editor");
-                        while (rs.next()) {                            
+                        while (rs.next()) {   
+                            if (rs.getString(5).equals("A")) {                                            
                     %>
                     <tr>
                         <td align="center"><%=rs.getString(1)%></td>
@@ -69,15 +73,26 @@
                         <td align="center"><%=rs.getString(4)%></td>
                         <td align="center"><%=rs.getString(2)%></td>
                         <td align="center">
-                            <a href="editar.jsp?cod=<%=rs.getString(1)%>">
-                                <img src="imagenes/check.png" width="30" height="30">
-                            </a>
-                            <a href="eliminar.jsp?paso=<%=rs.getString(1)%>">
-                                <img src="imagenes/cross.png" width="30" height="30">
-                            </a>
+                            <a href="editar.jsp?cod=<%=rs.getString(1)%>">Editar</a>
+                            <a href="eliminar.jsp?paso=<%=rs.getString(1)%>">Eliminar</a>
                         </td>                    
                     </tr>
                     <%
+                        }
+                        else{
+                    %>
+                    <tr>
+                        <td align="center"><%=rs.getString(1)%></td>
+                        <td align="center"><%=rs.getString(3)%></td>
+                        <td align="center"><%=rs.getString(4)%></td>
+                        <td align="center"><%=rs.getString(2)%></td>  
+                        <td align="center">                            
+                            <a href="eliminar.jsp?paso=<%=rs.getString(1)%>">Eliminar</a>
+                        </td>   
+                    </tr>
+                    <%
+                        }
+                    
                             }
                             sta.close();
                             cnx.close();
@@ -91,10 +106,5 @@
                      </div>
                  </div>
             </section>
-        </c:when>
-        <c:otherwise>
-            <script>location.replace('inicioSPersonal.html');</script>
-        </c:otherwise>
-    </c:choose>
     </body>
 </html>

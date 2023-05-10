@@ -22,21 +22,28 @@
     <body>
         <c:choose>
             <c:when test="${not empty sessionScope.gerenteM}">
-<link rel="stylesheet" href="headerStyle.css">
-        <header class="headersito" id="header">
-        <a href="cierreSesion.jsp" class="logoin">
-                <img src="imagenes/logo_nimo.png" alt="" class="logoni" draggable="false">
-            </a>
-            <ul class="nav">
-                
-                <a href="cierreSesion.jsp" class="">Cerrar Sesión</a>
-            </ul>
-        </header>
+                <link rel="stylesheet" href="headerStyle.css">
+                <header class="headersito" id="header">
+                    <a href="cierreSesion.jsp" class="logoin">
+                        <img src="imagenes/KihonPNG.png" alt="" class="logoni" draggable="false">
+                    </a>
+                    <ul class="nav">
+
+                        <a href="cierreSesion.jsp" class="">Cerrar Sesión</a>
+                    </ul>
+                </header><br><br><br>
                 <h1 class="usuario">Bienvenido Gerente de Mantenimiento</h1>
                 <hr>
                 <div id="contenedorReporte">
+                    <c:if test="${sessionScope.gerenteS eq 'gerenSop1'}">
+                        <button onclick="window.location.href = 'reportes.jsp'">Volver</button>
+                        <button onclick="window.location.href = 'inicioSPersonal_2.jsp?volver=si'">Ingeniero de Mantenimiento</button>
+                    </c:if>
+                    <c:if test="${param.volver eq 'no'}">
+                        <c:set var="volver" value="no" scope="session"/>
+                    </c:if>
                     <form action="ControlerZz" method="post">
-                        <button name="accion" value="Ver Tabla">Ver tabla</button>
+                        <button name="accion" value="Ver Tabla">Actualizar tabla</button>
                     </form>
                     <table border="0">
                         <thead>
@@ -70,6 +77,7 @@
                                                 <form action="ControlerZz?accion=Gerente" method="post">
                                                     <button class='asignar12' name="directo" value="${dato.getId()}">Devolver a Gerente de Soporte</button>
                                                 </form>
+                                                <input type="hidden" class ="asignar">
                                             </c:when>
                                             <c:otherwise>
                                                 <button class='asignar' value="${dato.getId()}" disabled>Asignar</button>
@@ -93,8 +101,17 @@
                             <p>Estatus Actual: ${datito.getEstatus()}</p>
                             <center>
                                 <form class='formGerente' name="formGerente" method="post" action='ControlerZz?accion=Aceptar'>
+                                    <div class='asignacion'>
+                                        <span>¿A quién desea asignar este reporte?</span>
+                                        <select name="asignar" class="trabajador" required>
+                                            <option value="ingMan1">ingMan1</option>
+                                            <option  value="ingMan2">ingMan2</option>
+                                            <option  value="ingMan3">ingMan3</option>
+                                        </select>
+                                        <input type="hidden" value="${datito.getId()}" name="aceptar">
+                                    </div>
                                     <div class='estatus'>
-                                        <span>¿A qué estatus desea cambiar?</span>
+                                        <span>Estatus al que se cambiará</span>
 
                                         <select name='estatus' class="checkEsta">
                                             <option disabled>-Selecciona Estatus-</option>
@@ -108,11 +125,6 @@
                                             </c:choose>
                                         </select>
 
-                                    </div>
-                                    <div class='asignacion'>
-                                        <span>¿A quién desea asignar este reporte?</span>
-                                        <input type="text" name="asignar" class="trabajador" required>
-                                        <input type="hidden" value="${datito.getId()}" name="aceptar">
                                     </div>
                                     <button name='aceptado' value='${datito.getId()}' class="aceptar">Aceptar</button>
                                 </form>
@@ -149,7 +161,6 @@
 
                         if (estatus === "En Programacion") {
                             if (asignado === "ingMan1" || asignado === "ingMan2" || asignado === "ingMan3") {
-                                alert("Ingeniero de mantenimiento encontrado");
                                 formulario[index].submit();
                             } else {
                                 alert("Ingeniero de mantenimiento no encontrado");

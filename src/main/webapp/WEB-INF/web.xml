@@ -12,6 +12,10 @@
         <servlet-name>ControlerZz</servlet-name>
         <servlet-class>Controlador.ControlerZz</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ControlerZzZ</servlet-name>
+        <servlet-class>Controlador.ControlerZzZ</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ControlerJ</servlet-name>
         <url-pattern>/ControlerJ</url-pattern>
@@ -23,6 +27,10 @@
     <servlet-mapping>
         <servlet-name>ControlerZz</servlet-name>
         <url-pattern>/ControlerZz</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControlerZzZ</servlet-name>
+        <url-pattern>/ControlerZzZ</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

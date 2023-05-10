@@ -70,7 +70,7 @@ public class GerenteDAO {
 
     public List listar() {
         List<Gerente> lista = new ArrayList<>();
-        String sql = "select * from reportes inner join cliente_reporte on cliente_reporte.id_reporte = reportes.id_reporte";
+        String sql = "select * from reportes inner join trabajador_reporte on trabajador_reporte.id_reporte = reportes.id_reporte";
         try {
             con = cn.getConnection();
             ps = con.prepareStatement(sql);
@@ -98,7 +98,36 @@ public class GerenteDAO {
 
     public List listar2(String trabajador) {
         List<Gerente> lista = new ArrayList<>();
-        String sql = "select * from reportes inner join cliente_reporte on cliente_reporte.id_reporte = reportes.id_reporte inner join primer_encargado on primer_encargado.id_reporte = reportes.id_reporte where trabajador = '" + trabajador + "' and (estatus = 'En Programacion' or estatus = 'Programacion Finalizada' or estatus = 'En Mantenimiento')";
+        String sql = "select * from reportes inner join trabajador_reporte on trabajador_reporte.id_reporte = reportes.id_reporte inner join primer_encargado on primer_encargado.id_reporte = reportes.id_reporte where primerEncargado = '" + trabajador + "' and (estatus = 'En Programacion' or estatus = 'Programacion Finalizada' or estatus = 'En Mantenimiento')";
+        System.out.println(sql);
+        try {
+            con = cn.getConnection();
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                Gerente g = new Gerente();
+                g.setId(rs.getInt(1));
+                g.setDescripcion(rs.getString(2));
+                g.setEstatus(rs.getString(3));
+                g.setAsignado(rs.getString(4));
+                g.setFecha(rs.getString(5));
+                g.setSolucion(rs.getString(6));
+                g.setCliente(rs.getString(8));
+                lista.add(g);
+            }
+            rs.close();
+            ps.close();
+            con.close();
+        } catch (Exception e) {
+            System.out.println("error listar");
+            e.printStackTrace();
+        }
+        return lista;
+    }
+
+    public List listar3() {
+        List<Gerente> lista = new ArrayList<>();
+        String sql = "select * from reportes inner join trabajador_reporte on trabajador_reporte.id_reporte = reportes.id_reporte inner join primer_encargado on primer_encargado.id_reporte = reportes.id_reporte where primerEncargado like 'gerenMan%' and (estatus = 'En Programacion' or estatus = 'Programacion Finalizada' or estatus = 'En Mantenimiento')";
         System.out.println(sql);
         try {
             con = cn.getConnection();
