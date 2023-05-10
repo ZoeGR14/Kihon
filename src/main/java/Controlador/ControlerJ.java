@@ -120,7 +120,7 @@ public class ControlerJ extends HttpServlet {
                 s.setId_reporte(id2);
                 s.setSolucion(solucion);
                 dao.resolver(s);
-                response.sendRedirect("/ModuloSoporte/ControlerJ?tipo=normal");
+                response.sendRedirect("/Kihon/ControlerJ?tipo=normal");
                 break;
             case "resolver2":
                 int id2G = Integer.parseInt(request.getParameter("id_reporte"));
@@ -128,7 +128,7 @@ public class ControlerJ extends HttpServlet {
                 s.setId_reporte(id2G);
                 s.setSolucion(solucionG);
                 dao.resolver(s);
-                response.sendRedirect("/ModuloSoporte/ControlerJ?tipo=superUsuario");
+                response.sendRedirect("/Kihon/ControlerJ?tipo=superUsuario");
                 break;
 
             case "verTablaM":
@@ -161,7 +161,7 @@ public class ControlerJ extends HttpServlet {
                 m.setId_reporte(id2M);
                 m.setSolucion(solucionM);
                 mDao.resolverM(m);
-                response.sendRedirect("/ModuloSoporte/ControlerJ?tipo=normalM");
+                response.sendRedirect("/Kihon/ControlerJ?tipo=normalM");
                 break;
             case "resolverM2":
                 int id2M2 = Integer.parseInt(request.getParameter("id_reporteM"));
@@ -169,32 +169,32 @@ public class ControlerJ extends HttpServlet {
                 m.setId_reporte(id2M2);
                 m.setSolucion(solucionM2);
                 mDao.resolverM(m);
-                response.sendRedirect("/ModuloSoporte/ControlerJ?tipo=superUsuarioM");
+                response.sendRedirect("/Kihon/ControlerJ?tipo=superUsuarioM");
                 break;
             case "cerrarReporte":
                 int id3 = Integer.parseInt(request.getParameter("reporte"));
                 s.setId_reporte(id3);
                 dao.cerrarReporte(s);
-                response.sendRedirect("/ModuloSoporte/ControlerJ?tipo=normal");
+                response.sendRedirect("/Kihon/ControlerJ?tipo=normal");
                 break;
             case "cerrarReporte2":
                 int id32 = Integer.parseInt(request.getParameter("reporte"));
                 s.setId_reporte(id32);
                 dao.cerrarReporte(s);
-                response.sendRedirect("/ModuloSoporte/ControlerJ?tipo=superUsuario");
+                response.sendRedirect("/Kihon/ControlerJ?tipo=superUsuario");
                 break;
             case "cerrarReporteM":
                 int id4 = Integer.parseInt(request.getParameter("reporteM"));
                 m.setId_reporte(id4);
                 mDao.cerrarReporteM(m);
-                response.sendRedirect("/ModuloSoporte/ControlerJ?tipo=normalM");
+                response.sendRedirect("/Kihon/ControlerJ?tipo=normalM");
                 System.out.println("reporte bien");
                 break;
             case "cerrarReporteM2":
                 int id42 = Integer.parseInt(request.getParameter("reporteM"));
                 m.setId_reporte(id42);
                 mDao.cerrarReporteM(m);
-                response.sendRedirect("/ModuloSoporte/ControlerJ?tipo=superUsuarioM");
+                response.sendRedirect("/Kihon/ControlerJ?tipo=superUsuarioM");
                 System.out.println("reporte bien");
                 break;
         }

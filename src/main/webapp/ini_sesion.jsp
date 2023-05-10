@@ -60,27 +60,27 @@
                             sesion.setAttribute("gerenteS", usu);
                             System.out.println(usu);
                             out.println("<script>Swal.fire('Bienvenido','Gerente de Soporte','success')</script>");
-                            out.println("<script>function saludos(){location.href ='/ModuloSoporte/ControlerZ';}</script>");
+                            out.println("<script>function saludos(){location.href ='/Kihon/ControlerZ';}</script>");
                             out.println("<script>setTimeout(saludos, 1500);</script>");
                         } else if (tipotra.equals("3")) {
                             sesion.setAttribute("gerenteM", usu);
                             System.out.println(usu);
                             out.println("<script>Swal.fire('Bienvenido','Gerente de Mantenimiento','success')</script>");
-                            out.println("<script>function saludos(){location.href ='/ModuloSoporte/ControlerZz';}</script>");
+                            out.println("<script>function saludos(){location.href ='/Kihon/ControlerZz';}</script>");
                             out.println("<script>setTimeout(saludos, 1500);</script>");
                             //response.sendRedirect("reportesMantenimiento.jsp");
                         } else if (tipotra.equals("4")) {
                             sesion.setAttribute("ingeS", usu);
                             System.out.println(usu);
                             out.println("<script>Swal.fire('Bienvenido','Ingeniero de Soporte','success')</script>");
-                            out.println("<script>function saludos(){location.href ='/ModuloSoporte/ControlerJ?tipo=normal';}</script>");
+                            out.println("<script>function saludos(){location.href ='/Kihon/ControlerJ?tipo=normal';}</script>");
                             out.println("<script>setTimeout(saludos, 1500);</script>");
                             //response.sendRedirect("reportess.jsp");
                         } else if (tipotra.equals("5")) {
                             sesion.setAttribute("ingeM", usu);
                             System.out.println(usu);
                             out.println("<script>Swal.fire('Bienvenido','Ingeniero de Mantenimiento','success')</script>");
-                            out.println("<script>function saludos(){location.href ='/ModuloSoporte/ControlerJ?tipo=normalM';}</script>");
+                            out.println("<script>function saludos(){location.href ='/Kihon/ControlerJ?tipo=normalM';}</script>");
                             out.println("<script>setTimeout(saludos, 1500);</script>");
                             //response.sendRedirect("verRepMan.jsp");
                         } else if (tipotra.equals("6")) {

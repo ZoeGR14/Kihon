@@ -24,7 +24,7 @@
                     </a>
                     <c:if test="${sessionScope.gerenteS eq 'gerenSop1'}">
                         <ul class="nav">
-                            <a href="/ModuloSoporte/ControlerZ">Volver</a>
+                            <a href="/Kihon/ControlerZ">Volver</a>
                         </ul>
                     </c:if>
                     <ul class="nav">

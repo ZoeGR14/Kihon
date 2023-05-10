@@ -27,7 +27,7 @@
                         <img src="imagenes/KihonPNG.png" alt="" class="logoni" draggable="false">
                     </a>
                     <ul class="nav">
-                        <a href="/ModuloSoporte/ControlerZ">Volver</a>
+                        <a href="/Kihon/ControlerZ">Volver</a>
                     </ul>
                     <ul class="nav">
                         <a href="cierreSesion.jsp" class="">Cerrar Sesión</a>

@@ -24,13 +24,13 @@
                     </a>
                     <c:if test="${sessionScope.gerenteS eq 'gerenSop1'}">
                         <ul class="nav">
-                            <a href="/ModuloSoporte/ControlerZzZ" class="">Gerente de Mantenimiento</a>
+                            <a href="/Kihon/ControlerZzZ" class="">Gerente de Mantenimiento</a>
                         </ul>
                         <ul class="nav">
-                            <a href="/ModuloSoporte/ControlerJ?tipo=superUsuarioM" class="">Ingeniero de Mantenimiento</a>
+                            <a href="/Kihon/ControlerJ?tipo=superUsuarioM" class="">Ingeniero de Mantenimiento</a>
                         </ul>
                         <ul class="nav">
-                            <a href="/ModuloSoporte/ControlerJ?tipo=superUsuario" class="">Ingeniero de Soporte</a>
+                            <a href="/Kihon/ControlerJ?tipo=superUsuario" class="">Ingeniero de Soporte</a>
                         </ul>
                         <ul class="nav">
                             <a href="listado.jsp" class="">Editor</a>
