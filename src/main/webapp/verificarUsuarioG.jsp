@@ -1,6 +1,5 @@
 <%@page import="java.sql.*,java.io.*" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page session="true"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -8,27 +7,21 @@
         <title>Reportes</title>
         <script src="sweetalert2.all.min.js"></script>
         <link rel="stylesheet" href="loginn.css">
+        <style>
+            body{
+                background: url('imagenes/fondohuehue.png') no-repeat;
+            }
+        </style>
     </head>
     <body>
-        <%
-            HttpSession sesion = request.getSession();
-            String usuario;
-            String tipo;
-            
-            String user=request.getParameter("nusuar");
-            
-            if (sesion.getAttribute("user") != null && sesion.getAttribute("tipo_usuario") != null) {
-                usuario = sesion.getAttribute("user").toString();
-                tipo = sesion.getAttribute("tipo_usuario").toString();
-
-                   
+        <%            
                 Connection con= null;
                 Statement stat =null;
-                Statement stat2 =null;
+                //Statement stat2 =null;
                 
                 
                 ResultSet res=null;
-                ResultSet res2=null;
+                //ResultSet res2=null;
                 
 
                 
@@ -36,7 +29,7 @@
                     Class.forName("com.mysql.jdbc.Driver");
                     con  = DriverManager.getConnection("jdbc:mysql://localhost:3306/baseDatSop?autoReconnect=true&useSSL=false","root","n0m3l0");                               
                     stat = con.createStatement();
-                    stat2 = con.createStatement();
+                    //stat2 = con.createStatement();
                     
                 }
                 catch(SQLException error){
@@ -45,51 +38,27 @@
                 try{
                     String usu=request.getParameter("usuario");
                     
-                    res=stat.executeQuery("select*from personal where trabajador='"+usu+"';");
+                    res=stat.executeQuery("select*from clientes where cliente='"+usu+"';");
                     
                     if(!res.next()){
                         out.println("<script>Swal.fire({icon: 'error',title: 'Usuario no encontrado',text: 'Inténtelo de nuevo'});</script>");
                         out.println("<script>function saludos(){location.href ='asistenteG.jsp';}</script>");
                         out.println("<script>setTimeout(saludos, 1500);</script>");
                     }
-                    
                     else{
-                            out.println("<script>Swal.fire('Usuario encontrado','Continuando al levantamiento de reporte','success')</script>");
-                            
-                    %>
-                    
-                            <br>
-        
-       <div class="login-card-container">
-            <div class="login-card">
-                <div class="login-card-logo">
-                    <img src="imagenes/reporte.png" alt="logo">
-                </div>
-                <div class="login-card-header">
-                    <h1>Ingreso de reportes</h1>
-                </div>
-                <form action="registroReporteG.jsp" method="post" name="reportes" class="login-card-form">
-                    <div class="form-item">
-                        <input type="text" placeholder="Descripción" name="description" maxlength="110" title="No exceda el límite de caracteres" required autofocus>
-                    </div>
-                    <div class="form-item">
-                        <p style="display: inline;">Estatus:&nbsp;&nbsp;</p><input type="text" placeholder="Estatus" name="status" value="Abierto" readonly="true" style="display: inline; width: 35%;">
-                    </div>
-                    <div class="form-item">
-                        <p style="display: inline;">Solución:&nbsp;&nbsp;</p><input type="text" placeholder="Solución" name="solution" value="" readonly="true" style="display: inline; width: 35%;">
-                    </div>
-                    <div class="form-item">
-                        <p style="display: inline;">Asistente que registra:&nbsp;&nbsp;</p><input type="text" placeholder="Asistente" name="assistant" value="<%out.println(usuario);%>" style="display: inline; width: 35%;" required readonly="true">
-                    </div>
-                    <div class="form-item">
-                        <p style="display: inline;">Cliente con el problema:&nbsp;&nbsp;</p><input type="text" name="user" value="<%out.println(usu);%>" readonly="true" style="display: inline; width: 30%;">
-                    </div>
-                    <button type="submit" name="rReporte" id="boton" value="guardar">Guardar Reporte</button>
-                </form>
-            </div>
-       </div>
-                    
-            <%        
+                    out.println("<br><br>");
+                                        out.println("<div class='login-card-container'>");
+                                        out.println("<div class='login-card'>");
+                                        out.println("<div class='login-card-header'>");
+                                        out.println("<h1>Usuario encontrado</h1>");
+                                        out.println("<div>Redirigiendo al formulario de reportes</div>");
+                                        out.println("</div>");
+                                        out.println("<form name='reportitos' action='levantarReportesG.jsp' method='post' class='login-card-form'>");
+                                        out.println("<input type='hidden' name='nusuar' value='"+usu+"'><br><br>"); 
+                                        out.println("<button type='submit' name='vamos' id='boton' value='Siguiente'>Cargar</button>");
+                                        out.println("</form>");
+                                        out.println("</div>");
+                                        out.println("</div>");
                     }
             }
                 
@@ -98,10 +67,6 @@
                     out.println("<script>function saludos(){location.href ='asistenteG.jsp';}</script>");
                     out.println("<script>setTimeout(saludos, 1500);</script>");
                 }
-            }
-            else {
-                out.print("<script>location.replace('inicioSPersonal.html');</script>");
-            }
              %>
     </body>
 </html>

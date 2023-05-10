@@ -17,6 +17,18 @@
         </style>
     </head>
     <body>
+    <c:choose>
+        <c:when test="${not empty sessionScope.editor}">
+            <link rel="stylesheet" href="headerStyle.css">
+        <header class="headersito" id="header">
+        <a href="cierreSesion.jsp" class="logoin">
+                <img src="imagenes/logo_nimo.png" alt="" class="logoni" draggable="false">
+            </a>
+            <ul class="nav">
+                
+                <a href="cierreSesion.jsp" class="">Cerrar Sesión</a>
+            </ul>
+        </header>
         <link rel="stylesheet" href="styleAsistente.css">
         <section class="explore">
              <div class="ini_acci">
@@ -40,7 +52,7 @@
                     Class.forName("com.mysql.jdbc.Driver");
                     cnx  = DriverManager.getConnection("jdbc:mysql://localhost:3306/baseDatSop?autoReconnect=true&useSSL=false","root","n0m3l0");          
                     sta = cnx.createStatement();
-                    rs = sta.executeQuery("select * from reportes inner join trabajador_reporte on trabajador_reporte.id_reporte = reportes.id_reporte inner join cerrado_FAQ on cerrado_FAQ.id_reporte = reportes.id_reporte where estatus = 'Cerrado' and estado = 0");
+                    rs = sta.executeQuery("select * from reportes inner join cliente_reporte on cliente_reporte.id_reporte = reportes.id_reporte inner join cerrado_FAQ on cerrado_FAQ.id_reporte = reportes.id_reporte where estatus = 'Cerrado' and estado = 0");
                     while (rs.next()) { 
                 %>
                 <tr>
@@ -70,6 +82,11 @@
              </div>
             
         </section>
+        </c:when>
+        <c:otherwise>
+            <script>location.replace('inicioSPersonal.html');</script>
+        </c:otherwise>
+    </c:choose>
 
     </body>
 </html>

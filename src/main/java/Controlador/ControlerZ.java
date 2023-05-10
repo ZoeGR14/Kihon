@@ -81,9 +81,7 @@ public class ControlerZ extends HttpServlet {
         switch (accion) {
             case "Aceptar":
                 String estatus = request.getParameter("estatus");
-                System.out.println(estatus);
                 String encargado = request.getParameter("asignar");
-                System.out.println(encargado);
                 int id = Integer.parseInt(request.getParameter("aceptar"));
                 g.setEstatus(estatus);
                 g.setAsignado(encargado);
@@ -151,6 +149,36 @@ public class ControlerZ extends HttpServlet {
                 List<Gerente> lista = gDAO.listar();
                 request.setAttribute("lista", lista);
                 request.getRequestDispatcher("reportes.jsp").forward(request, response);
+                break;
+            case "verReporte":
+                int id5 = Integer.parseInt(request.getParameter("reporte"));
+                System.out.println(id5);
+                List<Soporte> lista2 = dao.listarReporte(id5);
+                request.setAttribute("lista2", lista2);
+                request.getRequestDispatcher("visualizarReporteG.jsp").forward(request, response);
+                break;
+            case "resolver":
+                int id6 = Integer.parseInt(request.getParameter("id_reporte"));
+                String solucion = request.getParameter("solucion");
+                s.setId_reporte(id6);
+                s.setSolucion(solucion);
+                dao.resolver(s);
+                response.sendRedirect("ControlerZ");
+                break;
+            case "resolverM":
+                int id2M = Integer.parseInt(request.getParameter("id_reporteM"));
+                String solucionM = request.getParameter("solucionM");
+                m.setId_reporte(id2M);
+                m.setSolucion(solucionM);
+                mDAO.resolverM(m);
+                response.sendRedirect("ControlerZ");
+                break;
+            case "verReporteM":
+                int idM = Integer.parseInt(request.getParameter("reporteM"));
+                System.out.println(idM);
+                List<Soporte> lista2M = mDAO.listarReporteM(idM);
+                request.setAttribute("lista2M", lista2M);
+                request.getRequestDispatcher("reportesManG.jsp").forward(request, response);
                 break;
             default:
                 break;

@@ -15,12 +15,23 @@
         </style>
     </head>
     <body>
+        <c:choose>
+            <c:when test="${not empty sessionScope.editor}">
+        <link rel="stylesheet" href="headerStyle.css">
+        <header class="headersito" id="header">
+        <a href="cierreSesion.jsp" class="logoin">
+                <img src="imagenes/logo_nimo.png" alt="" class="logoni" draggable="false">
+            </a>
+            <ul class="nav">
+                
+                <a href="cierreSesion.jsp" class="">Cerrar Sesión</a>
+            </ul>
+        </header>
 
                 <link rel="stylesheet" href="styleAsistente.css">
 
                 <%@ page language="java" %>
                 <%
-                    request.setCharacterEncoding("UTF-8");
                     String id_reporte = request.getParameter("cod");
                     Connection cnx = null;
                     Statement sta = null;
@@ -45,13 +56,13 @@
                                     <tr style="color: #4b277a; border-radius:10px;">
                                         <td align="center">Descripción del reporte = Pregunta frecuente:</td>
                                         <td align="center">
-                                            <input type="text" name="txttitulo" value="<%=rs.getString(2)%>" readonly="readonly">
+                                            <input type="text" name="txttitulo" value="<%=rs.getString(2)%>" readonly="">
                                         </td>
                                     </tr>
                                     <tr style="color: #4b277a; border-radius:10px;">
                                         <td align="center">Solución del reporte = Respuesta:</td>
                                         <td align="center">
-                                            <input type="text" name="txtcosto" value="<%=rs.getString(6)%>" readonly="readonly">
+                                            <input type="text" name="txtcosto" value="<%=rs.getString(6)%>">
                                         </td>
                                     </tr>
 
@@ -63,11 +74,10 @@
                                 <% } %>
                                 <%
                                     if (request.getParameter("btnFAQ") != null) {
-                                        
                                         String id = request.getParameter("txtcod");
                                         String pregunta_FAQ = request.getParameter("txttitulo");
                                         String respuesta_FAQ = request.getParameter("txtcosto");
-                                        sta.execute("insert into editor(preguntaFAQ,respuestaFAQ,tipoFAQ) values('" + pregunta_FAQ + "','" + respuesta_FAQ + "','B')");
+                                        sta.execute("insert into editor(preguntaFAQ,respuestaFAQ) values('" + pregunta_FAQ + "','" + respuesta_FAQ + "')");
                                         sta.execute("update cerrado_FAQ set estado = 1 where id_reporte = " + id_reporte + "");
                                         RequestDispatcher rd = request.getRequestDispatcher("listado.jsp");
                                         rd.forward(request, response);
@@ -80,6 +90,11 @@
                         </div>
                     </div>
                 </section>
+            </c:when>
+            <c:otherwise>
+                <script>location.replace('inicioSPersonal.html');</script>
+            </c:otherwise>
+        </c:choose>
     </body>
 </html>
 

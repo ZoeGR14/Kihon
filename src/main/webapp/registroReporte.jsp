@@ -35,7 +35,7 @@
             }
             try{
                 sta.executeUpdate("insert into reportes (id_reporte,descripcion,estatus,solucion) values(null,'"+desc+"','"+estatus+"','"+solucion+"');");
-                sta.executeUpdate("insert into trabajador_reporte values(null,'"+client+"');");
+                sta.executeUpdate("insert into cliente_reporte values(null,'"+client+"');");
                 sta.executeUpdate("insert into escritor values(null,'"+escribe+"');");
                 sta.executeUpdate("insert into cerrado_FAQ values(null, 0)");
                 out.println("<script>Swal.fire('Registro guardado exitosamente','Hasta luego','success')</script>");

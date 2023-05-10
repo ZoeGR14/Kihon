@@ -19,6 +19,16 @@
                 tipo = sesion.getAttribute("tipo_usuario").toString();
 
         %>
+        <link rel="stylesheet" href="headerStyle.css">
+        <header class="headersito" id="header">
+        <a href="cierreSesion.jsp" class="logoin">
+                <img src="imagenes/logo_nimo.png" alt="" class="logoni" draggable="false">
+            </a>
+            <ul class="nav">
+                
+                <a href="cierreSesion.jsp" class="">Cerrar Sesión</a>
+            </ul>
+        </header>
         
         <link rel="stylesheet" href="styleAsistente.css">
         <section id="explorar" class="explore">
@@ -51,7 +61,7 @@
                     while (rs.next()) { 
                         int ids = Integer.parseInt(rs.getString(1));
                         sta2 = cnx.createStatement();
-                        rs2 = sta2.executeQuery("select * from trabajador_reporte where id_reporte='"+ids+"'");
+                        rs2 = sta2.executeQuery("select * from cliente_reporte where id_reporte='"+ids+"'");
                         while (rs2.next()) { 
                             int idsR = Integer.parseInt(rs2.getString(1));
                             sta3 = cnx.createStatement();

@@ -14,72 +14,79 @@
         </style>
     </head>
     <body>
-        <link rel="stylesheet" href="styleAsistente.css">
+        <c:choose>
+            <c:when test="${not empty sessionScope.editor}">
 
-        <%
-            String id_FAQ = request.getParameter("cod");
-            Connection cnx = null;
-            Statement sta = null;
-            ResultSet rs = null;
+                <link rel="stylesheet" href="styleAsistente.css">
 
-            try {
-                Class.forName("com.mysql.jdbc.Driver");
-                cnx = DriverManager.getConnection("jdbc:mysql://localhost:3306/baseDatSop?autoReconnect=true&useSSL=false", "root", "n0m3l0");
-                sta = cnx.createStatement();
-                rs = sta.executeQuery("select * from editor where id_FAQ = " + id_FAQ + "");
-                rs.next();
-        %>
-        <section class="explore">
-            <div class="ini_acci" >
+                <%
+                    String id_FAQ = request.getParameter("cod");
+                    Connection cnx = null;
+                    Statement sta = null;
+                    ResultSet rs = null;
 
-                <div class="margensito" style="margin-top: 70px; align-content: center; justify-content: center;">
-                    <h5 align="center">Editar FAQS:</h5>
-                    <table border="1" width="700" align="center" class="tablita" cellSpacing=1 cellPadding=1>
+                    try {
+                        Class.forName("com.mysql.jdbc.Driver");
+                        cnx = DriverManager.getConnection("jdbc:mysql://localhost:3306/baseDatSop?autoReconnect=true&useSSL=false", "root", "n0m3l0");
+                        sta = cnx.createStatement();
+                        rs = sta.executeQuery("select * from editor where id_FAQ = '" + id_FAQ + "'");
+                        rs.next();
+                %>
+                <section class="explore">
+                    <div class="ini_acci" >
 
-                        <form action="">
-                            <!--
-                            <tr style="color: #4b277a; border-radius:10px;">
-                                <td>Id:</td>
-                            -->
-                            <input type="hidden" name="txtcod" value="<%=rs.getString(1)%>" 
-                                   readonly="readonly">
-                            <tr>
-                                <td align="center">Pregunta frecuente:</td>
-                                <td align="center">
-                                    <input type="text" name="txttitulo" value="<%=rs.getString(3)%>">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td align="center">Respuesta:</td>
-                                <td align="center">
-                                    <input type="text" name="txtcosto" value="<%=rs.getString(4)%>">
-                                </td>
-                            </tr>
+                        <div class="margensito" style="margin-top: 70px; align-content: center; justify-content: center;">
+                            <h5 align="center">Editar FAQS:</h5>
+                            <table border="1" width="700" align="center" class="tablita" cellSpacing=1 cellPadding=1>
 
-                            <input type="submit" name="btnFAQ" value="Verificar FAQ">
-                            </table>
-                        </form>
-                        <%} catch (SQLException error) {
-                                out.print(error.toString());
-                            }
-                            if (request.getParameter("btnFAQ") != null) {
-                                request.setCharacterEncoding("UTF-8");
-                                String id = request.getParameter("txtcod");
-                                String pregunta = request.getParameter("txttitulo");
-                                String respuesta = request.getParameter("txtcosto");
-                                sta.execute("update editor set preguntaFAQ='" + pregunta + "' where id_FAQ=" + id + "");
-                                sta.execute("update editor set respuestaFAQ='" + respuesta + "' where id_FAQ=" + id + "");
-                                RequestDispatcher rd = request.getRequestDispatcher("listado.jsp");
+                                <form action="">
 
-                                rd.forward(request, response);
+                                    <tr style="color: #4b277a; border-radius:10px;">
+                                        <td>Id:</td>
+                                        <td><input type="text" name="txtcod" value="<%=rs.getString(1)%>" 
+                                                   readonly="readonly"></td>
+                                    </tr>
+                                    <tr>
+                                        <td align="center">Pregunta frecuente:</td>
+                                        <td align="center">
+                                            <input type="text" name="txttitulo" value="<%=rs.getString(3)%>">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="center">Respuesta:</td>
+                                        <td align="center">
+                                            <input type="text" name="txtcosto" value="<%=rs.getString(4)%>">
+                                        </td>
+                                    </tr>
 
-                                sta.close();
-                                rs.close();
-                                cnx.close();
-                            }
-                        %>
-                </div>
-            </div>
-        </section>
+                                    <input type="submit" name="btnFAQ" value="Verificar FAQ">
+                                    </table>
+                                </form>
+                                <%} catch (SQLException error) {
+                                        out.print(error.toString());
+                                    }
+                                    if (request.getParameter("btnFAQ") != null) {
+                                        String id = request.getParameter("txtcod");
+                                        String pregunta = request.getParameter("txttitulo");
+                                        String respuesta = request.getParameter("txtcosto");
+                                        sta.execute("update editor set preguntaFAQ='" + pregunta + "' where id_FAQ='" + id + "'");
+                                        sta.execute("update editor set respuestaFAQ='" + respuesta + "' where id_FAQ='" + id + "'");
+                                        RequestDispatcher rd = request.getRequestDispatcher("listado.jsp");
+
+                                        rd.forward(request, response);
+
+                                        sta.close();
+                                        rs.close();
+                                        cnx.close();
+                                    }
+                                %>
+                        </div>
+                    </div>
+                </section>
+            </c:when>
+            <c:otherwise>
+                <script>location.replace('inicioSPersonal.html');</script>
+            </c:otherwise>
+        </c:choose>
     </body>
 </html>

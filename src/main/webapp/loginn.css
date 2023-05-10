@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
 body{
     font-family: 'Poppins', sans-serif;
-    background-color: #4b277a;
+    background-color: #001c27;
 }
 .login-card-container{
     display: flex; 
@@ -28,11 +28,11 @@ body{
 }
 
 .login-card-logo{
-    margin-bottom: 2rem;
+    margin-bottom: 0rem;
 }
 
 .login-card-logo img{
-    width: 100px;
+    width: 200px;
 }
 
 .login-card-form img{
@@ -47,7 +47,7 @@ body{
 
 .login-card a{
     text-decoration: none;
-    color: #4b277a;
+    color: #001c27;
 }
 
 .login-card a:hover{
@@ -93,8 +93,7 @@ body{
 }
 
 .login-card input[type="text"],
-.login-card input[type="password"],
-.login-card select{
+.login-card input[type="password"]{
     display: inline;
     border: none;
     outline: none;
@@ -104,9 +103,6 @@ body{
     border-radius: 100px;
     width: 80%;
     transition: background .5s;
-}
-.login-card select{
-    width: 440px;
 }
 
 .login-card input[type="tel"],
@@ -128,8 +124,8 @@ body{
     background: white;
 }
 
-.login-card-form button, .login-card-header button{
-    background: #4b277a;
+.login-card-form button{
+    background: #001c27;
     color: white;
     padding: 1rem;
     border: none;
@@ -139,8 +135,8 @@ body{
     transition: background .5s;
 }
 
-.login-card-form button:hover, .login-card-header button:hover{
-    background-color: rgba(75,39,122,.85);
+.login-card-form button:hover{
+    background-color: #001c27;
     cursor: pointer;
 }
 .login-card button[type="radio"]{

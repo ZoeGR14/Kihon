@@ -24,7 +24,7 @@ public class MantenimientoDAO {
 
     public void resolverM(Mantenimiento m) {
 
-        String sql = "update reportes set solucion= '" + m.getSolucion() + "', estatus='Programacion Finalizada', fecha_hora=now() where id_reporte = " + m.getId_reporte();
+        String sql = "update reportes set solucion= '" + m.getSolucion() + "', fecha_hora=now() where id_reporte = " + m.getId_reporte();
 
         try {
             con = cn.getConnection();
@@ -41,36 +41,7 @@ public class MantenimientoDAO {
 
     public List listarM(String trabajador) {
         List<Mantenimiento> lista = new ArrayList<>();
-        String sql = "select * from reportes inner join trabajador_reporte on trabajador_reporte.id_reporte=reportes.id_reporte where encargado='" + trabajador + "' and estatus = 'En Programacion'";
-        try {
-            con = cn.getConnection();
-            ps = con.prepareStatement(sql);
-
-            rs = ps.executeQuery();
-            while (rs.next()) {
-            System.out.println("bien listarm");
-                Mantenimiento m = new Mantenimiento();
-                m.setId_reporte(rs.getInt(1));
-                m.setDescripcion(rs.getString(2));
-                m.setEstatus(rs.getString(3));
-                m.setEncargado(rs.getString(4));
-                m.setFecha_hora(rs.getString(5));
-                m.setSolucion(rs.getString(6));
-                m.setCliente(rs.getString(8));
-                lista.add(m);
-            }
-            rs.close();
-            ps.close();
-            con.close();
-        } catch (Exception e) {
-            System.out.println("Error 'tás bien mensa al listar :DD");
-        }
-        return lista;
-    }
-
-    public List listarM2() {
-        List<Mantenimiento> lista = new ArrayList<>();
-        String sql = "select * from reportes inner join trabajador_reporte on trabajador_reporte.id_reporte=reportes.id_reporte where estatus = 'En Programacion'";
+        String sql = "select * from reportes inner join cliente_reporte on cliente_reporte.id_reporte=reportes.id_reporte where encargado='" + trabajador + "' and estatus = 'En Programacion'";
         try {
             con = cn.getConnection();
             ps = con.prepareStatement(sql);

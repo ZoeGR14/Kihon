@@ -7,10 +7,6 @@
         <title>Registro Reportes</title>
         <script src="sweetalert2.all.min.js"></script>
         <style>
-            @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
-            *{
-                font-family: 'Poppins', sans-serif;
-            }
             body{
                 background: url('imagenes/fondohuehue.png') no-repeat;
             }
@@ -39,22 +35,24 @@
             }
             try{
                 sta.executeUpdate("insert into reportes (id_reporte,descripcion,estatus,solucion) values(null,'"+desc+"','"+estatus+"','"+solucion+"');");
-                sta.executeUpdate("insert into trabajador_reporte values(null,'"+client+"');");
+                sta.executeUpdate("insert into cliente_reporte values(null,'"+client+"');");
                 sta.executeUpdate("insert into cerrado_FAQ values(null, 0)");
                 sta.executeUpdate("insert into escritor values(null,'"+escribe+"');");
                 out.println("<script>Swal.fire('Registro guardado exitosamente','Hasta luego','success')</script>");
-                out.println("<script>function saludos(){location.href ='/Kihon/ControlerZ';}</script>");
+                HttpSession sesion = request.getSession();
+                String gerenteS = sesion.getAttribute("user").toString();
+                sesion.setAttribute("gerenteS", gerenteS);
+                out.println("<script>function saludos(){location.href ='reportes.jsp';}</script>");
                 out.println("<script>setTimeout(saludos, 1500);</script>");
                 conx.close();
                 sta.close();
             }
             catch(SQLException error){
                 out.println("<script>Swal.fire({icon: 'error',title: 'Algo salió mal',text: 'Inténtelo de nuevo'});</script>");
-                    out.println("<script>function saludos(){location.href ='asistenteG.jsp';}</script>");
+                    out.println("<script>function saludos(){location.href ='reportes.jsp';}</script>");
                     out.println("<script>setTimeout(saludos, 1500);</script>");
             }
                 
         %>    
     </body>
 </html>
-

@@ -96,6 +96,8 @@ public class ControlerZz extends HttpServlet {
                 int id = Integer.parseInt(request.getParameter("aceptar"));
                 g.setEstatus(estatus);
                 g.setAsignado(encargado);
+                g.setGerenteM(trabajador);
+
                 gDAO.agregar(g, id);
                 response.sendRedirect("ControlerZz");
                 break;

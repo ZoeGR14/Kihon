@@ -22,7 +22,6 @@ hr{
 }
 #contenedorReporte{
     margin: 80px auto;
-    margin-top: 25px;
     width: calc(100% - 300px);
     min-width: 930px;
     max-width: calc(100% - 150px);
@@ -63,9 +62,6 @@ button:not(.cerrar):not(.cerrar2){
     border: none;
     cursor: pointer;
     margin: 0px 0px 5px 5px;
-}
-button:disabled{
-    opacity: 0.7;
 }
 
 /**/
@@ -114,19 +110,5 @@ input[type=text], select{
     font-family: "Century Gothic";
     text-align: center;
     border: solid 2px #4B277A;
-}
-select:disabled{
-    color: black;
-    opacity: 1;
-}
-.checkEsta{
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    pointer-events: none;
-    touch-action: none;
-}
-.checkEsta::-ms-expand{
-    display: none;
 }
 /* bye modal*/
