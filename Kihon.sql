@@ -84,6 +84,16 @@ foreign key (id_carrera) references carreras(id_carrera) on delete cascade on up
 foreign key (mbti) references personalidad(mbti) on delete cascade on update cascade
 );
 
+create table test_voc(
+id_res int auto_increment primary key not null,
+ICFM int,
+CSA int,
+CMB int,
+HA int,
+usuario varchar(20),
+foreign key (usuario) references personal(trabajador) on delete cascade on update cascade
+);
+
 select * from personal;
 select * from reportes;
 select * from escritor;
@@ -95,3 +105,4 @@ select * from cerrado_FAQ;
 select * from carreras;
 select * from carrera_mbti;
 select * from personalidad;
+select * from test_voc;

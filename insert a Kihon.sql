@@ -25,7 +25,8 @@ insert into personal values	('asistenteN','asistenteN','1'),
                                 ('pedro45', 'pedrito','0'),
                                 ('pedro77', 'pedrito77','0'),
                                 ('patrick77', 'patrikito','0'),
-                                ('Williams', 'willicita','0');
+                                ('Williams', 'willicita','0'),
+                                ('pedrito', 'pedritoto','0');
 /* PERSONALIDAD */
 insert into personalidad values ("INTP"),
 								("ENTP"),
