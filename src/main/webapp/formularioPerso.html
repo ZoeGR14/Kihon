@@ -240,7 +240,7 @@
                 <span class="radio"></span>
             </label>
         </div>
-        <button type="submit">Enviar</button>
+        <button type="submit" onclick="return validateForm()">Enviar</button>
     </form>
     <p id="result"></p>
     <script src="script.js"></script>
@@ -289,7 +289,25 @@
 
         result.innerHTML = `Tu tipo de personalidad MBTI es: ${personalityType}`;
     });
+    function validateForm() {
+        var radios = document.getElementsByTagName('input');
+        var formValid = false;
 
+        for (var i = 0; i < radios.length; i++) {
+            if (radios[i].checked) {
+                formValid = true;
+            } else{
+                formValid = false;
+                break;
+            }
+        }
+
+        if (!formValid) {
+            alert('Es necesario llenar todos los campos. al menos una opción para cada pregunta.');
+        }
+
+        return formValid;
+    }
 </script>
 
 </html>
