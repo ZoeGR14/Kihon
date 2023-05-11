@@ -5,6 +5,8 @@
     <title>Test de Personalidad MBTI</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="sweetalert2.all.min.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
     <style>
         @import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,600|Open+Sans");
@@ -41,7 +43,7 @@
             margin-bottom: 10px;
         }
 
-        button {
+        .button {
             --green: #237a80;
             text-align: center;
             margin: auto;
@@ -60,12 +62,12 @@
             box-shadow: inset 0 0 10px rgba(27, 253, 249, 0.4), 0 0 9px 3px rgba(27, 253, 238, 0.1);
         }
 
-        button:hover {
+        .button:hover {
             color: #82fffb;
             box-shadow: inset 0 0 10px rgba(17, 94, 98, 0.6), 0 0 9px 3px rgba(27, 253, 227, 0.2);
         }
 
-        button:before {
+        .button:before {
             content: "";
             position: absolute;
             left: -4em;
@@ -76,7 +78,7 @@
             background: linear-gradient(to right, transparent 1%, rgba(27, 253, 156, 0.1) 40%, rgba(27, 253, 156, 0.1) 60%, transparent 100%);
         }
 
-        button:hover:before {
+        .button:hover:before {
             transform: translateX(15em);
         }
 
@@ -141,8 +143,9 @@
 <body>
     <h1>Test de Personalidad MBTI</h1>
     <form id="form-perso">
+        
         <div class="question">
-            <h2>¿Prefieres pasar tiempo solo o con otras personas?</h2>
+            <h2>1. ¿Prefieres pasar tiempo solo o con otras personas?</h2>
             <label class="radio-button">
                 <input type="radio" name="q1" value="I"> Prefiero pasar tiempo solo
                 <span class="radio"></span>
@@ -152,8 +155,9 @@
                 <span class="radio"></span>
             </label>
         </div>
+        
         <div class="question">
-            <h2>¿Cómo prefieres recibir información?</h2>
+            <h2>2. ¿Cómo prefieres recibir información?</h2>
             <label class="radio-button">
                 <input type="radio" name="q2" value="S"> A través de los sentidos y la experiencia concreta
                 <span class="radio"></span>
@@ -163,8 +167,9 @@
                 <span class="radio"></span>
             </label>
         </div>
+        
         <div class="question">
-            <h2>¿Prefieres tomar decisiones basadas en?</h2>
+            <h2>3. ¿Prefieres tomar decisiones basadas en?</h2>
             <label class="radio-button">
                 <input type="radio" name="q3" value="T"> La lógica y el análisis
                 <span class="radio"></span>
@@ -174,8 +179,9 @@
                 <span class="radio"></span>
             </label>
         </div>
+        
         <div class="question">
-            <h2>¿Prefieres tener una vida estructurada y organizada o una vida flexible y espontánea?</h2>
+            <h2>4. ¿Prefieres tener una vida estructurada y organizada o una vida flexible y espontánea?</h2>
             <label class="radio-button">
                 <input type="radio" name="q4" value="J"> Una vida estructurada y organizada
                 <span class="radio"></span>
@@ -185,8 +191,9 @@
                 <span class="radio"></span>
             </label>
         </div>
+        
         <div class="question">
-            <h2>¿Te sientes más cómodo/a tomando decisiones rápidas o pensando cuidadosamente en ellas?</h2>
+            <h2>5. ¿Te sientes más cómodo/a tomando decisiones rápidas o pensando cuidadosamente en ellas?</h2>
             <label class="radio-button">
                 <input type="radio" name="q5" value="E"> Tomando decisiones rápidas
                 <span class="radio"></span>
@@ -196,8 +203,9 @@
                 <span class="radio"></span>
             </label>
         </div>
+        
         <div class="question">
-            <h2>¿A qué dedicas más tu tiempo?</h2>
+            <h2>6. ¿A qué dedicas más tu tiempo?</h2>
             <label class="radio-button">
                 <input type="radio" name="q6" value="S"> Exploro temas aleatorios de mi interés.
                 <span class="radio"></span>
@@ -208,7 +216,7 @@
             </label>
         </div>
         <div class="question">
-            <h2>Cuando alguien llora...</h2>
+            <h2>7. Cuando alguien llora...</h2>
             <label class="radio-button">
                 <input type="radio" name="q7" value="F"> Comienzo a llorar.
                 <span class="radio"></span>
@@ -219,13 +227,74 @@
             </label>
         </div>
         <div class="question">
-            <h2>Ante situaciones de presión...</h2>
+            <h2>8. Ante situaciones de presión...</h2>
             <label class="radio-button">
                 <input type="radio" name="q8" value="J"> Mantengo la calma.
                 <span class="radio"></span>
             </label>
             <label class="radio-button">
                 <input type="radio" name="q8" value="P"> Pierdo la calma.
+                <span class="radio"></span>
+            </label>
+        </div>
+        <div class="question">
+            <h2>9. ¿Cómo te consideras?</h2>
+            <label class="radio-button">
+                <input type="radio" name="q9" value="F"> Persona sentimental.
+                <span class="radio"></span>
+            </label>
+            <label class="radio-button">
+                <input type="radio" name="q9" value="T"> Nada sentimental.
+                <span class="radio"></span>
+            </label>
+        </div>
+        <div class="question">
+            <h2>10. ¿Qué prefieres?</h2>
+            <label class="radio-button">
+                <input type="radio" name="q10" value="J"> Terminar un proyecto.
+                <span class="radio"></span>
+            </label>
+            <label class="radio-button">
+                <input type="radio" name="q10" value="P"> Empezar uno nuevo.
+                <span class="radio"></span>
+            </label>
+        </div>
+        <div class="question">
+            <h2>11. Utilizas herramientas de organizacion como agendas y listas</h2>
+            <label class="radio-button">
+                <input type="radio" name="q11" value="J"> Sí.
+                <span class="radio"></span>
+            </label>
+            <label class="radio-button">
+                <input type="radio" name="q11" value="P"> No.
+                <span class="radio"></span>
+            </label>
+        </div>
+        
+        <div class="question">
+            <h2>12. Cuando cometes un error, ¿sueles dudar de tus capacidades?</h2>
+            <label class="radio-button">
+                <input type="radio" name="q12" value="F"> Sí.
+                <span class="radio"></span>
+            </label>
+            <label class="radio-button">
+                <input type="radio" name="q12" value="T"> No.
+                <span class="radio"></span>
+            </label>
+        </div>
+        
+        
+            <!-------------------------------------------------------->
+            
+            
+        <div class="question">
+            <h2>13. Cuando alguien que te parece interesante...</h2>
+            <label class="radio-button">
+                <input type="radio" name="q13" value="E"> Suelo entablar una conversación con facilidad.
+                <span class="radio"></span>
+            </label>
+            <label class="radio-button">
+                <input type="radio" name="q13" value="I"> Me cuesta poder acercarme a conversar.
                 <span class="radio"></span>
             </label>
         </div>
@@ -240,7 +309,129 @@
                 <span class="radio"></span>
             </label>
         </div>
-        <button type="submit" onclick="return validateForm()">Enviar</button>
+        <div class="question">
+            <h2>¿Cómo te consideras?</h2>
+            <label class="radio-button">
+                <input type="radio" name="q9" value="F"> Persona sentimental.
+                <span class="radio"></span>
+            </label>
+            <label class="radio-button">
+                <input type="radio" name="q9" value="T"> Nada sentimental.
+                <span class="radio"></span>
+            </label>
+        </div>
+        <div class="question">
+            <h2>¿Cómo te consideras?</h2>
+            <label class="radio-button">
+                <input type="radio" name="q9" value="F"> Persona sentimental.
+                <span class="radio"></span>
+            </label>
+            <label class="radio-button">
+                <input type="radio" name="q9" value="T"> Nada sentimental.
+                <span class="radio"></span>
+            </label>
+        </div>
+        <div class="question">
+            <h2>¿Cómo te consideras?</h2>
+            <label class="radio-button">
+                <input type="radio" name="q9" value="F"> Persona sentimental.
+                <span class="radio"></span>
+            </label>
+            <label class="radio-button">
+                <input type="radio" name="q9" value="T"> Nada sentimental.
+                <span class="radio"></span>
+            </label>
+        </div>
+        <div class="question">
+            <h2>¿Cómo te consideras?</h2>
+            <label class="radio-button">
+                <input type="radio" name="q9" value="F"> Persona sentimental.
+                <span class="radio"></span>
+            </label>
+            <label class="radio-button">
+                <input type="radio" name="q9" value="T"> Nada sentimental.
+                <span class="radio"></span>
+            </label>
+        </div>
+        <div class="question">
+            <h2>¿Cómo te consideras?</h2>
+            <label class="radio-button">
+                <input type="radio" name="q9" value="F"> Persona sentimental.
+                <span class="radio"></span>
+            </label>
+            <label class="radio-button">
+                <input type="radio" name="q9" value="T"> Nada sentimental.
+                <span class="radio"></span>
+            </label>
+        </div>
+        <div class="question">
+            <h2>¿Cómo te consideras?</h2>
+            <label class="radio-button">
+                <input type="radio" name="q9" value="F"> Persona sentimental.
+                <span class="radio"></span>
+            </label>
+            <label class="radio-button">
+                <input type="radio" name="q9" value="T"> Nada sentimental.
+                <span class="radio"></span>
+            </label>
+        </div>
+        <div class="question">
+            <h2>¿Cómo te consideras?</h2>
+            <label class="radio-button">
+                <input type="radio" name="q9" value="F"> Persona sentimental.
+                <span class="radio"></span>
+            </label>
+            <label class="radio-button">
+                <input type="radio" name="q9" value="T"> Nada sentimental.
+                <span class="radio"></span>
+            </label>
+        </div>
+        <div class="question">
+            <h2>¿Cómo te consideras?</h2>
+            <label class="radio-button">
+                <input type="radio" name="q9" value="F"> Persona sentimental.
+                <span class="radio"></span>
+            </label>
+            <label class="radio-button">
+                <input type="radio" name="q9" value="T"> Nada sentimental.
+                <span class="radio"></span>
+            </label>
+        </div>
+        <div class="question">
+            <h2>¿Cómo te consideras?</h2>
+            <label class="radio-button">
+                <input type="radio" name="q9" value="F"> Persona sentimental.
+                <span class="radio"></span>
+            </label>
+            <label class="radio-button">
+                <input type="radio" name="q9" value="T"> Nada sentimental.
+                <span class="radio"></span>
+            </label>
+        </div>
+        <div class="question">
+            <h2>¿Cómo te consideras?</h2>
+            <label class="radio-button">
+                <input type="radio" name="q9" value="F"> Persona sentimental.
+                <span class="radio"></span>
+            </label>
+            <label class="radio-button">
+                <input type="radio" name="q9" value="T"> Nada sentimental.
+                <span class="radio"></span>
+            </label>
+        </div>
+        <div class="question">
+            <h2>¿Cómo te consideras?</h2>
+            <label class="radio-button">
+                <input type="radio" name="q9" value="F"> Persona sentimental.
+                <span class="radio"></span>
+            </label>
+            <label class="radio-button">
+                <input type="radio" name="q9" value="T"> Nada sentimental.
+                <span class="radio"></span>
+            </label>
+        </div>
+
+        <input type="submit" class="button" value="Enviar" onclick="validateQuiz(event)">
     </form>
     <p id="result"></p>
     <script src="script.js"></script>
@@ -289,25 +480,121 @@
 
         result.innerHTML = `Tu tipo de personalidad MBTI es: ${personalityType}`;
     });
-    function validateForm() {
-        var radios = document.getElementsByTagName('input');
-        var formValid = false;
+    function validateQuiz(event) {
+        event.preventDefault();
+        const quizForm = document.getElementById("form-perso");
+        let isValid = true;
 
-        for (var i = 0; i < radios.length; i++) {
-            if (radios[i].checked) {
-                formValid = true;
-            } else{
-                formValid = false;
-                break;
-            }
+        // Validar que se haya seleccionado una opción en cada pregunta
+        if (!quizForm.q1.value) {
+            isValid = false;
+            Swal.fire('Por favor responda la pregunta 1')
+        } 
+
+        if (!quizForm.q2.value) {
+            isValid = false;
+            Swal.fire('Por favor responda la pregunta 2')
         }
 
-        if (!formValid) {
-            alert('Es necesario llenar todos los campos. al menos una opción para cada pregunta.');
+        if (!quizForm.q3.value) {
+            isValid = false;
+            Swal.fire('Por favor responda la pregunta 3')
         }
 
-        return formValid;
+        if (!quizForm.q4.value) {
+            isValid = false;
+            Swal.fire('Por favor responda la pregunta 4')
+        }
+        if (!quizForm.q5.value) {
+            isValid = false;
+            Swal.fire('Por favor responda la pregunta 5')
+        }
+        if (!quizForm.q6.value) {
+            isValid = false;
+            Swal.fire('Por favor responda la pregunta 6')
+        }
+        if (!quizForm.q7.value) {
+            isValid = false;
+            Swal.fire('Por favor responda la pregunta 7')
+        }
+        if (!quizForm.q8.value) {
+            isValid = false;
+            Swal.fire('Por favor responda la pregunta 8')
+        }
+        if (!quizForm.q9.value) {
+            isValid = false;
+            Swal.fire('Por favor responda la pregunta 9')
+        }
+        if (!quizForm.q10.value) {
+            isValid = false;
+            Swal.fire('Por favor responda la pregunta 10')
+        }
+        if (!quizForm.q11.value) {
+            isValid = false;
+            Swal.fire('Por favor responda la pregunta 11')
+        }
+        if (!quizForm.q12.value) {
+            isValid = false;
+            Swal.fire('Por favor responda la pregunta 12')
+        }
+        if (!quizForm.q13.value) {
+            isValid = false;
+            Swal.fire('Por favor responda la pregunta 13')
+        }
+        if (!quizForm.q14.value) {
+            isValid = false;
+            Swal.fire('Por favor responda la pregunta 14')
+        }
+        if (!quizForm.q15.value) {
+            isValid = false;
+            Swal.fire('Por favor responda la pregunta 15')
+        }
+        if (!quizForm.q16.value) {
+            isValid = false;
+            Swal.fire('Por favor responda la pregunta 16')
+        }
+        if (!quizForm.q17.value) {
+            isValid = false;
+            Swal.fire('Por favor responda la pregunta 17')
+        }
+        if (!quizForm.q18.value) {
+            isValid = false;
+            Swal.fire('Por favor responda la pregunta 18')
+        }
+        if (!quizForm.q19.value) {
+            isValid = false;
+            Swal.fire('Por favor responda la pregunta 19')
+        }
+        if (!quizForm.q20.value) {
+            isValid = false;
+            Swal.fire('Por favor responda la pregunta 20')
+        }
+        if (!quizForm.q21.value) {
+            isValid = false;
+            Swal.fire('Por favor responda la pregunta 21')
+        }
+        if (!quizForm.q22.value) {
+            isValid = false;
+            Swal.fire('Por favor responda la pregunta 22')
+        }
+        if (!quizForm.q23.value) {
+            isValid = false;
+            Swal.fire('Por favor responda la pregunta 23')
+        }
+        if (!quizForm.q24.value) {
+            isValid = false;
+            Swal.fire('Por favor responda la pregunta 24')
+        }
+        
+        // Si todas las preguntas fueron respondidas, enviar el formulario
+        if (isValid) {
+            quizForm.submit();
+        }
     }
+
+    
+
+
 </script>
 
 </html>
