@@ -1,4 +1,4 @@
-use baseDatSop;
+use Kihon;
                                 
 insert into personal values	('asistenteN','asistenteN','1'),
 								('asistente2','asistente2','1'),
