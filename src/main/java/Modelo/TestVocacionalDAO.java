@@ -3,6 +3,7 @@ package Modelo;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.List;
 
 public class TestVocacionalDAO {
@@ -52,7 +53,23 @@ public class TestVocacionalDAO {
         
         return area;
     }
-    /* En proceso
-    public List obtenerCarreras(){
-    }*/
+    public List obtenerCarreras(String area){
+        ArrayList<String> lista1 = new ArrayList<>();
+        String sql = "select * from carreras where area = '"+ area +"'";
+        try {
+            con = cn.getConnection();
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()){
+                lista1.add(rs.getString(1));
+            }
+            rs.close();
+            ps.close();
+            con.close();
+        } catch (Exception e) {
+            System.out.println("Error obtenerCarreras()");
+            e.printStackTrace();
+        }
+        return lista1;
+    }
 }
