@@ -67,6 +67,22 @@ id_reporte int auto_increment not null,
 estado int,
 foreign key (id_reporte) references reportes(id_reporte) on delete cascade on update cascade
 );
+create table carreras(
+id_carrera varchar(60) primary key not null,
+UNAM boolean,
+IPN boolean,
+area varchar(6)
+);
+
+create table personalidad(
+mbti varchar(4) primary key not null
+);
+create table carrera_mbti(
+id_carrera varchar(60), 
+mbti varchar(4),
+foreign key (id_carrera) references carreras(id_carrera) on delete cascade on update cascade,
+foreign key (mbti) references personalidad(mbti) on delete cascade on update cascade
+);
 
 select * from personal;
 select * from reportes;
@@ -76,4 +92,6 @@ select * from trabajador_reporte;
 select * from primer_encargado;
 select * from escritor;
 select * from cerrado_FAQ;
-
+select * from carreras;
+select * from carrera_mbti;
+select * from personalidad;
