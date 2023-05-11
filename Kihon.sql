@@ -1,8 +1,8 @@
-drop database if exists baseDatSop;
+drop database if exists Kihon;
 
-create database baseDatSop;
+create database Kihon;
 
-use baseDatSop;
+use Kihon;
 
 
 create table personal(
