@@ -69,7 +69,7 @@ public class ControlerZz extends HttpServlet {
         trabajador = sesion.getAttribute("gerenteM").toString();
         List<Gerente> lista = gDAO.listar2(trabajador);
         request.setAttribute("lista2", lista);
-        request.getRequestDispatcher("reportesMantenimiento.jsp").forward(request, response);
+        request.getRequestDispatcher("Soporte/reportesMantenimiento.jsp").forward(request, response);
     }
 
     /**
@@ -110,7 +110,7 @@ public class ControlerZz extends HttpServlet {
             case "Ver Tabla":
                 List<Gerente> lista2 = gDAO.listar2(trabajador);
                 request.setAttribute("lista2", lista2);
-                request.getRequestDispatcher("reportesMantenimiento.jsp").forward(request, response);
+                request.getRequestDispatcher("Soporte/reportesMantenimiento.jsp").forward(request, response);
                 break;
         }
     }

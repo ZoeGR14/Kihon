@@ -60,7 +60,7 @@ public class ControlerZ extends HttpServlet {
             throws ServletException, IOException {
         List<Gerente> lista = gDAO.listar();
         request.setAttribute("lista", lista);
-        request.getRequestDispatcher("reportes.jsp").forward(request, response);
+        request.getRequestDispatcher("Soporte/reportes.jsp").forward(request, response);
     }
 
     /**
@@ -145,12 +145,12 @@ public class ControlerZ extends HttpServlet {
             case "Levantar Reporte":
                 sesion.setAttribute("user", trabajador);
                 System.out.println(trabajador);
-                request.getRequestDispatcher("asistenteG.jsp").forward(request, response);
+                request.getRequestDispatcher("Soporte/asistenteG.jsp").forward(request, response);
                 break;
             case "Ver Tabla":
                 List<Gerente> lista = gDAO.listar();
                 request.setAttribute("lista", lista);
-                request.getRequestDispatcher("reportes.jsp").forward(request, response);
+                request.getRequestDispatcher("Soporte/reportes.jsp").forward(request, response);
                 break;
             default:
                 break;

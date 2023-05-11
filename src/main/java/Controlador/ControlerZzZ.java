@@ -65,7 +65,7 @@ public class ControlerZzZ extends HttpServlet {
             throws ServletException, IOException {
         List<Gerente> lista = gDAO.listar3();
         request.setAttribute("lista2", lista);
-        request.getRequestDispatcher("reportesMantenimientoG.jsp").forward(request, response);
+        request.getRequestDispatcher("Soporte/reportesMantenimientoG.jsp").forward(request, response);
     }
 
     /**
@@ -101,7 +101,7 @@ public class ControlerZzZ extends HttpServlet {
             case "Ver Tabla":
                 List<Gerente> lista2 = gDAO.listar3();
                 request.setAttribute("lista2", lista2);
-                request.getRequestDispatcher("reportesMantenimientoG.jsp").forward(request, response);
+                request.getRequestDispatcher("Soporte/reportesMantenimientoG.jsp").forward(request, response);
                 break;
         }
     }

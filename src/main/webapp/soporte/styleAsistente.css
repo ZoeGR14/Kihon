@@ -1,0 +1,194 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+*{
+    font-family: "Poppins", sans-serif;
+}
+body{
+    background-color: #a1bfca;
+    background-image: url(../imagenes/lol.png);
+}
+*::selection{
+    background: #144255;
+    color: black;
+}
+    /*--scrollbar--*/
+*::-webkit-scrollbar{
+    width: 9px;
+}
+::-webkit-scrollbar-thumb:active{
+    background: #365482;
+}
+*::-webkit-scrollbar-thumb{
+    background: #144255;
+    border-radius: 15px;
+}
+.explore{
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
+
+    font-family: "Open Sans", sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.tablita{
+    border-left-color: #001c27; 
+    border-right-color: #001c27; 
+    border-top-color: #001c27; 
+    border-bottom-color: #001c27; 
+}
+.tablita2{
+    overflow-y: scroll;
+    position: relative;
+    width: 1200px;
+    height: 700px;
+    margin: 50px;
+    box-shadow: 20px 20px 50px rgba(0,0,0,0.5);
+    border-radius: 15px;
+    background: rgba(255,255,255,0.1);
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    border-top: 2px solid grey;
+    border-left: 2px solid grey;
+    backdrop-filter: blur(10px);
+    
+}
+
+.ini_acci{
+    position: relative;
+    width: 1200px;
+    height: 700px;
+    margin: 50px;
+    box-shadow: 20px 20px 50px rgba(0,0,0,0.5);
+    border-radius: 15px;
+    background: rgba(255,255,255,0.1);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    border-top: 2px solid grey;
+    border-left: 2px solid grey;
+    backdrop-filter: blur(10px);
+}
+.margensito h5{
+    color: #001c27;
+    font-family: 'Fredoka One', cursive;
+    font-weight: lighter;
+    font-size: 25px;
+}
+.bot-mag a{
+    text-decoration: none;
+    font-size: 93px;
+    color: white;
+}
+
+.bot-mag{
+    position: relative;
+    background-color: #001c27;
+    color: white;
+    padding:  1rem 2.5rem;
+    border-radius: 3rem;
+    transition: .5s;
+    margin-top: 50px;
+    text-decoration: none;
+}
+
+.bot-mag::after{
+    content: "";
+    width: 80%;
+    height: 40%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -4px;
+    margin: 0 auto;
+    border-radius: 3rem;
+    filter:blur(10px);
+    z-index: -1;
+    opacity: 0;
+    transition: opacity .5s;
+}
+
+.botmag_text{
+    position: relative;
+    z-index: 99;
+}
+
+.bot-mag:hover::after{
+    opacity: 1;
+}
+
+.bot-mag:hover{
+    transform: scale(1.2);
+    color: white;
+}
+
+
+
+#modal::backdrop{
+    background-color: rgba(0,0,0,0.55);
+}
+
+#modal{
+    transition: .3s ease all;
+    transform: scale(1);
+    box-shadow: 20px 20px 50px rgba(0,0,0,0.5);
+    border-radius: 15px;
+    background: rgba(255,255,255,0.9);
+    overflow: hidden;
+    justify-content: center;
+    align-content: center;
+    border-top: 2px solid grey;
+    border-left: 2px solid grey;
+    backdrop-filter: blur(10px);
+    max-width: 70ch;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+#modal h3{
+    color: #001c27;
+    font-family: 'Fredoka One', cursive;
+    font-weight: lighter;
+}
+
+#modal input[type="text"]{
+    display: inline;
+    border:  #001c27;
+    outline: #001c27;
+    background: rgba(0,0,0,0.1);
+    padding: 1rem 1.5rem;
+    margin-top: 30px;
+    border-radius: 100px;
+    width: 35%;
+    transition: background .5s;
+}
+
+#btn-cerrar-modal{
+    background-color: #001c27;
+    color: white;
+    padding:  0.5rem 2rem;
+    border-radius: 3rem;
+    transition: .5s;
+    margin-top: 15px;
+    text-decoration: none;
+}
+
+#btn-enviar-modal{
+    background-color: #001c27;
+    color: white;
+    padding:  0.5rem 2rem;
+    border-radius: 3rem;
+    transition: .5s;
+    margin-top: 15px;
+    text-decoration: none;
+}
