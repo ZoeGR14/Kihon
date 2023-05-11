@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>MBTI Test</title>
+  <style>
+    body {
+      font-family: sans-serif;
+    }
+
+    h1 {
+      font-size: 2em;
+    }
+
+    p {
+      margin-bottom: 1em;
+    }
+
+    ol {
+      list-style-type: none;
+    }
+
+    ul {
+      list-style-type: none;
+    }
+
+    input {
+      width: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>MBTI Test</h1>
+  <p>This test will help you determine your Myers-Briggs Type Indicator (MBTI) personality type.</p>
+  <ol>
+    <li>
+      <p>What is your preferred way of gathering information?</p>
+      <ul>
+        <li><input type="radio" name="info" value="sensing"> Sensing</li>
+        <li><input type="radio" name="info" value="intuition"> Intuition</li>
+      </ul>
+    </li>
+    <li>
+      <p>What is your preferred way of making decisions?</p>
+      <ul>
+        <li><input type="radio" name="decision" value="thinking"> Thinking</li>
+        <li><input type="radio" name="decision" value="feeling"> Feeling</li>
+      </ul>
+    </li>
+    <li>
+      <p>Do you prefer to focus on the outer world or the inner world?</p>
+      <ul>
+        <li><input type="radio" name="focus" value="extroverted"> Extroverted</li>
+        <li><input type="radio" name="focus" value="introverted"> Introverted</li>
+      </ul>
+    </li>
+    <li>
+      <p>Do you prefer to make decisions based on logic or emotion?</p>
+      <ul>
+        <li><input type="radio" name="judgment" value="judging"> Judging</li>
+        <li><input type="radio" name="judgment" value="perceiving"> Perceiving</li>
+      </ul>
+    </li>
+  </ol>
+  <input type="submit" value="Submit">
+</body>
+<script>
+  // Get the values of the radio buttons
+  var info = document.querySelector('input[name="info"]:checked').value;
+  var decision = document.querySelector('input[name="decision"]:checked').value;
+  var focus = document.querySelector('input[name="focus"]:checked').value;
+  var judgment = document.querySelector('input[name="judgment"]:checked').value;
+
+  // Calculate the MBTI type
+  var type = '';
+  switch (info) {
+    case 'sensing':
+      type += 'S';
+      break;
+    case 'intuition':
+      type += 'N';
+      break;
+  }
+
+  switch (decision) {
+    case 'thinking':
+      type += 'T';
+      break;
+    case 'feeling':
+      type += 'F';
+      break;
+  }
+
+  switch (focus) {
+    case 'extroverted':
+      type += 'E';
+      break;
+    case 'introverted':
+      type += 'I';
+      break;
+  }
+
+  switch (judgment) {
+    case 'judging':
+      type += 'J';
+      break;
+    case 'perceiving':
+      type += 'P';
+      break;
+  }
+
+  // Display the MBTI type
+  document.querySelector('p').textContent = 'Your MBTI type is: ' + type;
+</script>
+
+</html>
