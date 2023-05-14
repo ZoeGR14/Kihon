@@ -42,7 +42,7 @@ label{
 label:hover{
     background: rgba(56,72,140,.45);
 }
-button{
+#enviar{
     width: 80%;
     display: block;
     margin: auto;
@@ -54,7 +54,7 @@ button{
     cursor: pointer;
     border-radius: 20px;
 }
-button:hover{
+#enviar:hover{
     background: #001C27;
 }
 h2{

@@ -3,7 +3,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="testVocacional.css">
+        <link rel="stylesheet" href="testVocacional.css"><script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <title>Test Vocacional</title>
     </head>
     <body>
@@ -12,7 +12,7 @@
             <p>¡Descubre tu área de conocimiento!</p>
         </header>
         <div class="container">
-            <form>
+            <form id="testVocacional">
                 <!--ICFM-->
                 <div class="section p1">
                     <h3>1. ¿Eres capaz de encontrar soluciones creativas a problemas técnicos?</h3>
@@ -91,8 +91,9 @@
                     </label>
                 </div>
                 
-                <button>Siguiente</button>
+                <button id="enviar">Siguiente</button>
             </form>
         </div>
     </body>
+    <script src="validacion.js"></script>
 </html>
