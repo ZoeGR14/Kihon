@@ -12,15 +12,40 @@ public class TestVocacionalDAO {
     PreparedStatement ps;
     ResultSet rs;
     
+    public List listar(String usuario){
+        List<TestVocacional> lista = new ArrayList<>();
+        String sql = "select * from test_voc where usuario = '"+usuario+"' order by id_res desc limit 1";
+        try {
+            con = cn.getConnection();
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                TestVocacional tv = new TestVocacional();
+                tv.setICFM(rs.getFloat(2));
+                tv.setCSA(rs.getFloat(3));
+                tv.setCMB(rs.getFloat(4));
+                tv.setHA(rs.getFloat(5));
+                tv.setAlumno(rs.getString(6));
+                lista.add(tv);
+            }
+            rs.close();
+            ps.close();
+            con.close();
+        } catch (Exception e) {
+            System.out.println("Error listar areas");
+        }
+        return lista;
+    }
+    
     public void agregar(TestVocacional tv){
         String sql = "insert into test_voc (ICFM, CSA, CMB, HA, usuario) values (?, ?, ?, ?, ?)";
         try {
             con = cn.getConnection();
             ps = con.prepareStatement(sql);
-            ps.setInt(1, tv.getICFM());
-            ps.setInt(2, tv.getCSA());
-            ps.setInt(3, tv.getCMB());
-            ps.setInt(4, tv.getHA());
+            ps.setFloat(1, tv.getICFM());
+            ps.setFloat(2, tv.getCSA());
+            ps.setFloat(3, tv.getCMB());
+            ps.setFloat(4, tv.getHA());
             ps.setString(5, tv.getAlumno());
             ps.executeUpdate();
             
@@ -33,13 +58,53 @@ public class TestVocacionalDAO {
         }
     }
     
-    public String areaResultado(TestVocacional tv){
-        int ICFM = tv.getICFM();
-        int CSA = tv.getCSA();
-        int CMB = tv.getCMB();
-        int HA = tv.getHA();
+    public float[] contar(String [] preguntas){
+        float [] res = new float [4];
+        float icfm = 0, csa = 0, cmb = 0, ha = 0;
         
-        int max = Math.max(Math.max(Math.max(ICFM, CSA), CMB), HA);
+        for (int i = 0; i < preguntas.length; i++) {
+            switch(preguntas[i]){
+                case "ICFM":
+                    icfm = icfm + 1;
+                    break;
+                case "ICFM2":
+                    icfm = icfm + 0.5f;
+                    break;
+                case "CSA":
+                    csa = csa + 1;
+                    break;
+                case "CSA2":
+                    csa = csa + 0.5f;
+                    break;
+                case "CMB":
+                    cmb = cmb + 1;
+                    break;
+                case "CMB2":
+                    cmb = cmb + 0.5f;
+                    break;
+                case "HA":
+                    ha = ha + 1;
+                    break;
+                case "HA2":
+                    ha = ha + 0.5f;
+                    break;
+                case "0":
+                    break;
+            }
+        }
+        
+        res[0] = icfm; res[1] = csa; res[2] = cmb; res[3] = ha;
+        
+        return res;
+    }
+    
+    public String areaResultado(TestVocacional tv){
+        float ICFM = tv.getICFM();
+        float CSA = tv.getCSA();
+        float CMB = tv.getCMB();
+        float HA = tv.getHA();
+        
+        float max = Math.max(Math.max(Math.max(ICFM, CSA), CMB), HA);
         String area = "";
         
         if(max == ICFM)
@@ -54,7 +119,7 @@ public class TestVocacionalDAO {
         return area;
     }
     public List obtenerCarreras(String area){
-        ArrayList<String> lista1 = new ArrayList<>();
+        List<String> lista1 = new ArrayList<>();
         String sql = "select * from carreras where area = '"+ area +"'";
         try {
             con = cn.getConnection();

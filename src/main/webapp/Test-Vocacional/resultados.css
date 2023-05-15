@@ -1,89 +1,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 *{
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif; 
-}
-body{
     margin: 0;
-    padding: 0;
-    /*background-image: url(imagenes/back-tv.jpg);*/
-    background-color: #B7E0F8;
-}
-header{
-    text-align: center;
-    background: #001C27;
-    color: #fff;
-    padding: 10px 0;
-    height: 160px;
-}
-.container{
-    max-width: 800px;
-    margin: auto;
-    padding: 20px;
-}
-.section{
-    border: 3px solid #030C33;
-    border-radius: 7px;
-    padding: 20px;
-    margin: 35px 0;
-    background: white;
-}
-h3{
-    margin: 0 0 20px 0;
-}
-label{
-    display: block;
-    padding: 7px;
-    border-radius: 7px;
-    cursor: pointer;
-    border: 1px dashed #ccc;
-    margin-bottom: 3px;
-}
-label:hover{
-    background: rgba(56,72,140,.45);
-}
-#enviar{
-    width: 80%;
-    display: block;
-    margin: auto;
-    padding: 10px;
-    background-color: #133340;
-    font-size: 1em;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    border-radius: 20px;
-}
-#enviar:hover{
-    background: #001C27;
-}
-h2, h1{
-    text-align: center;
+    madding: 0;
+    font-family: 'Poppins', sans-serif;
 }
 
-/*-- Resultados --*/
-
-.contenedor {
+body{
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
+    align-items: center;
+    min-height: 100vh;
+    background: #03a9f4;
 }
+
+
 .box{
     position: relative;
-    margin: 15px;
-    width: 325px;
-    height: 350px;
-    border-radius: 20px;
+    width: 300px;
+    height: 400px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     background: #fff;
     box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
-}
-.box:hover{
-    border: 2px solid #133340;
 }
 .box .percent{
     position: relative;
@@ -125,15 +66,14 @@ h2, h1{
     color: #111;
 }
 .box .percent .number h2{
-    font-size: 38px;
+    font-size: 48px;
 }
 .box .percent .number h2 span{
     font-size: 24px;
 }
 .box .text{
+    padding: 10px 0 0;
     color: #999;
     font-weight: 700;
     letter-spacing: 1px;
-    padding: 10px 10px 0;
-    margin: 25px 0 0 0;
 }

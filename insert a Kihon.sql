@@ -83,7 +83,6 @@ insert into carreras values	("Diseño Grafico", true, false, "HA"),
                             ("Pedagogía", true, false, "HA"),
                             ("Teatro y Actuación", true, false, "HA"),
                             ("Traducción", true, false, "HA");
-                            
 /*insert into reportes (descripcion, estatus, encargado, solucion) values	("El apartado de inicio de sesion lamentablemente no funciona en mi ordenador", "Abierto", "", ""),
 																		("No puedo iniciar sesion, ya registre mi usuario y nada", "Abierto", "", ""),
                                                                         ("¿Cómo puedo registrar a una mascota en el apartado de Nueva Mascota?", "Abierto", "", ""),

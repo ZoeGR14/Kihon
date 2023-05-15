@@ -14,8 +14,16 @@ import java.util.List;
  */
 public class pruebas_tv {
     public static void main (String[] args){
-        TestVocacional resul = new TestVocacional(65, 33, 87, 100, "pedrito");
         TestVocacionalDAO dao = new TestVocacionalDAO();
+        String preguntas[] = {"ICFM2", "0", "CSA2", "HA", "HA2", "CMB"};
+        float [] result = new float [4];
+        
+        result = dao.contar(preguntas);
+        
+        for (int i = 0; i < result.length; i++) {
+            System.out.println(result[i]);
+        }
+        TestVocacional resul = new TestVocacional(65, 33, 87, 100, "pedrito");
         dao.agregar(resul);
         String area = dao.areaResultado(resul);
         System.out.println(area);
