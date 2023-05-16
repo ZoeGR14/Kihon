@@ -139,25 +139,30 @@ h2, h1{
 }
 
 /*--Progress Bar*/
+.progressbar{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    margin-top: 35px;
+}
 
 .progress{
     position: relative;
     width: 600px;
-    margin: auto;
-    height: 30px;
-    background: #9cbab4;
-    border-radius: 7px;
+    margin-right: 10px;
+    height: 20px;
+    background: #a5c5e6;
+    border-radius: 25px;
     overflow: hidden;
 }
 .progress__fill{
     width: 0%;
     height: 100%;
-    background: #009579;
+    background: #34569e;
 }
 .progress__text{
-    position: absolute;
-    top: 50%;
-    right: 5px;
-    transform: translateY(-50%);
-    color: #000;
+    font-size: 20px;
+    font-weight: 600;
+    color: white;
+    transform: translateY(-5px);
 }

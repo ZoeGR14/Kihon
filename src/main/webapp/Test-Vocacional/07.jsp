@@ -10,9 +10,11 @@
         <header>
             <h1>Test Vocacional</h1>
             <p>¡Descubre tu área de conocimiento!</p>
-            <div class="progress">
-                <div class="progress__fill" style="width: 60%;"></div>
-                <span class="progress__text">60%</span>
+            <div class="progressbar">
+                <div class="progress">
+                    <div class="progress__fill" style="width: 60%;"></div>
+                </div>
+                    <span class="progress__text">60%</span>
             </div>
         </header>
         <div class="container">

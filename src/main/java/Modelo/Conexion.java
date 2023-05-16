@@ -8,7 +8,7 @@ public class Conexion {
     public Connection getConnection(){
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            con  = DriverManager.getConnection("jdbc:mysql://localhost:3306/Kihon?autoReconnect=true&useSSL=false","root","n0m3l0");      
+            con  = DriverManager.getConnection("jdbc:mysql://localhost:3308/Kihon?autoReconnect=true&useSSL=false","root","n0m3l0");      
             System.out.println("bien conexion");
         } catch (ClassNotFoundException | SQLException e) {
             System.out.print("Error Conexión");

@@ -11,9 +11,11 @@
         <header>
             <h1>Resultados del Test</h1>
             <p>¡Estos son tus resultados!</p>
-            <div class="progress">
-                <div class="progress__fill" style="width: 100%;"></div>
-                <span class="progress__text">100%</span>
+            <div class="progressbar">
+                <div class="progress">
+                    <div class="progress__fill" style="width: 100%;"></div>
+                </div>
+                    <span class="progress__text">100%</span>
             </div>
         </header>
         <h1>Áreas:</h1>
