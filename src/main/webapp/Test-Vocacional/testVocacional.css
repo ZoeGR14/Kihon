@@ -15,7 +15,7 @@ header{
     background: #001C27;
     color: #fff;
     padding: 10px 0;
-    height: 160px;
+    height: 215px;
 }
 .container{
     max-width: 800px;
@@ -136,4 +136,28 @@ h2, h1{
     letter-spacing: 1px;
     padding: 10px 10px 0;
     margin: 25px 0 0 0;
+}
+
+/*--Progress Bar*/
+
+.progress{
+    position: relative;
+    width: 600px;
+    margin: auto;
+    height: 30px;
+    background: #9cbab4;
+    border-radius: 7px;
+    overflow: hidden;
+}
+.progress__fill{
+    width: 0%;
+    height: 100%;
+    background: #009579;
+}
+.progress__text{
+    position: absolute;
+    top: 50%;
+    right: 5px;
+    transform: translateY(-50%);
+    color: #000;
 }

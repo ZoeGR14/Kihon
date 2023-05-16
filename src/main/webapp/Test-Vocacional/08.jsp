@@ -10,6 +10,10 @@
         <header>
             <h1>Test Vocacional</h1>
             <p>¡Descubre tu área de conocimiento!</p>
+            <div class="progress">
+                <div class="progress__fill" style="width: 70%;"></div>
+                <span class="progress__text">70%</span>
+            </div>
         </header>
         <div class="container">
             <form id="testVocacional" method="post" action="/Kihon/Test_Vocacional">
