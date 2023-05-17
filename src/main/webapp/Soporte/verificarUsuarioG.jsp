@@ -45,7 +45,7 @@
                 try{
                     String usu=request.getParameter("usuario");
                     
-                    res=stat.executeQuery("select*from personal where trabajador='"+usu+"';");
+                    res=stat.executeQuery("select*from usuarios where nom_usu='"+usu+"';");
                     
                     if(!res.next()){
                         out.println("<script>Swal.fire({icon: 'error',title: 'Usuario no encontrado',text: 'Inténtelo de nuevo'});</script>");

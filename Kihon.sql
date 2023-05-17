@@ -4,13 +4,6 @@ create database Kihon;
 
 use Kihon;
 
-
-create table personal(
-trabajador varchar(50) primary key not null,
-pass_tra varchar(50),
-tipo_tra int
-);
-
 /* Tipos de Usuario
 	0 - Cliente
 	1 - Asistente
@@ -20,6 +13,13 @@ tipo_tra int
     5 - Ingeniero de Mantenimiento
     6 - Editor */
     
+create table usuarios(
+nom_usu varchar(50) primary key not null,
+pass_usu varchar(50),
+tipo_usu int
+);
+
+/*--Módulo de Soporte--*/
 create table reportes(
 id_reporte int primary key auto_increment not null,
 descripcion varchar(110),
@@ -29,26 +29,25 @@ fecha_hora timestamp default current_timestamp,
 solucion varchar(400)
 );
 
-
 create table trabajador_reporte(
 id_reporte int auto_increment not null,
 trabajador varchar(50),
 foreign key (id_reporte) references reportes(id_reporte) on delete cascade on update cascade,
-foreign key (trabajador) references personal(trabajador) on delete cascade on update cascade
+foreign key (trabajador) references usuarios(nom_usu) on delete cascade on update cascade
 );
 
 create table primer_encargado(
 id_reporte int not null,
 primerEncargado varchar(50),
 foreign key (id_reporte) references reportes(id_reporte) on delete cascade on update cascade,
-foreign key (primerEncargado) references personal(trabajador) on delete cascade on update cascade
+foreign key (primerEncargado) references usuarios(nom_usu) on delete cascade on update cascade
 );
 
 create table escritor(
 id_reporte int auto_increment not null,
 trabajador varchar(50),
 foreign key (id_reporte) references reportes(id_reporte) on delete cascade on update cascade,
-foreign key (trabajador) references personal(trabajador) on delete cascade on update cascade
+foreign key (trabajador) references usuarios(nom_usu) on delete cascade on update cascade
 );
 
 create table editor(
@@ -67,6 +66,9 @@ id_reporte int auto_increment not null,
 estado int,
 foreign key (id_reporte) references reportes(id_reporte) on delete cascade on update cascade
 );
+
+/*Termina Módulo de Soporte*/
+/*Empieza Kihon*/
 create table carreras(
 id_carrera varchar(60) primary key not null,
 UNAM boolean,
@@ -91,10 +93,10 @@ CSA float,
 CMB float,
 HA float,
 usuario varchar(20),
-foreign key (usuario) references personal(trabajador) on delete cascade on update cascade
+foreign key (usuario) references usuarios(nom_usu) on delete cascade on update cascade
 );
 
-select * from personal;
+select * from usuarios;
 select * from reportes;
 select * from escritor;
 select * from editor;
