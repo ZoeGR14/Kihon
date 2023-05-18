@@ -1,0 +1,132 @@
+body{
+    background-color: #a1bfca;
+    background-image: url(imagenes/3.png);
+    background-attachment: fixed;
+    background-size: cover;
+
+    font-family: "Century Gothic";
+    margin: 0;
+}
+
+/*-- Tabla --*/
+
+.usuario{
+    text-align: center;
+    color: white;
+    margin-top: 50px;
+}
+hr{
+    width: calc(100% - 80px);
+    height: 3px;
+    background-color: white;
+}
+#contenedorReporte{
+    margin: 80px auto;
+    margin-top: 25px;
+    width: calc(100% - 300px);
+    min-width: 930px;
+    max-width: calc(100% - 150px);
+}
+table{
+    background-color: white;
+    text-align: center;
+    border-collapse: collapse;
+    border: solid 3px white;
+    width: 100%;
+    border-radius: 15px;
+    overflow: hidden;
+}
+th, td{
+    padding: 20px;
+}
+thead{
+    background-color: #001c27;
+    color: white;
+    border-bottom: solid 8px #001c27;
+    text-align: center;
+}
+tr:nth-child(even){
+    background-color: #a1bfca;
+}
+button:hover{
+    background-color: #144255;
+}
+button:active{
+    background-color: #357088;
+}
+button:not(.cerrar):not(.cerrar2){
+    background-color: #001c27;
+    color: white;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 15px;
+    border: none;
+    cursor: pointer;
+    margin: 0px 0px 5px 5px;
+}
+button:disabled{
+    opacity: 0.7;
+}
+
+/**/
+
+/*--Modal--*/
+.modal::backdrop, .modal2::backdrop{
+    background-color: rgba(0,0,0,.65);
+}
+
+.modal, .modal2{
+    border-radius: 35px;
+    border: solid 5px #357088;
+    width: 600px;
+    padding-bottom: 25px;
+}
+.cerrar, .cerrar2{
+    position: absolute;
+    right: 20px;
+    top: 18px;
+    border: none;
+    border-radius: 50%;
+    background-color: #357088;
+    font-weight: bold;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+.cerrar:hover, .cerrar2:hover{
+    background-color: red;
+}
+
+.estatus, .asignacion{
+    display: grid;
+    margin: 15px;
+}
+.check{
+    display: inline;
+}
+.aceptar{
+    margin-bottom: 0px;
+}
+input[type=text], select{
+    border-radius: 10px;
+    padding: 5px;
+    margin-top: 10px;
+    font-family: "Century Gothic";
+    text-align: center;
+    border: solid 2px #001c27;
+}
+select:disabled{
+    color: black;
+    opacity: 1;
+}
+.checkEsta{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    pointer-events: none;
+    touch-action: none;
+}
+.checkEsta::-ms-expand{
+    display: none;
+}
+/* bye modal*/
