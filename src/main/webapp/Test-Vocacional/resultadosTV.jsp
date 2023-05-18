@@ -25,7 +25,7 @@
                     <div class="percent">
                         <svg>
                         <circle cx="70" cy="70" r="70" class="c1"></circle>
-                        <circle cx="70" cy="70" r="70" class="c2" style="stroke-dashoffset: calc(440 - (440 * ${datito.getICFM()}) / 100);"></circle>
+                        <circle cx="70" cy="70" r="70" class="c2" style="stroke-dashoffset: calc(440 - (440 * ${datito.getICFM()}) / 100); <c:if test="${areaMayor eq 'ICFM'}">stroke: #228B22;</c:if>"></circle>
                         </svg>
                         <div class="number">
                             <h2>${datito.getICFM()}<span>%</span></h2>
@@ -37,7 +37,7 @@
                     <div class="percent">
                         <svg>
                         <circle cx="70" cy="70" r="70" class="c1"></circle>
-                        <circle cx="70" cy="70" r="70" class="c2" style="stroke-dashoffset: calc(440 - (440 * ${datito.getCSA()}) / 100);"></circle>
+                        <circle cx="70" cy="70" r="70" class="c2" style="stroke-dashoffset: calc(440 - (440 * ${datito.getCSA()}) / 100); <c:if test="${areaMayor eq 'CSA'}">stroke: #228B22;</c:if>"></circle>
                         </svg>
                         <div class="number">
                             <h2>${datito.getCSA()}<span>%</span></h2>
@@ -49,7 +49,7 @@
                     <div class="percent">
                         <svg>
                         <circle cx="70" cy="70" r="70" class="c1"></circle>
-                        <circle cx="70" cy="70" r="70" class="c2" style="stroke-dashoffset: calc(440 - (440 * ${datito.getCMB()}) / 100);"></circle>
+                        <circle cx="70" cy="70" r="70" class="c2" style="stroke-dashoffset: calc(440 - (440 * ${datito.getCMB()}) / 100); <c:if test="${areaMayor eq 'CMB'}">stroke: #228B22;</c:if>"></circle>
                         </svg>
                         <div class="number">
                             <h2>${datito.getCMB()}<span>%</span></h2>
@@ -61,7 +61,7 @@
                     <div class="percent">
                         <svg>
                         <circle cx="70" cy="70" r="70" class="c1"></circle>
-                        <circle cx="70" cy="70" r="70" class="c2" style="stroke-dashoffset: calc(440 - (440 * ${datito.getHA()}) / 100);"></circle>
+                        <circle cx="70" cy="70" r="70" class="c2" style="stroke-dashoffset: calc(440 - (440 * ${datito.getHA()}) / 100); <c:if test="${areaMayor eq 'HA'}">stroke: #228B22;</c:if>"></circle>
                         </svg>
                         <div class="number">
                             <h2>${datito.getHA()}<span>%</span></h2>
@@ -73,5 +73,11 @@
 
         </div>
         <h1>Carrerras:</h1>
+        <ol>
+            
+            <c:forEach items="${carreras}" var="elementos">
+                <li>${elementos}</li>
+            </c:forEach>
+        </ol>
     </body>
 </html>

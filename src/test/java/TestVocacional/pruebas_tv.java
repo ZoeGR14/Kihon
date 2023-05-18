@@ -25,7 +25,7 @@ public class pruebas_tv {
         }
         TestVocacional resul = new TestVocacional(65, 33, 87, 100, "pedrito");
         dao.agregar(resul);
-        String area = dao.areaResultado(resul);
+        String area = dao.areaResultado("ola");
         System.out.println(area);
         List<String>lista = dao.obtenerCarreras(area);
         for (int i = 0; i < lista.size(); i++) {

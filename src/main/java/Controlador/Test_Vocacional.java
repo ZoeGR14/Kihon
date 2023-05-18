@@ -54,7 +54,11 @@ public class Test_Vocacional extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         List<TestVocacional> lista = tvDAO.listar("pedrito");
+        String area = tvDAO.areaResultado("pedrito");
+        List<String> carreras = tvDAO.obtenerCarreras(area);
         request.setAttribute("areas", lista);
+        request.setAttribute("areaMayor", area);
+        request.setAttribute("carreras", carreras);
         request.getRequestDispatcher("Test-Vocacional/resultadosTV.jsp").forward(request, response);
     }
 
@@ -235,11 +239,6 @@ public class Test_Vocacional extends HttpServlet {
                 tv.todoPorcentajes();
                 
                 tvDAO.agregar(tv);
-                String area = tvDAO.areaResultado(tv);
-                //carreras = tvDAO.obtenerCarreras(area);
-                
-                //request.setAttribute("carreras", carreras);
-                
                 response.sendRedirect("Test_Vocacional");
                 break;
         }

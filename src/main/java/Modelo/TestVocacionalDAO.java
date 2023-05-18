@@ -98,24 +98,20 @@ public class TestVocacionalDAO {
         return res;
     }
     
-    public String areaResultado(TestVocacional tv){
-        float ICFM = tv.getICFM();
-        float CSA = tv.getCSA();
-        float CMB = tv.getCMB();
-        float HA = tv.getHA();
-        
-        float max = Math.max(Math.max(Math.max(ICFM, CSA), CMB), HA);
+    public String areaResultado(String usuario){
+        String sql = "select id_res, usuario, case greatest(ICFM, CSA, CMB, HA) when ICFM then 'ICFM' when CSA then 'CSA' when CMB then 'CMB' when HA then 'HA' end as area_max from test_voc where greatest(ICFM, CSA, CMB, HA) is not null and usuario = '"+usuario+"' and id_res = (select MAX(id_res) from test_voc);";
         String area = "";
-        
-        if(max == ICFM)
-            area = "ICFM";
-        else if(max == CSA)
-            area = "CSA";
-        else if(max == CMB)
-            area = "CMB";
-        else if(max == HA)
-            area = "HA";
-        
+        try {
+            con = cn.getConnection();
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                area = rs.getString(3);
+            }
+        } catch (Exception e) {
+            System.out.println("Error area resultado");
+            e.printStackTrace();
+        }
         return area;
     }
     public List obtenerCarreras(String area){

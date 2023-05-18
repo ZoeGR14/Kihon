@@ -160,7 +160,13 @@ insert into carreras values 	("Licenciatura en Biología", false, true, "CMB"),
 								("Químico Bacteriólogo y Parasitólogo", false, true, "CMB"),
 								("Químico Farmacéutico Industrial", false, true, "CMB");
                                 
-                                
+/*PRUEBAS*/
+
+insert into test_voc values(null, 57.5, 95.4, 66.2, 68.2, "pedrito");
+insert into test_voc values(null, 100, 95.4, 66.2, 68.2, "pedrito");
+
+
+select id_res, usuario, case greatest(ICFM, CSA, CMB, HA) when ICFM then "ICFM" when CSA then "CSA" when CMB then "CMB" when HA then "HA" end as area_max from test_voc where greatest(ICFM, CSA, CMB, HA) is not null and usuario = "pedrito" and id_res = (select MAX(id_res) from test_voc);
                                 
 /*insert into reportes (descripcion, estatus, encargado, solucion) values	("El apartado de inicio de sesion lamentablemente no funciona en mi ordenador", "Abierto", "", ""),
 																		("No puedo iniciar sesion, ya registre mi usuario y nada", "Abierto", "", ""),
