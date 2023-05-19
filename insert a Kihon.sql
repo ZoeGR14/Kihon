@@ -162,11 +162,11 @@ insert into carreras values 	("Licenciatura en Biología", false, true, "CMB"),
                                 
 /*PRUEBAS*/
 
-insert into test_voc values(null, 57.5, 95.4, 66.2, 68.2, "pedrito");
-insert into test_voc values(null, 100, 95.4, 66.2, 68.2, "pedrito");
-
-
-select id_res, usuario, case greatest(ICFM, CSA, CMB, HA) when ICFM then "ICFM" when CSA then "CSA" when CMB then "CMB" when HA then "HA" end as area_max from test_voc where greatest(ICFM, CSA, CMB, HA) is not null and usuario = "pedrito" and id_res = (select MAX(id_res) from test_voc);
+insert into test_voc values(null, 50, 40, 80, 80, "pedrito");
+# delete from test_voc where usuario = "pedrito";
+#select greatest(ICFM, CSA, CMB, HA) as max_valor from test_voc;
+#SELECT CASE GREATEST(ICFM, CSA, CMB, HA) WHEN ICFM THEN 'ICFM' ELSE 0 END AS max_ICFM, CASE GREATEST(ICFM, CSA, CMB, HA) WHEN CSA THEN 'CSA' ELSE 0 END AS max_CSA, CASE GREATEST(ICFM, CSA, CMB, HA) WHEN CMB THEN 'CMB' ELSE 0 END AS max_CMB, CASE GREATEST(ICFM, CSA, CMB, HA) WHEN HA THEN 'HA' ELSE 0 END AS max_HA FROM test_voc  where usuario="pedrito" and id_res = (select MAX(id_res) from test_voc) HAVING CONCAT(max_ICFM, max_CSA, max_CMB, max_HA) <> '';
+#select id_res, usuario, case greatest(ICFM, CSA, CMB, HA) when ICFM then "ICFM" when CSA then "CSA" when CMB then "CMB" when HA then "HA" end as area_max from test_voc where greatest(ICFM, CSA, CMB, HA) is not null and usuario = "pedrito" and id_res = (select MAX(id_res) from test_voc);
                                 
 /*insert into reportes (descripcion, estatus, encargado, solucion) values	("El apartado de inicio de sesion lamentablemente no funciona en mi ordenador", "Abierto", "", ""),
 																		("No puedo iniciar sesion, ya registre mi usuario y nada", "Abierto", "", ""),

@@ -137,6 +137,52 @@ h2, h1{
     padding: 10px 10px 0;
     margin: 25px 0 0 0;
 }
+.tabla{
+    display: flex;
+    justify-content: center;
+}
+.tablaResultados{
+    border-collapse: collapse;
+    padding: 25px;
+    min-width: 700px;
+    margin: 0 0 15px 0;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+.tablaResultados thead tr{
+    background-color: #133340;  
+    color: #fff;
+    padding: 5px;
+}
+.tablaResultados th,
+.tablaResultados td{
+    padding: 12px 15px;
+}
+#number, #insti, #area{
+    text-align: center;
+}
+.tablaResultados tbody tr{
+    border-bottom: 1px solid #dddddd;
+    background-color: #fff;
+}
+.tablaResultados tbody tr:nth-of-type(even){
+    background-color: #f3f3f3;
+}
+.tablaResultados tbody tr:last-of-type{
+    border-bottom: 4px solid #133340;
+}
+.tablaResultados tbody tr:hover{
+    background-color: #dedede;
+}
+.tablaResultados a{
+    list-style: none;
+    text-decoration: none;
+    color: #133340;
+}
+.tablaResultados a:hover{
+    text-decoration: underline;
+}
 
 /*--Progress Bar*/
 .progressbar{

@@ -98,21 +98,25 @@ public class TestVocacionalDAO {
         return res;
     }
     
-    public String areaResultado(String usuario){
-        String sql = "select id_res, usuario, case greatest(ICFM, CSA, CMB, HA) when ICFM then 'ICFM' when CSA then 'CSA' when CMB then 'CMB' when HA then 'HA' end as area_max from test_voc where greatest(ICFM, CSA, CMB, HA) is not null and usuario = '"+usuario+"' and id_res = (select MAX(id_res) from test_voc);";
-        String area = "";
+    public List areaResultado(String usuario){
+        String sql = "SELECT CASE GREATEST(ICFM, CSA, CMB, HA) WHEN ICFM THEN 'ICFM' ELSE 0 END AS max_ICFM, CASE GREATEST(ICFM, CSA, CMB, HA) WHEN CSA THEN 'CSA' ELSE 0 END AS max_CSA, CASE GREATEST(ICFM, CSA, CMB, HA) WHEN CMB THEN 'CMB' ELSE 0 END AS max_CMB, CASE GREATEST(ICFM, CSA, CMB, HA) WHEN HA THEN 'HA' ELSE 0 END AS max_HA FROM test_voc  where usuario = '"+ usuario +"' and id_res = (select MAX(id_res) from test_voc) HAVING CONCAT(max_ICFM, max_CSA, max_CMB, max_HA) <> ''";
+        List <String> areas = new ArrayList<>();
         try {
             con = cn.getConnection();
             ps = con.prepareStatement(sql);
             rs = ps.executeQuery();
             while(rs.next()){
-                area = rs.getString(3);
+                for (int i = 1; i < 5; i++) {
+                    if(!rs.getString(i).equals("0")){
+                        areas.add(rs.getString(i));
+                    }
+                }
             }
         } catch (Exception e) {
             System.out.println("Error area resultado");
             e.printStackTrace();
         }
-        return area;
+        return areas;
     }
     public List obtenerCarreras(String area){
         List<String> lista1 = new ArrayList<>();

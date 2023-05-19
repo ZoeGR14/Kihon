@@ -21,7 +21,6 @@ public class Test_Vocacional extends HttpServlet {
 
     TestVocacional tv = new TestVocacional();
     TestVocacionalDAO tvDAO = new TestVocacionalDAO();
-    List<String> carreras = new ArrayList<>();
     
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -54,10 +53,19 @@ public class Test_Vocacional extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         List<TestVocacional> lista = tvDAO.listar("pedrito");
-        String area = tvDAO.areaResultado("pedrito");
-        List<String> carreras = tvDAO.obtenerCarreras(area);
+        List<String> areas = tvDAO.areaResultado("pedrito");
+        
+        List<List<String>> carreras = new ArrayList<>();
+        for (int i = 0; i < areas.size(); i++) {
+            carreras.add(tvDAO.obtenerCarreras(areas.get(i)));
+        }
+        
+        //Se mandan los resultados del usuario
         request.setAttribute("areas", lista);
-        request.setAttribute("areaMayor", area);
+        
+        //Se mandan las areas con mayor puntaje
+        
+        request.setAttribute("areaMayor", areas );
         request.setAttribute("carreras", carreras);
         request.getRequestDispatcher("Test-Vocacional/resultadosTV.jsp").forward(request, response);
     }
