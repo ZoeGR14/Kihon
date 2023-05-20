@@ -46,8 +46,8 @@ label:hover{
 #enviar{
     width: 80%;
     display: block;
-    margin: auto;
     padding: 10px;
+    margin-right: 10px;
     background-color: #133340;
     font-size: 1em;
     color: #fff;
@@ -57,6 +57,11 @@ label:hover{
 }
 #enviar:hover{
     background: #001C27;
+}
+.inferior{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 h2, h1{
     text-align: center;

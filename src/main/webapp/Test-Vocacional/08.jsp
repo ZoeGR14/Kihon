@@ -99,7 +99,9 @@
                 </div>
                 
                 <input type="hidden" name="accion" value="08">
-                <button id="enviar">Siguiente</button>
+                <div class="inferior">
+                    <button id="enviar">Siguiente</button> 8/10
+                </div>
             </form>
         </div>
     </body>
