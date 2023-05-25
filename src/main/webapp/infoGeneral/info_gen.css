@@ -1,0 +1,232 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-transform: capitalize;
+    text-decoration: none;
+    list-style: none;
+    font-family: 'Poppins', sans-serif;
+}
+body{
+    background-color: #f5f5f5;
+}
+header{
+    background-image: url(imagenes/hero.svg);
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.menu{
+    position: absolute;
+    top: 10px;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+}
+.menu .logo{
+    font-weight: 700;
+    font-size: 25px;
+    color: #ffffff;
+}
+.menu .navbar ul li{
+    position: relative;
+    float: left;
+
+}
+.menu .navbar ul li a{
+    font-size: 18px;
+    padding: 20px;
+    color: #ffffff;
+    display: block;
+}
+.menu .navbar ul li a:hover{
+    color: #0EAEF3;
+    
+}
+#menu{
+    display: none;
+}
+.menu-icono{
+    width: 25px;
+}
+.menu label{
+    cursor: pointer;
+    display: none;
+}
+
+.header-content{
+    display: flex;
+}
+.content{
+    padding: 150px 150px 0px 0px;
+}
+.content h1{
+    color: #ffffff;
+    font-size: 55px;
+    text-transform: uppercase;
+    font-weight: 500;
+    line-height: 55px;
+}
+.content p{
+    margin-top: 25px;
+    columns: #Aab1ff;
+    font-size: 25px;
+    line-height: 40px;
+}
+.btn-1{
+    display: inline-block;
+    background-color: rgba(170, 177, 255, 0.3);
+    border: 1px solid #Aab1ff;
+    margin: 35px 10px 0px 0px;
+    padding: 15px 25px;
+    color: #ffffff;
+    border-radius: 25px;
+}
+.btn-1 :hover{
+    background-color: #aab1ff;
+}
+.services{
+    padding: 10px 0px;
+    justify-content: space-between;
+    text-align: center;
+}
+.service{
+    padding: 25px;
+    margin: 0px 10px;
+    box-shadow: 0px 0px 20px rgba(135, 141, 214, 0.3);
+}
+.service img{
+    margin-top: -50px;
+}
+.service h3{
+    font-size: 20px;
+    color: #0e0e0e;
+    margin-bottom: 10px;
+}
+.service p{
+    color: #525254;
+    font-size: 16px;;
+}
+.personalidades{
+    padding: 80px 0px;
+    text-align: center;
+    color: #0e0e0e;
+}
+.personalidades h2{
+    font-size: 55px;
+}
+.personalidades{
+   
+    align-items: center;
+}
+.personalidades img{
+    width: 350px;
+}
+.personalidades-1{
+    text-align: left;
+    margin-left: 100px;
+}
+.personalidades-1h3{
+    font-size: 35px;
+    margin-bottom: 15px;
+}
+.personalidades-1 p{
+    font-size: 18px;
+    color: #525254;
+    margin-bottom: 25px;
+}
+.personalidades-2{
+    text-align: left;
+    margin-right: 100px;
+}
+.personalidades-2 h3{
+    font-size: 35px;
+    margin-bottom: 15px;
+}
+.personalidades-2 p{
+    font-size: 18px;
+    color: #525254;
+    margin-bottom: 25px;
+}
+.btn-2{
+    display: inline-block;
+    padding: 15px 25px;
+    border-radius: 25px;
+    background-color: #7042B5;
+    color: #ffffff;
+}
+.btn-2 :hover{
+    background-color: #8650D7;
+}
+footer{
+    padding: 200px 0px 30px 0px;
+    background-image: url(imagenes/footer.svg);
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.info-concepts{
+    padding: 35px;
+    text-align: center;
+    background-color: #f5f5f5;
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.3);
+    margin: 0px 150px 0px 0px;
+    color: #0e0e0e;
+}
+.info-concepts h2{
+    font-size: 25px;
+    margin-bottom: 10px;
+
+}
+.concepts{
+    font-size: 14px;
+    color: #Aab1ff;
+    margin-bottom: 10px;
+}
+.info-concepts p{
+    font-size:  16px;
+    color: #525254;
+}
+.info-txt{
+    margin-left: 35px;
+    color: #ffffff;
+}
+hr {
+    margin: 45px 0px;
+    border: 0.5px solid #Aab1ff;
+
+}
+.enlaces{
+    display: flex;
+    justify-content: space-between;
+    color: #ffffff;
+}
+.enlaces h3{
+    font-size: 25px;
+}
+.enlaces{
+    display: flex;
+}
+.enlaces li a{
+    display: block;
+    margin: 20px;
+    color: #ffffff;
+}
+.enlaces li a:hover {
+    color: #0EAEF3;
+}

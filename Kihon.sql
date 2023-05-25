@@ -68,6 +68,7 @@ foreign key (id_reporte) references reportes(id_reporte) on delete cascade on up
 );
 
 /*Termina Módulo de Soporte*/
+
 /*Empieza Kihon*/
 create table carreras(
 id_carrera varchar(60) primary key not null,
@@ -76,14 +77,16 @@ IPN boolean,
 area varchar(6)
 );
 
-create table personalidad(
-mbti varchar(4) primary key not null
+create table personalidad_usu(
+usuario varchar(20) primary key not null,
+mbti varchar(4) not null,
+foreign key (usuario) references usuarios(nom_usu) on delete cascade on update cascade
 );
+
 create table carrera_mbti(
 id_carrera varchar(60), 
 mbti varchar(4),
-foreign key (id_carrera) references carreras(id_carrera) on delete cascade on update cascade,
-foreign key (mbti) references personalidad(mbti) on delete cascade on update cascade
+foreign key (id_carrera) references carreras(id_carrera) on delete cascade on update cascade
 );
 
 create table test_voc(
@@ -96,6 +99,48 @@ usuario varchar(20),
 foreign key (usuario) references usuarios(nom_usu) on delete cascade on update cascade
 );
 
+create table tipos_perso(
+id_perso int primary key auto_increment not null,
+nombre_perso varchar (50),
+categoría int,
+	/* Categorías de personalidades:
+			1. Analistas
+            2. Diplomáticos
+            3. Centinelas
+            4. Exploradores
+    */
+abstract varchar (200),
+descripcion_perso varchar (1000),
+resumen_perso varchar (1000),  /*cuadrito del color*/
+frase_perso varchar (1000),
+famosos_perso varchar (1000),
+link_perso varchar (1000)
+);
+
+
+create table carreras_info(
+id_carrera_info int primary key auto_increment not null,
+nombre_car varchar (100),
+area_car int,
+institucion_car int (100),
+escuela_car varchar (100),
+objetivo_car varchar (2000), /*o descripción en la UNAM*/
+link_car varchar (500)
+);
+
+/*
+	Área de la carrera:
+		1. Ingeniería y Ciencias Físico Matemáticas
+        2. Ciencias Médico Biológicas
+        3. Ciencias Sociales y Administrativas
+        4. Humanidades y de las Artes
+        
+	Institución de la carrera:
+		1. Instituto Politécnico Nacional -IPN
+        2. Universidad Nacional Autónoma de México -UNAM
+*/
+
+
 select * from usuarios;
 select * from reportes;
 select * from escritor;
@@ -105,6 +150,10 @@ select * from primer_encargado;
 select * from escritor;
 select * from cerrado_FAQ;
 select * from carreras;
+select * from carreras_info;
 select * from carrera_mbti;
-select * from personalidad;
+select * from personalidad_usu;
 select * from test_voc;
+
+SELECT * FROM carrera_mbti INNER JOIN personalidad_usu ON personalidad_usu.mbti = carrera_mbti.mbti WHERE personalidad_usu.usuario = "pedrito";
+insert into personalidad_usu values("pedrito", "ISTJ");

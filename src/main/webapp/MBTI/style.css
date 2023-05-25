@@ -23,7 +23,8 @@ body {
 
 h1 {
     text-align: center;
-    margin-top: 50px;
+    margin-top: 40px;
+    font-size: 35px;
 }
 
 #form-perso {
@@ -57,14 +58,13 @@ label {
 }
 
 .button {
+    margin: auto;
     --green: #237a80;
     text-align: center;
-    margin: auto;
-    font-size: 15px;
+    font-size: 25px;
     padding: 0.7em 2.7em;
     letter-spacing: 0.06em;
-    position: relative;
-    font-family: inherit;
+    position: static;
     border-radius: 0.6em;
     overflow: hidden;
     transition: all 0.3s;
@@ -191,7 +191,7 @@ label span:before {
     right: 0;
     margin: auto;
     width: 0%;
-    height: 20px;
+    height: 10px;
     border-radius: 50px;
     background-color: rgb(12, 85, 102);
     transition: width 0.2s;
@@ -205,9 +205,9 @@ label span:before {
     right: 0;
     margin: auto;
     width: 50%;
-    height: 20px;
+    height: 10px;
     border-radius: 50px;
     background-color: rgb(205, 245, 245);
-    box-shadow: 0 0 0 6px white;
+    box-shadow: 0 0 0 3px white;
 
 }

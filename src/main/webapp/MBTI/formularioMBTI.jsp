@@ -1,3 +1,4 @@
+<%@page contentType="text/html" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
 
@@ -8,6 +9,17 @@
     <script src="sweetalert2.all.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+        .botoncitoG{
+            display: none;
+        }
+        .botoncitoR{
+            display: none;
+        }
+        body{
+            zoom:0.5;
+        }
+    </style>
 </head>
 
 <body>
@@ -16,7 +28,17 @@
         <div class="progress-bar">
             <div id="progress-bar"></div>
         </div>
-        <p id="result"></p>
+        <form>
+            <input type="text" name="resultado" id="result" value="">    
+        <!--<p id="result"></p>-->
+        
+        <input type="hidden" name="" id="">
+        <button class="botoncitoG" value="Guardar">Guardar</button>
+        
+        </form>
+        <!---->
+        <input type="hidden" name="" id="">
+        <button class="botoncitoR" value="Reintentar">Reintentar</button>
     </header><br><br>
     <br>
     <section class="ventanita">
@@ -940,7 +962,7 @@
     </section>
 
 </body>
-<script src="contador.js"></script>
+<!--<script src="contador.js"></script>-->
 <script src="progress-bar.js"></script>
 <script src="validacion.js"></script>
 
