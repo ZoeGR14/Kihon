@@ -34,7 +34,7 @@
             try {
                 String usu = request.getParameter("usuario");
                 String contra = request.getParameter("contrasenia");
-                res = stat.executeQuery("select*from personal where trabajador='" + usu + "';");
+                res = stat.executeQuery("select*from usuarios where nom_usu='" + usu + "';");
 
                 if (!res.next()) {
                     out.println("<script>Swal.fire({icon: 'error',title: 'Usuario no encontrado',text: 'Inténtelo de nuevo'});</script>");
@@ -42,8 +42,8 @@
                     out.println("<script>setTimeout(saludos, 1500);</script>");
                 } else {
 
-                    if (res.getString("pass_tra").equals(contra)) {
-                        String tipotra = res.getString("tipo_tra");
+                    if (res.getString("pass_usu").equals(contra)) {
+                        String tipotra = res.getString("tipo_usu");
                         HttpSession sesion = request.getSession();
                         sesion.setAttribute("tipo_usuario", tipotra);
                         if (tipotra.equals("1")) {
