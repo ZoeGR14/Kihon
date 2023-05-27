@@ -17,9 +17,9 @@ public class PersonalidadDAO {
     PreparedStatement ps;
     ResultSet rs;
 
-    public List listar(String usuario) {
+    public List listar(String alumno) {
         List<Personalidad> listaP = new ArrayList<>();
-        String sql = "SELECT * FROM carrera_mbti INNER JOIN personalidad_usu ON personalidad_usu.mbti = carrera_mbti.mbti WHERE personalidad_usu.usuario =" + usuario;
+        String sql = "SELECT * FROM carrera_mbti INNER JOIN personalidad_usu ON personalidad_usu.mbti = carrera_mbti.mbti WHERE personalidad_usu.usuario =" + alumno;
         try {
             con = cn.getConnection();
             ps = con.prepareStatement(sql);
@@ -27,7 +27,7 @@ public class PersonalidadDAO {
             while (rs.next()) {
                 Personalidad mbti = new Personalidad();
                 mbti.setMbti(rs.getString("mbti"));
-                mbti.setUsuario(rs.getString("usuario"));
+                mbti.setUsuario(rs.getString("alumno"));
                 listaP.add(mbti);
             }
             rs.close();
