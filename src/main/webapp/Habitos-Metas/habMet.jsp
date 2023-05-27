@@ -49,7 +49,7 @@ background: linear-gradient(to right, #4286f4, #373B44); /* W3C, IE 10+/ Edge, F
             }
             
             nav a:hover{
-                color: #4B277A;
+                color: #92C5FC;
             }
             
             header .texto-header{
@@ -138,7 +138,16 @@ background: linear-gradient(to right, #4286f4, #373B44); /* W3C, IE 10+/ Edge, F
         </style>
     </head>
     <body>
-        
+        <%
+            HttpSession sesion = request.getSession();
+            String usuario;
+            String tipo;
+
+            if (sesion.getAttribute("user") != null && sesion.getAttribute("tipo_usuario") != null) {
+                usuario = sesion.getAttribute("user").toString();
+                tipo = sesion.getAttribute("tipo_usuario").toString();
+
+        %>
         
         <header>
             <nav>
@@ -170,8 +179,10 @@ background: linear-gradient(to right, #4286f4, #373B44); /* W3C, IE 10+/ Edge, F
                 </center>
             </section>
         </main>
-                
-
-       
+        <%
+            } else {
+                out.print("<script>location.replace('Inicio-Cierre/ini_sesion.jsp');</script>");
+            }
+        %>
     </body>
 </html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Iniciar sesión</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="loginn.css">
+    </head>
+    <body>
+        <br>
+        <div class="login-card-container">
+            <div class="login-card">
+                <div class="login-card-logo">
+                    <img src="../imagenes/KihonPNG.png" alt="logo">
+                </div>
+                <div class="login-card-header">
+                    <h1>Inicio de Sesión</h1>
+                    <div>Por favor, inicia sesión para hacer uso de todo lo que Kihon tiene para ti</div>
+                </div>
+                <form class="login-card-form" action="ini_sesion.jsp" method="post" name="inici_sesi">
+                    <div class="form-item">
+                        <span class="form-item-icon material">
+                            <img src="../imagenes/usuario.png">
+                        </span>
+                        <input type="text" placeholder="Usuario" name="usuario" required autofocus>
+                    </div>
+                    <div class="form-item">
+                        <span class="form-item-icon material">
+                            <img src="../imagenes/candado.png">
+                        </span>
+                        <input type="password" name="contrasenia" placeholder="Contraseña" required>
+                    </div>
+                    <button type="submit" name="ingreso">Acceder</button>
+                    <br><br>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
