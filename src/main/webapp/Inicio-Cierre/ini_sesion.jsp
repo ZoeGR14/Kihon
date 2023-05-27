@@ -91,7 +91,7 @@
                             System.out.println(usu);
                             sesion.setAttribute("editor", usu);
                             out.println("<script>Swal.fire('Bienvenido','¡Gracias por elegir Kihon!','success')</script>");
-                            out.println("<script>function saludos(){location.href ='index.html';}</script>");
+                            out.println("<script>function saludos(){location.href ='inicio.jsp';}</script>");
                             out.println("<script>setTimeout(saludos, 1500);</script>");
                         }
 
