@@ -1014,6 +1014,45 @@ insert into carrera_mbti values ("Ingeniería en Sistemas Computacionales", "INT
 								("Licenciatura en Matemática Algorítmica", "INTP"),
 								("Licenciatura en Matemática Algorítmica", "ENTJ"),
 								("Licenciatura en Matemática Algorítmica", "ENTP");
+
+
+/*Para hábitos y metas académicas*/
+insert into metasRango values('W', 'Estudiar sobre mis materias de ciencias exactas 3 horas, 2 veces por semana', 
+'Realizar ejercicios de matemáticas e ir escalando su nivel, esto, 3 veces por semana, midiendo el tiempo que me tardo en completarlos', 
+'Comenzar a ver videos explicativos sobre los temas pendientes por estudiar, que más me interesen', 
+'Dormir un promedio de mínimo 6 horas diarias, para mantener la energía', 
+'Analizar mis errores en los ejercicios de matemáticas que realizo en clase, de tal manera que pueda mejorarlos al tenerlos en cuenta al repasar', 
+'Realizar mis tareas entre semana, a tiempo, para tener disponibilidad de estudiar los fines de semana', 
+'Planificar mis comidas diarias, su horario y cantidad, para ayudar con la energía y motivación', 
+'Realizar sesiones largas de estudio cada dos semanas, para repasar un poco de cada materia que se me dificulte', 
+'Tomar descansos breves de 10 minutos, cada 2 horas, para despejar la mente', 
+'Practicar lo aprendido cada semana de manera tal que me resulte divertido, por ejemplo, por medio de flashcards'),
+
+					('X', 'Buscar explicaciones sobre los temas pendientes por estudiar, que más se me dificulten, que más me interesen, y que crea más relevantes', 
+'Dormir un promedio de mínimo 6 horas diarias, para mantener la energía',
+'Tomar en cuenta mis notas más bajas, para enfocarme en mejorar en ellas, de tal manera que aprenda más, sin descuidar las materias en las que mis calificaciones son más altas',
+'Mantener mi horario despejado, comenzando todas mis tareas el mismo día que se me sean asignadas',
+'Comenzar a comprender los conceptos más difíciles para mí, y estudiarlos por al menos 3 horas a la semana',
+'Mantener una dieta balanceada y establecer horarios para mis comidas, evitando no comer',
+'Realizar sesiones largas de estudio cada dos semanas, para repasar un poco de cada materia que se me dificulte',
+'Practicar lo aprendido cada semana de manera tal que me resulte divertido, por ejemplo, por medio de memoramas',
+'Contestar cuestionarios de los temas más importantes vistos en el ciclo escolar e ir escalando su nivel, midiendo el tiempo que me tardo en completarlos, al menos 2 veces por semana', 
+'Estudiar intensivamente sobre mis materias más complejas, 4 horas, 1 vez por semana'
+),
+
+                    ('Y', 'Comer en tiempos y cantidades adecuadas, así como tomar vitaminas',
+'Tener 6 horas de sueño diarias, evitando estudiar o hacer tarea muy tarde',
+'Poner atención a todas mis clases, especialmente en aquellas en las que se impartan temas que me resulten complicados',
+'Estudiar por medio de material didáctico los temas que sean de mi interés, que no se me den tan bien, y que vengan en el temario', 
+'Dejar de procrastinar y posponer el estudio, de lunes a viernes, para poder tomar un descanso los fines de semana',
+'Repasar diariamente de manera breve, por lo menos una hora, los conceptos más importantes de los temas más relevantes',
+'Realizar sesiones largas de estudio dos veces a la semana, para repasar un poco de todas mis materias, en especial, ciencias exactas',
+'Responder exámenes simulacro y/o cuestionarios de opción múltiple, dos veces cada tres semanas, midiendo el tiempo que me tardo en completarlos, aumentando su dificultad cada vez', 
+'Estudiar sin distracciones sobre mis materias más complejas, 4 horas, 1 vez por semana',
+'Practicar lo aprendido cada semana de manera tal que me resulte divertido, por ejemplo, por medio de quizes'
+);
+
+
 /*PRUEBAS*/
 
 insert into test_voc values(null, 50, 40, 80, 80, "pedrito");
