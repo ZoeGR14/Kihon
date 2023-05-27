@@ -57,4 +57,21 @@ public class PersonalidadDAO {
         }
     }
 
+    public void reintentar(Personalidad mbti, String alumno) {
+    String sql = "update personalidad_usu set mbti = ? where usuario = ?";
+    try {
+        con = cn.getConnection();
+        ps = con.prepareStatement(sql);
+        ps.setString(1, mbti.getMbti());
+        ps.setString(2, alumno);
+        ps.executeUpdate();
+        
+        ps.close();
+        con.close();
+    } catch (Exception e) {
+        System.out.println("Actualizar falló >:V");
+        e.printStackTrace();
+    }
+}
+
 }
