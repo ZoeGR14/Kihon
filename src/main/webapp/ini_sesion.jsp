@@ -89,7 +89,7 @@
                             //response.sendRedirect("editor.jsp");
                         } else if (tipotra.equals("0")) {
                             System.out.println(usu);
-                            sesion.setAttribute("editor", usu);
+                            sesion.setAttribute("alumno", usu);
                             out.println("<script>Swal.fire('Bienvenido','¡Gracias por elegir Kihon!','success')</script>");
                             out.println("<script>function saludos(){location.href ='inicio.jsp';}</script>");
                             out.println("<script>setTimeout(saludos, 1500);</script>");
