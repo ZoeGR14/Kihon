@@ -1,3 +1,6 @@
+<%@page import="java.sql.*,java.io.*" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page session="true"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -6,6 +9,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="estiloCHabMet.css">
         <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <style>
             @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
             *{
@@ -15,11 +19,38 @@
                 font-family: 'Poppins', sans-serif;
             }
             body{
+                width: 100%;
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 min-height: 100vh;
                 background: linear-gradient(to right, #f2fcfe, #1c92d2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+                overflow: hidden;
+            }
+            
+                        .headersito{
+                width: 100%;
+               top: 0;
+                left: 0;
+                font-family: 'Open Sans', sans-serif;
+                position: fixed;
+                
+            }
+            
+            nav{
+                text-align: right;
+                padding: 30px 50px 0 0;
+            }
+            
+            nav a{
+                color: #ffff;
+                font-weight: 300;
+                text-decoration: none;
+                margin-right: 16px;
+            }
+            
+            nav a:hover{
+                color: #92C5FC;
             }
             .containerHM{
                 width: 1000px;
@@ -43,12 +74,12 @@
             .form-princ form{
                 display: flex;
                 width: 100%;
-                    gap: 300px;
+                    
             }
             
             .form-princ form .pagina{
                 width: 6.6%;
-                
+                transition: margin-left 0.3s ease-in-out;
             }
             
             .form-princ form .pagina .titulo{
@@ -124,6 +155,11 @@
                 font-size: 17px;
             }
             
+            .form-princ .pagina .btns button.fin{
+                margin-left: 3px;
+                font-size: 17px;
+            }
+            
             .containerHM .preguntas{
                 display: flex;
                 margin: 40px 0;
@@ -141,6 +177,7 @@
                 font-weight: 300;
                 color #000;
                 margin-bottom: 8px;
+                transition: 0.2s;
             }
             
             .preguntas .paso .num{
@@ -153,6 +190,13 @@
                 font-weight: 500;
                 font-size: 17px;
                 line-height: 25px;
+                transition: 0.2s;
+            }
+            
+            .preguntas .paso .num.active{
+                border-color: #f2fcfe;
+                background-color: #f2fcfe;
+                transition: 0.2s;
             }
             
             .preguntas .paso .num span{
@@ -164,6 +208,11 @@
                 transform: translateX(-50%);
             }
             
+            .preguntas .paso .num.active span{
+                display: none;
+                transition: 0.2s;
+            }
+            
             .preguntas .paso .check{
                 display: none;
                 position: absolute;
@@ -171,6 +220,13 @@
                 top:45%;
                 font-size: 17px;
                 transform: translate(-50%,-50%);
+                transition: 0.2s;
+            }
+            
+            .preguntas .paso .check.active{
+                display: unset;
+                color: #4B79AB;
+                transition: 0.2s;
             }
             
             .preguntas .paso .num:before,
@@ -189,50 +245,106 @@
                 display: none;
             }
             
-            .preguntas .paso .num:after{
+            .preguntas .paso .num.active:after{
                 background-color: #f2fcfe;
                 animation: mov_Linea 0.3s linear forwards;
                 transform: scaleX(0);
                 transform-origin: left;
             }
             
+            
             @keyframes mov_Linea{
                 100%{
                     transform: scaleX(1);
                 }
             }
+            
+            .uno, .n1{
+                display: initial;
+            }
+            .dos, .tres, .cuatro, .cinco, .seis, .siete, .ocho, .nueve,.diez, .once, .doce, .trece, .catorce, .quince, .c1{
+                display: none;
+            }
         </style>
     </head>
     <body>
+        <header class="headersito">
+            <nav>
+                            <a href="../index.jsp">Inicio</a>
+                <a href="habMet.jsp">Menú</a>
+                <a href="cuestHab.jsp">Cuestionario</a>
+                <a href="metasSHabMet.jsp">Metas Sugeridas</a>
+                <a href="misMetasPHabMet.jsp">Mis Metas</a>
+                <a href="cierreSesion.jsp">Cerrar Sesión</a>
+            </nav>
+        </header>
+                <%
+            HttpSession sesion = request.getSession();
+            String usuario;
+            String tipo;
+
+            if (sesion.getAttribute("alumno") != null && sesion.getAttribute("tipo_usuario") != null) {
+                usuario = sesion.getAttribute("alumno").toString();
+                tipo = sesion.getAttribute("tipo_usuario").toString();
+                
+Connection conx= null;
+                                                Statement sta =null;
+                                                Statement sta2 =null;
+                                                ResultSet res = null;
+                                                ResultSet res2 = null;
+                                                
+try{
+                                                        Class.forName("com.mysql.jdbc.Driver");
+                                                        conx  = DriverManager.getConnection("jdbc:mysql://localhost:3306/Kihon?autoReconnect=true&useSSL=false","root","n0m3l0");                               
+                                                        sta = conx.createStatement();
+                                                        sta2 = conx.createStatement();
+
+                                                    }
+                                                    catch(SQLException error){
+                                                        out.print(error.toString());
+                                                    }   
+                                                    try{
+                                                    
+ 
+                                
+                                                        res = sta.executeQuery("select*from descripcionMetas where nom_usu='"+usuario+"';");
+                                                        if(res.next()){
+                        out.println("<script>Swal.fire({icon: 'warning',title: 'Ya has contestado',text: ''});</script>");
+                        out.println("<script>function saludos(){location.href ='respuestashabMet.jsp';}</script>");
+                        out.println("<script>setTimeout(saludos, 1500);</script>");
+                    }
+                                                        else{
+
+        %>
         <div class="containerHM">
             <header>
-                Hábitos de Estudio
+                Hábitos de Estudio y Metas Académicas
             </header>
             
             <div class="preguntas">
                 <div class="paso">
-                    <div class="num">
+                    <div class="num n1">
                         <span>1</span>
                     </div>
-                    <div class="check fas fa-check"></div>
+                    <div class="check fas fa-check c1"></div>
                 </div>
                 <div class="paso">
-                    <div class="num">
+                    <div class="num n2">
                         <span>2</span>
                     </div>
-                    <div class="check fas fa-check"></div>
+                    <div class="check fas fa-check c2"></div>
                 </div>
                 <div class="paso">
-                    <div class="num">
+                    <div class="num n3">
                         <span>3</span>
                     </div>
-                    <div class="check fas fa-check"></div>
+                    <div class="check fas fa-check c3"></div>
                 </div>
                 <div class="paso">
-                    <div class="num">
+                    <div class="num n4">
                         <span>4</span>
                     </div>
-                    <div class="check fas fa-check"></div>
+                    <div class="check fas fa-check c4"></div>
                 </div>
                 <div class="paso">
                     <div class="num">
@@ -303,9 +415,9 @@
             </div>
             
             <div class="form-princ">
-                <form action="#">
+                <form action="agregaresultadoHM_1.jsp" method="post" name="habitos">
                     
-                    <div class="pagina movPag">
+                    <div class="pagina movPag uno" id="uno">
                         <div class="titulo">¿ola?</div>
                         <div class="campo">
                             <div class="labe">
@@ -329,11 +441,11 @@
                             </div>
                         </div>
                         <div class="campo sigPag">
-                            <button class="adelante-pag2 adelante">Siguiente</button>
+                            <button class="adelante-pag2 adelante" type="button">Siguiente</button>
                         </div>
                     </div>
                     
-                    <div class="pagina movPag">
+                    <div class="pagina movPag dos">
                         <div class="titulo">¿s?</div>
                         <div class="campo">
                             <div class="labe">
@@ -357,12 +469,12 @@
                             </div>
                         </div>
                         <div class="campo btns">
-                            <button class="volver-pag1 volver">Regresar</button>
-                            <button class="adelante-pag3 adelante">Siguiente</button>
+                            <button class="volver-pag1 volver" type="button">Regresar</button>
+                            <button class="adelante-pag3 adelante" type="button">Siguiente</button>
                         </div>
                     </div>
                     
-                    <div class="pagina movPag">
+                    <div class="pagina movPag tres">
                         <div class="titulo">¿w?</div>
                         <div class="campo">
                             <div class="labe">
@@ -386,12 +498,12 @@
                             </div>
                         </div>
                         <div class="campo btns">
-                            <button class="volver-pag2 volver">Regresar</button>
-                            <button class="adelante-pag4 adelante">Siguiente</button>
+                            <button class="volver-pag2 volver" type="button">Regresar</button>
+                            <button class="adelante-pag4 adelante" type="button">Siguiente</button>
                         </div>
                     </div>
                     
-                    <div class="pagina movPag">
+                    <div class="pagina movPag cuatro">
                         <div class="titulo">¿s?</div>
                         <div class="campo">
                             <div class="labe">
@@ -415,12 +527,12 @@
                             </div>
                         </div>
                         <div class="campo btns">
-                            <button class="volver-pag3 volver">Regresar</button>
-                            <button class="adelante-pag5 adelante">Siguiente</button>
+                            <button class="volver-pag3 volver" type="button">Regresar</button>
+                            <button class="adelante-pag5 adelante" type="button">Siguiente</button>
                         </div>
                     </div>
                     
-                    <div class="pagina movPag">
+                    <div class="pagina movPag cinco">
                         <div class="titulo">¿w?</div>
                         <div class="campo">
                             <div class="labe">
@@ -444,12 +556,12 @@
                             </div>
                         </div>
                         <div class="campo btns">
-                            <button class="volver-pag4 volver">Regresar</button>
-                            <button class="adelante-pag6 adelante">Siguiente</button>
+                            <button class="volver-pag4 volver" type="button">Regresar</button>
+                            <button class="adelante-pag6 adelante" type="button">Siguiente</button>
                         </div>
                     </div>
                     
-                    <div class="pagina movPag">
+                    <div class="pagina movPag seis">
                         <div class="titulo">¿s?</div>
                         <div class="campo">
                             <div class="labe">
@@ -473,12 +585,12 @@
                             </div>
                         </div>
                         <div class="campo btns">
-                            <button class="volver-pag5 volver">Regresar</button>
-                            <button class="adelante-pag7 adelante">Siguiente</button>
+                            <button class="volver-pag5 volver" type="button">Regresar</button>
+                            <button class="adelante-pag7 adelante" type="button">Siguiente</button>
                         </div>
                     </div>
                     
-                    <div class="pagina movPag">
+                    <div class="pagina movPag siete">
                         <div class="titulo">¿w?</div>
                         <div class="campo">
                             <div class="labe">
@@ -502,12 +614,12 @@
                             </div>
                         </div>
                         <div class="campo btns">
-                            <button class="volver-pag6 volver">Regresar</button>
-                            <button class="adelante-pag8 adelante">Siguiente</button>
+                            <button class="volver-pag6 volver" type="button">Regresar</button>
+                            <button class="adelante-pag8 adelante" type="button">Siguiente</button>
                         </div>
                     </div>
                     
-                    <div class="pagina movPag">
+                    <div class="pagina movPag ocho">
                         <div class="titulo">¿s?</div>
                         <div class="campo">
                             <div class="labe">
@@ -531,12 +643,12 @@
                             </div>
                         </div>
                         <div class="campo btns">
-                            <button class="volver-pag7 volver">Regresar</button>
-                            <button class="adelante-pag9 adelante">Siguiente</button>
+                            <button class="volver-pag7 volver" type="button">Regresar</button>
+                            <button class="adelante-pag9 adelante" type="button">Siguiente</button>
                         </div>
                     </div>
                     
-                    <div class="pagina movPag">
+                    <div class="pagina movPag nueve">
                         <div class="titulo">¿w?</div>
                         <div class="campo">
                             <div class="labe">
@@ -560,12 +672,12 @@
                             </div>
                         </div>
                         <div class="campo btns">
-                            <button class="volver-pag8 volver">Regresar</button>
-                            <button class="adelante-pag10 adelante">Siguiente</button>
+                            <button class="volver-pag8 volver" type="button">Regresar</button>
+                            <button class="adelante-pag10 adelante" type="button">Siguiente</button>
                         </div>
                     </div>
                     
-                    <div class="pagina movPag">
+                    <div class="pagina movPag diez">
                         <div class="titulo">¿s?</div>
                         <div class="campo">
                             <div class="labe">
@@ -589,12 +701,12 @@
                             </div>
                         </div>
                         <div class="campo btns">
-                            <button class="volver-pag9 volver">Regresar</button>
-                            <button class="adelante-pag11 adelante">Siguiente</button>
+                            <button class="volver-pag9 volver" type="button">Regresar</button>
+                            <button class="adelante-pag11 adelante" type="button">Siguiente</button>
                         </div>
                     </div>
                     
-                    <div class="pagina movPag">
+                    <div class="pagina movPag once">
                         <div class="titulo">¿w?</div>
                         <div class="campo">
                             <div class="labe">
@@ -618,12 +730,12 @@
                             </div>
                         </div>
                         <div class="campo btns">
-                            <button class="volver-pag10 volver">Regresar</button>
-                            <button class="adelante-pag12 adelante">Siguiente</button>
+                            <button class="volver-pag10 volver" type="button">Regresar</button>
+                            <button class="adelante-pag12 adelante" type="button">Siguiente</button>
                         </div>
                     </div>
                     
-                    <div class="pagina movPag">
+                    <div class="pagina movPag doce">
                         <div class="titulo">¿s?</div>
                         <div class="campo">
                             <div class="labe">
@@ -647,12 +759,12 @@
                             </div>
                         </div>
                         <div class="campo btns">
-                            <button class="volver-pag11 volver">Regresar</button>
-                            <button class="adelante-pag13 adelante">Siguiente</button>
+                            <button class="volver-pag11 volver" type="button">Regresar</button>
+                            <button class="adelante-pag13 adelante" type="button">Siguiente</button>
                         </div>
                     </div>
                     
-                    <div class="pagina movPag">
+                    <div class="pagina movPag trece">
                         <div class="titulo">¿w?</div>
                         <div class="campo">
                             <div class="labe">
@@ -676,12 +788,12 @@
                             </div>
                         </div>
                         <div class="campo btns">
-                            <button class="volver-pag12 volver">Regresar</button>
-                            <button class="adelante-pag14 adelante">Siguiente</button>
+                            <button class="volver-pag12 volver" type="button">Regresar</button>
+                            <button class="adelante-pag14 adelante" type="button">Siguiente</button>
                         </div>
                     </div>
                     
-                    <div class="pagina movPag">
+                    <div class="pagina movPag catorce">
                         <div class="titulo">¿s?</div>
                         <div class="campo">
                             <div class="labe">
@@ -705,12 +817,12 @@
                             </div>
                         </div>
                         <div class="campo btns">
-                            <button class="volver-pag13 volver">Regresar</button>
-                            <button class="adelante-pag15 adelante">Siguiente</button>
+                            <button class="volver-pag13 volver" type="button">Regresar</button>
+                            <button class="adelante-pag15 adelante" type="button">Siguiente</button>
                         </div>
                     </div>
                     
-                    <div class="pagina movPag">
+                    <div class="pagina movPag quince">
                         <div class="titulo">¿w?</div>
                         <div class="campo">
                             <div class="labe">
@@ -734,8 +846,8 @@
                             </div>
                         </div>
                         <div class="campo btns">
-                            <button class="volver-pag14 volver">Regresar</button>
-                            <button class="fin adelante">Registrar</button>
+                            <button type="button" class="volver-pag14 volver">Regresar</button>
+                            <button class="fin" type="submit" name="guardar1" value="Guardar" id="botg" onclick="verificando()">Guardar</button>
                         </div>
                     </div>                    
                 </form>
@@ -743,5 +855,20 @@
         </div>
     
         <script src="movimientoHM.js"></script>
+        
+                <%
+                    }
+conx.close();
+                                                        sta.close();
+                                                        sta2.close();
+                                                    }
+                                                    catch(SQLException error){
+                                                        out.println("<script>Swal.fire({icon: 'error',title: 'Ocurrió un error',text: 'Inténtelo de nuevo'});</script>");
+                    out.println("<script>function saludos(){location.href ='habMet.jsp';}</script>");
+                    out.println("<script>setTimeout(saludos, 1500);</script>");}
+}else {
+                out.print("<script>location.replace('ini_sesion.jsp');</script>");
+            }
+        %>
     </body>
 </html>

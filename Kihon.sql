@@ -142,44 +142,32 @@ link_car varchar (500)
 
 /* Metas académicas*/
 create table respuestas_habiMet(
-id_respuestas int primary key auto_increment not null,
+id_resHabMet int primary key auto_increment not null,
 nom_usu varchar(50),
-p1 varchar(1),
-p2 varchar(1),
-p3 varchar(1),
-p4 varchar(1),
-p5 varchar(1),
-p6 varchar(1),
-p7 varchar(1),
-p8 varchar(1),
-p9 varchar(1),
-p10 varchar(1),
-p11 varchar(1),
-p12 varchar(1),
-p13 varchar(1),
-p14 varchar(1),
-p15 varchar(1),
-p16 varchar(1),
-p17 varchar(1),
-p18 varchar(1),
-p19 varchar(1),
-p20 varchar(1),
-p21 varchar(1),
-p22 varchar(1),
-p23 varchar(1),
-p24 varchar(1),
-p25 varchar(1),
-p26 varchar(1),
-p27 varchar(1),
-p28 varchar(1),
-p29 varchar(1),
-p30 varchar(1),
+p1 int(1),
+p2 int(1),
+p3 int(1),
+p4 int(1),
+p5 int(1),
+p6 int(1),
+p7 int(1),
+p8 int(1),
+p9 int(1),
+p10 int(1),
+p11 int(1),
+p12 int(1),
+p13 int(1),
+p14 int(1),
+p15 int(1),
 metas_rango varchar(1),
 foreign key (nom_usu) references usuarios(nom_usu) on delete cascade on update cascade
 );
+/* 1 - A
+2 - B
+3 - C*/
 
 create table metasRango(
-id_rango varchar(1) primary key not null,
+id_rangoHM varchar(1) primary key not null,
 meta1 varchar(1000),
 meta2 varchar(1000),
 meta3 varchar(1000),
@@ -191,6 +179,11 @@ meta8 varchar(1000),
 meta9 varchar(1000),
 meta10 varchar(1000)
 );
+
+/* Rango W, de 15 a 25
+Rango X, de 26 a 35
+Rango Y, de 36 a 45
+*/
 
 create table descripcionMetas(
 id_metaEdit int primary key auto_increment not null,
@@ -215,6 +208,16 @@ estatus_metaEdit9 varchar(30),
 descrip_metaEdit10 varchar(1500),
 estatus_metaEdit10 varchar(30),
 nom_usu varchar(50),
+metL1 varchar(50),
+metL2 varchar(50),
+metL3 varchar(50),
+metL4 varchar(50),
+metL5 varchar(50),
+metL6 varchar(50),
+metL7 varchar(50),
+metL8 varchar(50),
+metL9 varchar(50),
+metL10 varchar(50),
 foreign key (nom_usu) references usuarios(nom_usu) on delete cascade on update cascade
 );
 /*Termina metas académicas*/

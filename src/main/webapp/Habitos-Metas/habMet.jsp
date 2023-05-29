@@ -122,7 +122,21 @@ background: linear-gradient(to right, #4286f4, #373B44); /* W3C, IE 10+/ Edge, F
   color: #3E5F8A;
   letter-spacing: .1em;
   text-decoration: none;
-  font-weight: 700;
+  font-weight: 900;
+  font-size: 25px;
+}
+
+.uno{
+    background: url(../imagenes/cuestfon.png);
+    background-size: cover;
+}
+.dos{
+    background: url(../imagenes/sugerfon.png);
+        background-size: cover;
+}
+.tres{
+    background: url(../imagenes/goalsfon.png);
+        background-size: cover;
 }
 
 .card a:hover p {
@@ -151,7 +165,8 @@ background: linear-gradient(to right, #4286f4, #373B44); /* W3C, IE 10+/ Edge, F
         
         <header>
             <nav>
-                <a href="habMet.jsp">Inicio</a>
+                <a href="index.jsp">Inicio</a>
+                <a href="habMet.jsp">Menú</a>
                 <a href="cuestHab.jsp">Cuestionario</a>
                 <a href="metasSHabMet.jsp">Metas Sugeridas</a>
                 <a href="misMetasPHabMet.jsp">Mis Metas</a>
@@ -166,7 +181,7 @@ background: linear-gradient(to right, #4286f4, #373B44); /* W3C, IE 10+/ Edge, F
             <section class="contenedorop">
                 <center>
                     <div class="card">
-                        <a class="uno" href="cuestHabMet.jsp">
+                        <a class="uno" href="cuestHab.jsp">
                             <p>Cuestionario</p>
                         </a>
                         <a class="dos" href="metasSHabMet.jsp">
