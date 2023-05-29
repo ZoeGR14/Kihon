@@ -11,6 +11,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -52,22 +53,38 @@ public class Test_Vocacional extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        List<TestVocacional> lista = tvDAO.listar("pedrito");
-        List<String> areas = tvDAO.areaResultado("pedrito");
-        
-        List<List<String>> carreras = new ArrayList<>();
-        for (int i = 0; i < areas.size(); i++) {
-            carreras.add(tvDAO.obtenerCarreras(areas.get(i)));
+        HttpSession sesion = request.getSession();
+        String alumno = "";
+        if(sesion.getAttribute("alumno") != null){
+            alumno = sesion.getAttribute("alumno").toString();
         }
+        String ver = request.getParameter("ver");
         
-        //Se mandan los resultados del usuario
-        request.setAttribute("areas", lista);
-        
-        //Se mandan las areas con mayor puntaje
-        
-        request.setAttribute("areaMayor", areas );
-        request.setAttribute("carreras", carreras);
-        request.getRequestDispatcher("Test-Vocacional/resultadosTV.jsp").forward(request, response);
+        switch(ver){
+            case "resultados":
+                List<TestVocacional> lista = tvDAO.listar(alumno);
+                List<String> areas = tvDAO.areaResultado(alumno);
+
+                List<List<String>> carreras = new ArrayList<>();
+                for (int i = 0; i < areas.size(); i++) {
+                    carreras.add(tvDAO.obtenerCarreras(areas.get(i)));
+                }
+
+                //Se mandan los resultados del usuario
+                request.setAttribute("areas", lista);
+
+                //Se mandan las areas con mayor puntaje
+
+                request.setAttribute("areaMayor", areas );
+                request.setAttribute("carreras", carreras);
+                request.getRequestDispatcher("Test-Vocacional/resultadosTV.jsp").forward(request, response);
+                break;
+            case "historial":
+                List<TestVocacional> histo = tvDAO.historial(alumno);
+                request.setAttribute("historial", histo);
+                request.getRequestDispatcher("Test-Vocacional/historial.jsp").forward(request, response);
+                break;
+        }
     }
 
     /**
@@ -81,11 +98,17 @@ public class Test_Vocacional extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        System.out.println("Corriendo Post");
+        
         String accion = request.getParameter("accion");
         float resultados[] = new float[4];
         String [] p = new String[6];
-        tv.setAlumno("pedrito");
+        HttpSession sesion = request.getSession();
+        String alumno = "";
+        if(sesion.getAttribute("alumno") != null){
+            alumno = sesion.getAttribute("alumno").toString();
+        }
+        
+        tv.setAlumno(alumno);
         switch(accion){
             case "01":
                 for (int i = 0; i < p.length; i++) {

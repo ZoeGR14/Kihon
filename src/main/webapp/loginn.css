@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
 body{
-    font-family: 'Poppins', sans-serif;
     background-color: #001c27;
+}
+*{
+    font-family: 'Poppins', sans-serif;
 }
 .login-card-container{
     display: flex; 
@@ -93,6 +95,7 @@ body{
 }
 
 .login-card input[type="text"],
+.login-card input[type="email"],
 .login-card input[type="password"]{
     display: inline;
     border: none;
@@ -106,7 +109,6 @@ body{
 }
 
 .login-card input[type="tel"],
-.login-card input[type="email"],
 .login-card input[type="date"],
 .login-card input[type="time"]{
     display: inline;

@@ -37,6 +37,31 @@ public class TestVocacionalDAO {
         return lista;
     }
     
+    public List historial(String usuario){
+        List<TestVocacional> lista = new ArrayList<>();
+        String sql = "select * from test_voc where usuario = '"+usuario+"'";
+        try {
+            con = cn.getConnection();
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                TestVocacional tv = new TestVocacional();
+                tv.setICFM(rs.getFloat(2));
+                tv.setCSA(rs.getFloat(3));
+                tv.setCMB(rs.getFloat(4));
+                tv.setHA(rs.getFloat(5));
+                tv.setAlumno(rs.getString(6));
+                lista.add(tv);
+            }
+            rs.close();
+            ps.close();
+            con.close();
+        } catch (Exception e) {
+            System.out.println("Error listar areas");
+        }
+        return lista;
+    }
+    
     public void agregar(TestVocacional tv){
         String sql = "insert into test_voc (ICFM, CSA, CMB, HA, usuario) values (?, ?, ?, ?, ?)";
         try {

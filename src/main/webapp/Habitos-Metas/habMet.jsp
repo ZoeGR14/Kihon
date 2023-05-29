@@ -143,8 +143,8 @@ background: linear-gradient(to right, #4286f4, #373B44); /* W3C, IE 10+/ Edge, F
             String usuario;
             String tipo;
 
-            if (sesion.getAttribute("user") != null && sesion.getAttribute("tipo_usuario") != null) {
-                usuario = sesion.getAttribute("user").toString();
+            if (sesion.getAttribute("alumno") != null && sesion.getAttribute("tipo_usuario") != null) {
+                usuario = sesion.getAttribute("alumno").toString();
                 tipo = sesion.getAttribute("tipo_usuario").toString();
 
         %>
@@ -152,7 +152,7 @@ background: linear-gradient(to right, #4286f4, #373B44); /* W3C, IE 10+/ Edge, F
         <header>
             <nav>
                 <a href="habMet.jsp">Inicio</a>
-                <a href="cuestHabMet.jsp">Cuestionario</a>
+                <a href="cuestHab.jsp">Cuestionario</a>
                 <a href="metasSHabMet.jsp">Metas Sugeridas</a>
                 <a href="misMetasPHabMet.jsp">Mis Metas</a>
                 <a href="cierreSesion.jsp">Cerrar Sesión</a>
