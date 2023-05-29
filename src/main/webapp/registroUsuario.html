@@ -28,7 +28,7 @@
                     <div class="form-item">
                         <span class="form-item-icon material">
                         </span>
-                        <input type="email" name="correo" placeholder="Correo Electrónico" required>
+                        <input type="email"  id="email" name="correo" placeholder="Correo Electrónico @alumno.ipn.mx" required>
                     </div>
                     <div class="form-item">
                         <span class="form-item-icon material">
@@ -48,19 +48,32 @@
     </body>
     <script>
         let form = document.getElementById("form");
-        
-        form.addEventListener("submit", function(e){
+
+        form.addEventListener("submit", function (e) {
             e.preventDefault();
             let pass1 = document.getElementById("pass1").value;
             let pass2 = document.getElementById("pass").value;
+            var email = document.getElementById("email").value;
+            var dominioPredeterminado = "alumno.ipn.mx"; // Dominio predeterminado que deseas validar
+            let paso = 0;
             
-            if(pass1 === pass2){
+            if (pass1 === pass2) {
+                paso++;
+            } else {
+                Swal.fire({icon: 'warning', title: 'Las contraseñas deben coincidir', text: 'Inténtelo de nuevo'});
+            }
+
+            if (email.endsWith("@" + dominioPredeterminado)) {
+                paso++;
+            } else {
+                Swal.fire({icon: 'warning', title: 'Correo con dominio incorrecto', text: 'Ingrese su correo institucional con @alumno.ipn.mx'});
+            }
+            
+            console.log(paso);
+            if(paso === 2){
                 form.submit();
-            } else{
-                Swal.fire({icon: 'warning',title: 'Las contraseñas deben coincidir',text: 'Inténtelo de nuevo'});
             }
         });
-        
-        
+
     </script>
 </html>
