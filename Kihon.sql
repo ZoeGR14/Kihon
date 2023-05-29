@@ -16,6 +16,7 @@ use Kihon;
 create table usuarios(
 nom_usu varchar(50) primary key not null,
 pass_usu varchar(50),
+email_usu varchar(100),
 tipo_usu int
 );
 

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Registro de Alumno</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="loginn.css">
+        <script src="sweetalert2.all.min.js"></script>
+    </head>
+    <body>
+        <br>
+        <div class="login-card-container">
+            <div class="login-card">
+                <div class="login-card-logo">
+                    <img src="imagenes/KihonPNG.png" alt="logo">
+                </div>
+                <div class="login-card-header">
+                    <h1>Registro de Usuario</h1>
+                    <div>Por favor, ingresa tus datos para crear una nueva cuenta</div>
+                </div>
+                <br>
+                <form class="login-card-form" action="registro.jsp" id="form" method="post" name="registro">
+                    <div class="form-item">
+                        <span class="form-item-icon material">
+                        </span>
+                        <input type="text" name="usuario" placeholder="Nombre de usuario" required>
+                    </div>
+                    <div class="form-item">
+                        <span class="form-item-icon material">
+                        </span>
+                        <input type="email" name="correo" placeholder="Correo Electrónico" required>
+                    </div>
+                    <div class="form-item">
+                        <span class="form-item-icon material">
+                        </span>
+                        <input type="password" name="pass-antes" id="pass1" placeholder="Contraseña" required>
+                    </div>
+                    <div class="form-item">
+                        <span class="form-item-icon material">
+                        </span>
+                        <input type="password" name="password" id="pass" placeholder="Confirme contraseña" required>
+                    </div>
+                    <br>
+                    <button type="submit" name="ingreso">Acceder</button>
+                </form>
+            </div>
+        </div>
+    </body>
+    <script>
+        let form = document.getElementById("form");
+        
+        form.addEventListener("submit", function(e){
+            e.preventDefault();
+            let pass1 = document.getElementById("pass1").value;
+            let pass2 = document.getElementById("pass").value;
+            
+            if(pass1 === pass2){
+                form.submit();
+            } else{
+                Swal.fire({icon: 'warning',title: 'Las contraseñas deben coincidir',text: 'Inténtelo de nuevo'});
+            }
+        });
+        
+        
+    </script>
+</html>

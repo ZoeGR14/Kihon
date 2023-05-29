@@ -9,7 +9,7 @@
         <script src="sweetalert2.all.min.js"></script>
         <style>
             body{
-                background_color: #001c27;
+                background-color: #001c27;
             }
         </style>
     </head>
