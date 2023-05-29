@@ -1,10 +1,7 @@
 package Modelo;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.ArrayList;
-import java.util.List;
+import java.sql.*;
+import java.util.*;
 
 /**
  *
@@ -19,15 +16,16 @@ public class PersonalidadDAO {
 
     public List listar(String alumno) {
         List<Personalidad> listaP = new ArrayList<>();
-        String sql = "SELECT * FROM carrera_mbti INNER JOIN personalidad_usu ON personalidad_usu.mbti = carrera_mbti.mbti WHERE personalidad_usu.usuario =" + alumno;
+        String sql = "SELECT * FROM carrera_mbti INNER JOIN personalidad_usu ON personalidad_usu.mbti = carrera_mbti.mbti WHERE personalidad_usu.usuario = '"+alumno+"'";
         try {
             con = cn.getConnection();
             ps = con.prepareStatement(sql);
             rs = ps.executeQuery();
             while (rs.next()) {
                 Personalidad mbti = new Personalidad();
-                mbti.setMbti(rs.getString("mbti"));
-                mbti.setUsuario(rs.getString("alumno"));
+                mbti.setMbti(rs.getString(2));
+                mbti.setUsuario(rs.getString("usuario"));
+                mbti.setCarrera(rs.getString("id_carrera"));
                 listaP.add(mbti);
             }
             rs.close();
@@ -35,6 +33,7 @@ public class PersonalidadDAO {
             con.close();
         } catch (Exception e) {
             System.out.println("Error al listar, wEy >:C");
+            e.printStackTrace();
         }
         return listaP;
     }

@@ -8,8 +8,12 @@
         <title>JSP Page</title>
         <script src="sweetalert2.all.min.js"></script>
         <style>
+            @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;1,400&display=swap');
+            *{
+             font-family: 'Poppins', sans-serif;   
+            }
             body{
-                background_color: #001c27;
+                background-color: #001c27;
             }
         </style>
     </head>
@@ -89,13 +93,13 @@
                             //response.sendRedirect("editor.jsp");
                         } else if (tipotra.equals("0")) {
                             System.out.println(usu);
-                            sesion.setAttribute("editor", usu);
+                            sesion.setAttribute("alumno", usu);
                             out.println("<script>Swal.fire('Bienvenido','¡Gracias por elegir Kihon!','success')</script>");
                             out.println("<script>function saludos(){location.href ='inicio.jsp';}</script>");
                             out.println("<script>setTimeout(saludos, 1500);</script>");
                         }
 
-                    } else {
+                    } else { 
                         out.println("<script>Swal.fire({icon: 'error',title: 'Contraseña incorrecta',text: 'Inténtelo de nuevo'});</script>");
                         out.println("<script>function saludos(){location.href ='inicioSesion.html';}</script>");
                         out.println("<script>setTimeout(saludos, 1500);</script>");

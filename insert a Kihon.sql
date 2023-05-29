@@ -28,6 +28,7 @@ insert into usuarios values		('asistenteN','asistenteN','1'),
                                 ('Williams', 'willicita','0'),
                                 ('pedrito', 'pedritoto','0');
 /* INFORMACION GENERAL */
+
 insert into tipos_perso values
 
 
@@ -713,7 +714,9 @@ insert into carreras_info values
 '4','2','Escuela Nacional de Lenguas, Lingüística y Traducción',
 'La traducción ha jugado siempre un papel determinante en la comunicación entre los seres humanos y ha permitido al mundo el acceso a importantes textos de muy distintas latitudes, escritos en otras lenguas y otros contextos culturales. Sin ella, el progreso de las sociedades no sería el que conocemos actualmente. En esta carrera se forma, integral y multidisciplinariamente, el profesional capaz de responder a la demanda social de traducciones de alta calidad en diversos ámbitos del conocimiento, quien adquirirá los conocimientos teóricos, metodológicos y prácticos, así como las habilidades y actitudes necesarias para: traducir textos (técnico-científicos, jurídicos, literarios, audiovisuales, o vinculados con las relaciones internacionales) cada vez más complejos en cuanto a estructura y contenidos, resolver de forma autónoma los diferentes problemas de traducción presentes en los textos con los que trabaje e insertarse laboralmente de inmediato en muy variados medios profesionales.',
 'http://oferta.unam.mx/traduccion.html'
-);
+)
+;
+							
 /* CARRERAS */
 /* Humanidades y Artes */
 insert into carreras values	("Diseño Grafico", true, false, "HA"),

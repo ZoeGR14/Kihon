@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="icon" href="imagenes/logo_nimo.ico">
+    <title>EMN Corp.</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <!-- site metas -->
+    <title>HomeCare</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="css/responsive.css">
+    <!-- fevicon -->
+    <link rel="icon" href="images/fevicon.png" type="image/gif" />
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
+    <!-- Tweaks for older IEs-->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <!-- owl stylesheets -->
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css"
+        media="screen">
+
+    <style>
+        body {
+            background-color: #f8f3ff;
+        }
+
+        section {
+            font-family: Century Gothic;
+            text-align: center;
+            margin-top: 1px;
+            width: 100%;
+            margin-right: 1px;
+        }
+
+        #descrip {
+            left: 0;
+            height: 550px;
+            width: 100%;
+            background-color: #f8f3ff;
+            /*background-image: url(imagenes/logofondo.png);
+                background-repeat: no-repeat;
+                background-size: auto;*/
+        }
+
+        #nosotros {
+            left: 0;
+            height: 550px;
+            width: 100%;
+            top: 1000px;
+            background-color: #f8f3ff;
+            /*background-image: url(imagenes/logofondo.png);
+                background-repeat: no-repeat;
+                background-size: auto;*/
+        }
+
+        #prod {
+            left: 0;
+            height: 550px;
+            width: 100%;
+            top: 200px;
+            background-color: #f8f3ff;
+            /*background-image: url(imagenes/logofondo.png);
+                background-repeat: no-repeat;
+                background-size: auto;*/
+        }
+
+        .textosss img {
+            opacity: 0;
+        }
+
+        h1 {
+            /*font-size: 25px;*/
+            color: #4b277a;
+            opacity: 0;
+        }
+
+        h2 {
+            font-size: 22px;
+            opacity: 0;
+        }
+
+        h3 {
+            opacity: 0;
+        }
+
+        p,
+        h4 {
+            opacity: 0;
+        }
+
+        h5 {
+            opacity: 0;
+            color: #4b277a;
+        }
+
+        .textosss ul li {
+            font-size: 19px;
+            opacity: 0;
+        }
+
+        .textosss img,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        ul li,
+        p {
+            transition: .9s ease all;
+        }
+
+        .textosss img {
+            animation: entradaTitulo .9s ease .5s forwards;
+        }
+
+        .textosss h1 {
+            animation: entradaTitulo .9s ease .5s forwards;
+        }
+
+        .textosss h2 {
+            animation: entradaSubtitulo .9s ease .5s forwards;
+        }
+
+        .textosss h3 {
+            animation: entradaInputs 2s linear 1s forwards;
+        }
+
+        .textosss h4 {
+            animation: entradaInputs 2s linear 1s forwards;
+        }
+
+        .textosss h5 {
+            animation: entradaInputs 2s linear 1s forwards;
+        }
+
+        .textosss ul li {
+            animation: entradaInputs 2s linear 1s forwards;
+        }
+
+        .textosss p {
+            animation: entradaInputs 2s linear 1s forwards;
+        }
+
+
+        @keyframes entradaTitulo {
+            from {
+                opacity: 0;
+                transform: translateY(-25px);
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes entradaSubtitulo {
+            from {
+                opacity: 0;
+                transform: translateX(25px);
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes entradaInputs {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .visible {
+            float: left;
+            font-weight: 600;
+            overflow: hidden;
+            height: 40px;
+        }
+
+        .reason p {
+            display: inline;
+            float: left;
+            font-size: 25px;
+            font-weight: 600;
+            text-align: center;
+
+        }
+
+        .visible ul {
+
+            padding-left: 110px;
+            text-align: center;
+            list-style: none;
+            animation: 6s linear 0s normal none infinite change;
+            -webkit-animation: 6s linear 0s normal none infinite change;
+            -moz-animation: 6s linear 0s normal none infinite change;
+            -o-animation: 6s linear 0s normal none infinite change;
+        }
+
+        .visible ul li {
+            line-height: 40px;
+            font-size: 25px;
+
+        }
+
+        @-webkit-keyframes opacity {
+            0% {
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0;
+            }
+        }
+
+        @keyframes opacity {
+            0% {
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0;
+            }
+        }
+        .contenedorsote{
+            padding: 50px;
+            border-radius: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- header section start -->
+    <div class="header_section">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="logo"><a href="index.html"><img src="images/logo.png"></a></div>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="health.html">Carreras</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="medicine.html">Personalidad</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="client.html">Iniciar sesión</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="client.html">Regístrate</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contáctanos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><img src="images/search-icon.png"></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <!-- header section end -->
+        <div class="contenedorsote">
+
+            <section id="descrip" class="textosss">
+                <br><br><br>
+                <img src="images/logo_emn_black.png" alt="" style="height: 200px;">
+
+                <br><br>
+
+                <h2>En pro de la tecnología</h2>
+
+                <h3>Por:</h3>
+                <ul>
+                    <li>Contreras Delgadillo Lizeth</li>
+                    <li>González Rodríguez Zoe</li>
+                    <li>López Villa Mariana</li>
+                    <li>Quintanar Bravo Jacqueline Williams</li>
+                </ul>
+
+            </section>
+            <section id="nosotros" class="textosss">
+                <h1>¿Quiénes somos?</h1>
+                <br>
+                <h4>EMN Corp. es una empresa que busca siempre trabajar con la tecnología necesaria para resolver los
+                    problemas que se aparezcan en la realización de un proyecto.</h4>
+                <h4>Estamos con la tecnología y trabajamos con ella.</h4>
+                <br><br>
+                <h2>Misión:</h2><br>
+                <p>EMN Corp. es una empresa que busca y consigue innovación al desarrollar software de calidad para
+                    todos, además de que cuenta con una perspectiva a favor de la optimización de los servicios y
+                    programas que ofrece. </p>
+                <br><br>
+                <h2>Visión:</h2><br>
+                <p>
+                    EMN Corp. Busca conseguir ser una empresa líder en el mercado, con grandes capacidades totalmente
+                    explotadas y con un desarrollo completo, pero sin dejar de expandir sus horizontes para mejorar;
+                    brindando su apoyo y servicios a la comunidad con el fin de ser de gran utilidad para ésta.
+                    EMN Corp. siempre tendrá en mente el promover los valores con los que ha sido fundada, así como la
+                    sana convivencia y competencia entre sus trabajadores.
+
+                </p>
+            </section>
+
+            <section id="prod" class="textosss">
+                <h1>Acerca de nuestros servicios</h1>
+                <br>
+                <h2>KIHON</h2>
+                <br><br>
+                <h4>Objetivo:</h4><br>
+                <p>
+                    El objetivo del proyecto es desarrollar una aplicación que proporcione a los alumnos inscritos en el IPN recomendaciones de carreras profesionales, basadas en pruebas vocacionales y de personalidad, y permita la consulta de información por área de la escuela y la definición de metas para lograr objetivos profesionales.
+                    <b>NIMO</b>
+
+                </p>
+                <br><br>
+                <h4>Fucionamiento:</h4><br>
+                <p>
+                    El prototipo será una herramienta valiosa para ayudar a los estudiantes a explorar sus opciones de carrera y tomar decisiones informadas sobre su futuro profesional. Además, al limitarlo a los alumnos inscritos en el IPN, se podrá personalizar aún más la información y hacerla relevante para su situación específica.
+                </p>
+            </section>
+        </div>
+</body>
+
+</html>

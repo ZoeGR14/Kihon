@@ -16,6 +16,7 @@ use Kihon;
 create table usuarios(
 nom_usu varchar(50) primary key not null,
 pass_usu varchar(50),
+email_usu varchar(100),
 tipo_usu int
 );
 
@@ -122,7 +123,7 @@ create table carreras_info(
 id_carrera_info int primary key auto_increment not null,
 nombre_car varchar (100),
 area_car int,
-institucion_car int (100),
+institucion_car varchar (100),
 escuela_car varchar (100),
 objetivo_car varchar (2000), /*o descripción en la UNAM*/
 link_car varchar (500)
@@ -237,7 +238,7 @@ select * from carreras;
 select * from carreras_info;
 select * from carrera_mbti;
 select * from personalidad_usu;
+
 select * from test_voc;
 
-SELECT * FROM carrera_mbti INNER JOIN personalidad_usu ON personalidad_usu.mbti = carrera_mbti.mbti WHERE personalidad_usu.usuario = "pedrito";
-insert into personalidad_usu values("pedrito", "ISTJ");
+SELECT * FROM carrera_mbti INNER JOIN personalidad_usu ON personalidad_usu.mbti = carrera_mbti.mbti WHERE personalidad_usu.usuario = "ola";

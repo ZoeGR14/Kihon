@@ -20,6 +20,10 @@
         <servlet-name>GuardarPersonalidadServlet</servlet-name>
         <servlet-class>Controlador.GuardarPersonalidadServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ControlerMBTI</servlet-name>
+        <servlet-class>Controlador.ControlerMBTI</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ControlerJ</servlet-name>
         <url-pattern>/ControlerJ</url-pattern>
@@ -39,6 +43,10 @@
     <servlet-mapping>
         <servlet-name>GuardarPersonalidadServlet</servlet-name>
         <url-pattern>/GuardarPersonalidadServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControlerMBTI</servlet-name>
+        <url-pattern>/ControlerMBTI</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
