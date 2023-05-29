@@ -270,7 +270,7 @@ public class Test_Vocacional extends HttpServlet {
                 tv.todoPorcentajes();
                 
                 tvDAO.agregar(tv);
-                response.sendRedirect("Test_Vocacional");
+                response.sendRedirect("Test_Vocacional?ver=resultados");
                 break;
         }
         

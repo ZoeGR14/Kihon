@@ -2,968 +2,974 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-    <title>Test de Personalidad MBTI</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="sweetalert2.all.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <style>
-        .botoncitoG{
-            display: none;
-        }
-        .botoncitoR{
-            display: none;
-        }
-        body{
-            zoom:0.5;
-        }
-    </style>
-</head>
+    <head>
+        <title>Test de Personalidad MBTI</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="sweetalert2.all.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <style>
+            .botoncitoG{
+                display: none;
+            }
+            .botoncitoR{
+                display: none;
+            }
+        </style>
+    </head>
 
-<body>
-    <header class="header">
-        <h1>Test de Personalidad MBTI</h1>
-        <div class="progress-bar">
-            <div id="progress-bar"></div>
-        </div>
-        <form>
-            <input type="text" name="resultado" id="result" value="">    
-        <!--<p id="result"></p>-->
-        
-        <input type="hidden" name="" id="">
-        <button class="botoncitoG" value="Guardar">Guardar</button>
-        
-        </form>
-        <!---->
-        <input type="hidden" name="" id="">
-        <button class="botoncitoR" value="Reintentar">Reintentar</button>
-    </header><br><br>
-    <br>
-    <section class="ventanita">
+    <body>
+        <header class="header">
+            <h1>Test de Personalidad MBTI</h1>
+            <div class="progress-bar">
+                <div id="progress-bar"></div>
+            </div>
+            <form>
+                <p id="result" name="resultado"></p>
 
-        <form id="form-perso">
-            <!--E / I-->
-            <div class="question">
-                <h2>1. ¿Prefieres pasar tiempo solo o con otras personas?</h2>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q1" value="I" onclick="updateProgressBar()"> Prefiero pasar tiempo
-                        solo
-                        <span class="radio"></span>
-                    </label></div>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q1" value="E" onclick="updateProgressBar()"> Prefiero pasar tiempo con
-                        otras personas
-                        <span class="radio"></span>
-                    </label></div>
-            </div>
+                <input type="hidden" name="" id="">
+                <button class="botoncitoG" value="Guardar">Guardar</button>
 
-            <!--S / N-->
-            <div class="question">
-                <h2>2. ¿Cómo prefieres recibir información?</h2>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q2" value="S" onclick="updateProgressBar()"> A través de los sentidos
-                        y la
-                        experiencia concreta
-                        <span class="radio"></span>
-                    </label></div>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q2" value="N" onclick="updateProgressBar()"> A través de la intuición
-                        y
-                        las ideas abstractas
-                        <span class="radio"></span>
-                    </label></div>
-            </div>
+            </form>
+            <!---->
+            <input type="hidden" name="" id="">
+            <button class="botoncitoR" value="Reintentar">Reintentar</button>
+        </header><br><br>
+        <br>
+        <section class="ventanita">
 
-            <!--F / T-->
-            <div class="question">
-                <h2>3. ¿Prefieres tomar decisiones basadas en?</h2>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q3" value="T" onclick="updateProgressBar()"> La lógica y el análisis
-                        <span class="radio"></span>
-                    </label></div>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q3" value="F" onclick="updateProgressBar()"> Los valores y las
-                        emociones
-                        <span class="radio"></span>
-                    </label></div>
-            </div>
+            <form id="form-perso" action="/Kihon/ControlerMBTI" method="post">
 
-            <!--J / P-->
-            <div class="question">
-                <h2>4. ¿Prefieres tener una vida estructurada y organizada o una vida flexible y espontánea?</h2>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q4" value="J" onclick="updateProgressBar()"> Una vida estructurada y
-                        organizada
-                        <span class="radio"></span>
-                    </label></div>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q4" value="P" onclick="updateProgressBar()"> Una vida flexible y
-                        espontánea
-                        <span class="radio"></span>
-                    </label></div>
-            </div>
+                <!--E / I-->
+                <div class="question">
+                    <h2>1. ¿Prefieres pasar tiempo solo o con otras personas?</h2>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q1" value="I" onclick="updateProgressBar()"> Prefiero pasar tiempo
+                            solo
+                            <span class="radio"></span>
+                        </label></div>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q1" value="E" onclick="updateProgressBar()"> Prefiero pasar tiempo con
+                            otras personas
+                            <span class="radio"></span>
+                        </label></div>
+                </div>
 
-            <!--E / I-->
-            <div class="question">
-                <h2>5. ¿Te sientes más cómodo/a tomando decisiones rápidas o pensando cuidadosamente en ellas?</h2>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q5" value="E" onclick="updateProgressBar()"> Tomando decisiones
-                        rápidas
-                        <span class="radio"></span>
-                    </label></div>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q5" value="I" onclick="updateProgressBar()"> Pensando cuidadosamente
-                        en
-                        ellas
-                        <span class="radio"></span>
-                    </label></div>
-            </div>
+                <!--S / N-->
+                <div class="question">
+                    <h2>2. ¿Cómo prefieres recibir información?</h2>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q2" value="S" onclick="updateProgressBar()"> A través de los sentidos
+                            y la
+                            experiencia concreta
+                            <span class="radio"></span>
+                        </label></div>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q2" value="N" onclick="updateProgressBar()"> A través de la intuición
+                            y
+                            las ideas abstractas
+                            <span class="radio"></span>
+                        </label></div>
+                </div>
 
-            <!--S / N-->
-            <div class="question">
-                <h2>6. ¿A qué dedicas más tu tiempo?</h2>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q6" value="S" onclick="updateProgressBar()"> Exploro temas aleatorios
-                        de
-                        mi interés.
-                        <span class="radio"></span>
-                    </label></div>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q6" value="N" onclick="updateProgressBar()"> Sigo una rutina sin
-                        experiencias nuevas.
-                        <span class="radio"></span>
-                    </label></div>
-            </div>
+                <!--F / T-->
+                <div class="question">
+                    <h2>3. ¿Prefieres tomar decisiones basadas en?</h2>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q3" value="T" onclick="updateProgressBar()"> La lógica y el análisis
+                            <span class="radio"></span>
+                        </label></div>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q3" value="F" onclick="updateProgressBar()"> Los valores y las
+                            emociones
+                            <span class="radio"></span>
+                        </label></div>
+                </div>
 
-            <!--F / T-->
-            <div class="question">
-                <h2>7. Cuando alguien llora...</h2>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q7" value="F" onclick="updateProgressBar()"> Comienzo a llorar.
-                        <span class="radio"></span>
-                    </label></div>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q7" value="T" onclick="updateProgressBar()"> No genera cambios en mi
-                        estado de humor.
-                        <span class="radio"></span>
-                    </label></div>
-            </div>
+                <!--J / P-->
+                <div class="question">
+                    <h2>4. ¿Prefieres tener una vida estructurada y organizada o una vida flexible y espontánea?</h2>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q4" value="J" onclick="updateProgressBar()"> Una vida estructurada y
+                            organizada
+                            <span class="radio"></span>
+                        </label></div>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q4" value="P" onclick="updateProgressBar()"> Una vida flexible y
+                            espontánea
+                            <span class="radio"></span>
+                        </label></div>
+                </div>
 
-            <!--J / P-->
-            <div class="question">
-                <h2>8. Ante situaciones de presión...</h2>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q8" value="J" onclick="updateProgressBar()"> Mantengo la calma.
-                        <span class="radio"></span>
-                    </label></div>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q8" value="P" onclick="updateProgressBar()"> Pierdo la calma.
-                        <span class="radio"></span>
-                    </label></div>
-            </div>
+                <!--E / I-->
+                <div class="question">
+                    <h2>5. ¿Te sientes más cómodo/a tomando decisiones rápidas o pensando cuidadosamente en ellas?</h2>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q5" value="E" onclick="updateProgressBar()"> Tomando decisiones
+                            rápidas
+                            <span class="radio"></span>
+                        </label></div>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q5" value="I" onclick="updateProgressBar()"> Pensando cuidadosamente
+                            en
+                            ellas
+                            <span class="radio"></span>
+                        </label></div>
+                </div>
 
-            <!--F / T-->
-            <div class="question">
-                <h2>9. ¿Cómo te consideras?</h2>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q9" value="F" onclick="updateProgressBar()"> Persona sentimental.
-                        <span class="radio"></span>
-                    </label></div>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q9" value="T" onclick="updateProgressBar()"> Nada sentimental.
-                        <span class="radio"></span>
-                    </label></div>
-            </div>
+                <!--S / N-->
+                <div class="question">
+                    <h2>6. ¿A qué dedicas más tu tiempo?</h2>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q6" value="S" onclick="updateProgressBar()"> Exploro temas aleatorios
+                            de
+                            mi interés.
+                            <span class="radio"></span>
+                        </label></div>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q6" value="N" onclick="updateProgressBar()"> Sigo una rutina sin
+                            experiencias nuevas.
+                            <span class="radio"></span>
+                        </label></div>
+                </div>
 
-            <!--J / P-->
-            <div class="question">
-                <h2>10. ¿Qué prefieres?</h2>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q10" value="J" onclick="updateProgressBar()"> Terminar un proyecto.
-                        <span class="radio"></span>
-                    </label></div>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q10" value="P" onclick="updateProgressBar()"> Empezar uno nuevo.
-                        <span class="radio"></span>
-                    </label></div>
-            </div>
+                <!--F / T-->
+                <div class="question">
+                    <h2>7. Cuando alguien llora...</h2>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q7" value="F" onclick="updateProgressBar()"> Comienzo a llorar.
+                            <span class="radio"></span>
+                        </label></div>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q7" value="T" onclick="updateProgressBar()"> No genera cambios en mi
+                            estado de humor.
+                            <span class="radio"></span>
+                        </label></div>
+                </div>
 
-            <!--J / P-->
-            <div class="question">
-                <h2>11. Utilizas herramientas de organizacion como agendas y listas</h2>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q11" value="J" onclick="updateProgressBar()"> Sí.
-                        <span class="radio"></span>
-                    </label></div>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q11" value="P" onclick="updateProgressBar()"> No.
-                        <span class="radio"></span>
-                    </label></div>
-            </div>
-            <!--F / T-->
+                <!--J / P-->
+                <div class="question">
+                    <h2>8. Ante situaciones de presión...</h2>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q8" value="J" onclick="updateProgressBar()"> Mantengo la calma.
+                            <span class="radio"></span>
+                        </label></div>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q8" value="P" onclick="updateProgressBar()"> Pierdo la calma.
+                            <span class="radio"></span>
+                        </label></div>
+                </div>
 
-            <div class="question">
-                <h2>12. Cuando cometes un error, ¿sueles dudar de tus capacidades?</h2>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q12" value="F" onclick="updateProgressBar()"> Sí.
-                        <span class="radio"></span>
-                    </label></div>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q12" value="T" onclick="updateProgressBar()"> No.
-                        <span class="radio"></span>
-                    </label></div>
-            </div>
+                <!--F / T-->
+                <div class="question">
+                    <h2>9. ¿Cómo te consideras?</h2>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q9" value="F" onclick="updateProgressBar()"> Persona sentimental.
+                            <span class="radio"></span>
+                        </label></div>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q9" value="T" onclick="updateProgressBar()"> Nada sentimental.
+                            <span class="radio"></span>
+                        </label></div>
+                </div>
 
-            <!--E / I-->
-            <div class="question">
-                <h2>13. Cuando alguien que te parece interesante...</h2>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q13" value="E" onclick="updateProgressBar()"> Suelo entablar una
-                        conversación con facilidad.
-                        <span class="radio"></span>
-                    </label></div>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q13" value="I" onclick="updateProgressBar()"> Me cuesta poder
-                        acercarme a
-                        conversar.
-                        <span class="radio"></span>
-                    </label></div>
-            </div>
+                <!--J / P-->
+                <div class="question">
+                    <h2>10. ¿Qué prefieres?</h2>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q10" value="J" onclick="updateProgressBar()"> Terminar un proyecto.
+                            <span class="radio"></span>
+                        </label></div>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q10" value="P" onclick="updateProgressBar()"> Empezar uno nuevo.
+                            <span class="radio"></span>
+                        </label></div>
+                </div>
 
-            <!--F / T-->
-            <div class="question">
-                <h2>14. Cuando ves una obra creativa, tú...</h2>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q14" value="F" onclick="updateProgressBar()"> Suelo discutir las
-                        diversas
-                        interpretaciones y hago análisis.
-                        <span class="radio"></span>
-                    </label></div>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q14" value="T" onclick="updateProgressBar()"> No me genera interés
-                        discutir de ello.
-                        <span class="radio"></span>
-                    </label></div>
-            </div>
+                <!--J / P-->
+                <div class="question">
+                    <h2>11. Utilizas herramientas de organizacion como agendas y listas</h2>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q11" value="J" onclick="updateProgressBar()"> Sí.
+                            <span class="radio"></span>
+                        </label></div>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q11" value="P" onclick="updateProgressBar()"> No.
+                            <span class="radio"></span>
+                        </label></div>
+                </div>
+                <!--F / T-->
 
-            <!--S / N-->
-            <div class="question">
-                <h2>15. ¿Eres una persona más práctica o te gusta explorar ideas abstractas? </h2>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q15" value="S" onclick="updateProgressBar()"> Prefiero centrarme en
-                        hechos
-                        concretos y detalles prácticos
-                        <span class="radio"></span>
-                    </label></div>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q15" value="N" onclick="updateProgressBar()"> Disfruto de ideas más
-                        abstractas y teóricas.
-                        <span class="radio"></span>
-                    </label></div>
-            </div>
+                <div class="question">
+                    <h2>12. Cuando cometes un error, ¿sueles dudar de tus capacidades?</h2>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q12" value="F" onclick="updateProgressBar()"> Sí.
+                            <span class="radio"></span>
+                        </label></div>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q12" value="T" onclick="updateProgressBar()"> No.
+                            <span class="radio"></span>
+                        </label></div>
+                </div>
 
-            <!--E / I-->
-            <div class="question">
-                <h2>16. ¿Te cuesta trabajo iniciar conversaciones o te gusta ser el centro de atención? </h2>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q16" value="E" onclick="updateProgressBar()"> Disfruto ser el centro
-                        de
-                        atención en situaciones sociales.
-                        <span class="radio"></span>
-                    </label></div>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q16" value="I" onclick="updateProgressBar()"> Tengo dificultades para
-                        iniciar conversaciones.
-                        <span class="radio"></span>
-                    </label></div>
-            </div>
+                <!--E / I-->
+                <div class="question">
+                    <h2>13. Cuando alguien que te parece interesante...</h2>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q13" value="E" onclick="updateProgressBar()"> Suelo entablar una
+                            conversación con facilidad.
+                            <span class="radio"></span>
+                        </label></div>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q13" value="I" onclick="updateProgressBar()"> Me cuesta poder
+                            acercarme a
+                            conversar.
+                            <span class="radio"></span>
+                        </label></div>
+                </div>
 
-            <!--S / N-->
-            <div class="question">
-                <h2>17. ¿Prefieres centrarte en el presente o en el futuro?</h2>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q17" value="S" onclick="updateProgressBar()"> En el presente y en
-                        hechos
-                        concretos.
-                        <span class="radio"></span>
-                    </label></div>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q17" value="N" onclick="updateProgressBar()"> En el futuro y en
-                        posibilidades.
-                        <span class="radio"></span>
-                    </label></div>
-            </div>
+                <!--F / T-->
+                <div class="question">
+                    <h2>14. Cuando ves una obra creativa, tú...</h2>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q14" value="F" onclick="updateProgressBar()"> Suelo discutir las
+                            diversas
+                            interpretaciones y hago análisis.
+                            <span class="radio"></span>
+                        </label></div>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q14" value="T" onclick="updateProgressBar()"> No me genera interés
+                            discutir de ello.
+                            <span class="radio"></span>
+                        </label></div>
+                </div>
 
-            <!--S / N-->
-            <div class="question">
-                <h2>18. ¿Te enfocas en los detalles o en la imagen general?</h2>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q18" value="S" onclick="updateProgressBar()"> En los detalles y la
-                        información concreta .
-                        <span class="radio"></span>
-                    </label></div>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q18" value="N" onclick="updateProgressBar()"> En la imagen general y
-                        las
-                        posibilidades.
-                        <span class="radio"></span>
-                    </label></div>
-            </div>
+                <!--S / N-->
+                <div class="question">
+                    <h2>15. ¿Eres una persona más práctica o te gusta explorar ideas abstractas? </h2>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q15" value="S" onclick="updateProgressBar()"> Prefiero centrarme en
+                            hechos
+                            concretos y detalles prácticos
+                            <span class="radio"></span>
+                        </label></div>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q15" value="N" onclick="updateProgressBar()"> Disfruto de ideas más
+                            abstractas y teóricas.
+                            <span class="radio"></span>
+                        </label></div>
+                </div>
 
-            <!--F / T-->
-            <div class="question">
-                <h2>19. ¿Te gusta mantener tu espacio personal ordenado o no te importa el desorden?</h2>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q19" value="F" onclick="updateProgressBar()"> Ordenado.
-                        <span class="radio"></span>
-                    </label></div>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q19" value="T" onclick="updateProgressBar()"> Desordenado.
-                        <span class="radio"></span>
-                    </label></div>
-            </div>
+                <!--E / I-->
+                <div class="question">
+                    <h2>16. ¿Te cuesta trabajo iniciar conversaciones o te gusta ser el centro de atención? </h2>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q16" value="E" onclick="updateProgressBar()"> Disfruto ser el centro
+                            de
+                            atención en situaciones sociales.
+                            <span class="radio"></span>
+                        </label></div>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q16" value="I" onclick="updateProgressBar()"> Tengo dificultades para
+                            iniciar conversaciones.
+                            <span class="radio"></span>
+                        </label></div>
+                </div>
 
-            <!--J / P-->
-            <div class="question">
-                <h2>20. ¿Eres más estructurado o más espontáneo en tus decisiones?</h2>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q20" value="J" onclick="updateProgressBar()"> Tiendo a ser más
-                        estructurado y planificado en mis decisiones.
-                        <span class="radio"></span>
-                    </label></div>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q20" value="P" onclick="updateProgressBar()"> Soy más espontáneo y
-                        tomo
-                        decisiones sobre la marcha .
-                        <span class="radio"></span>
-                    </label></div>
-            </div>
+                <!--S / N-->
+                <div class="question">
+                    <h2>17. ¿Prefieres centrarte en el presente o en el futuro?</h2>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q17" value="S" onclick="updateProgressBar()"> En el presente y en
+                            hechos
+                            concretos.
+                            <span class="radio"></span>
+                        </label></div>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q17" value="N" onclick="updateProgressBar()"> En el futuro y en
+                            posibilidades.
+                            <span class="radio"></span>
+                        </label></div>
+                </div>
 
-            <!--E / I-->
-            <div class="question">
-                <h2>21. ¿Te gustaría más estar en una posición de liderazgo o prefieres estar detrás de escena?</h2>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q21" value="E" onclick="updateProgressBar()"> Estar en una posición de
-                        liderazgo y tomar decisiones importantes.
-                        <span class="radio"></span>
-                    </label></div>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q21" value="I" onclick="updateProgressBar()"> Estar detrás de escena y
-                        hacer el trabajo en segundo plano.
-                        <span class="radio"></span>
-                    </label></div>
-            </div>
+                <!--S / N-->
+                <div class="question">
+                    <h2>18. ¿Te enfocas en los detalles o en la imagen general?</h2>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q18" value="S" onclick="updateProgressBar()"> En los detalles y la
+                            información concreta .
+                            <span class="radio"></span>
+                        </label></div>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q18" value="N" onclick="updateProgressBar()"> En la imagen general y
+                            las
+                            posibilidades.
+                            <span class="radio"></span>
+                        </label></div>
+                </div>
 
-            <!--F / T-->
-            <div class="question">
-                <h2>22. ¿Eres más emocional o más lógico en la forma en que abordas los problemas?</h2>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q22" value="F" onclick="updateProgressBar()"> Emocional.
-                        <span class="radio"></span>
-                    </label></div>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q22" value="T" onclick="updateProgressBar()"> Lógico.
-                        <span class="radio"></span>
-                    </label></div>
-            </div>
+                <!--F / T-->
+                <div class="question">
+                    <h2>19. ¿Te gusta mantener tu espacio personal ordenado o no te importa el desorden?</h2>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q19" value="F" onclick="updateProgressBar()"> Ordenado.
+                            <span class="radio"></span>
+                        </label></div>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q19" value="T" onclick="updateProgressBar()"> Desordenado.
+                            <span class="radio"></span>
+                        </label></div>
+                </div>
 
-            <!--J / P-->
-            <div class="question">
-                <h2>23. ¿Te gusta trabajar en proyectos a largo plazo o prefieres trabajar en proyectos a corto plazo
-                    con resultados rápidos?</h2>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q23" value="J" onclick="updateProgressBar()"> En proyectos a largo
-                        plazo
-                        con metas definidas y objetivos claros.
-                        <span class="radio"></span>
-                    </label></div>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q23" value="P" onclick="updateProgressBar()"> En proyectos a corto
-                        plazo
-                        con resultados rápidos y más flexibilidad.
-                        <span class="radio"></span>
-                    </label></div>
-            </div>
+                <!--J / P-->
+                <div class="question">
+                    <h2>20. ¿Eres más estructurado o más espontáneo en tus decisiones?</h2>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q20" value="J" onclick="updateProgressBar()"> Tiendo a ser más
+                            estructurado y planificado en mis decisiones.
+                            <span class="radio"></span>
+                        </label></div>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q20" value="P" onclick="updateProgressBar()"> Soy más espontáneo y
+                            tomo
+                            decisiones sobre la marcha .
+                            <span class="radio"></span>
+                        </label></div>
+                </div>
 
-            <!--F / T-->
-            <div class="question">
-                <h2>24. ¿Eres más analítico o más creativo en la forma en que abordas los problemas?</h2>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q24" value="T" onclick="updateProgressBar()"> Analítico y lógico en la
-                        forma en que aborda los problemas .
-                        <span class="radio"></span>
-                    </label></div>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q24" value="F" onclick="updateProgressBar()"> Creativo e imaginativo.
-                        <span class="radio"></span>
-                    </label></div>
-            </div>
+                <!--E / I-->
+                <div class="question">
+                    <h2>21. ¿Te gustaría más estar en una posición de liderazgo o prefieres estar detrás de escena?</h2>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q21" value="E" onclick="updateProgressBar()"> Estar en una posición de
+                            liderazgo y tomar decisiones importantes.
+                            <span class="radio"></span>
+                        </label></div>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q21" value="I" onclick="updateProgressBar()"> Estar detrás de escena y
+                            hacer el trabajo en segundo plano.
+                            <span class="radio"></span>
+                        </label></div>
+                </div>
 
-            <!--J / P-->
-            <div class="question">
-                <h2>25. ¿Te gusta seguir instrucciones paso a paso o prefieres improvisar y encontrar tu propio camino?
-                </h2>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q25" value="J" onclick="updateProgressBar()"> Seguir instrucciones
-                        paso a
-                        paso.
-                        <span class="radio"></span>
-                    </label></div>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q25" value="P" onclick="updateProgressBar()"> Improvisar y encontrar
-                        mi
-                        propio camino.
-                        <span class="radio"></span>
-                    </label></div>
-            </div>
+                <!--F / T-->
+                <div class="question">
+                    <h2>22. ¿Eres más emocional o más lógico en la forma en que abordas los problemas?</h2>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q22" value="F" onclick="updateProgressBar()"> Emocional.
+                            <span class="radio"></span>
+                        </label></div>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q22" value="T" onclick="updateProgressBar()"> Lógico.
+                            <span class="radio"></span>
+                        </label></div>
+                </div>
 
-            <!--S / N-->
-            <div class="question">
-                <h2>26. ¿Disfrutas más de las conversaciones profundas e intelectuales o de las conversaciones
-                    informales y cotidianas?</h2>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q26" value="N" onclick="updateProgressBar()"> Profundas e
-                        intelectuales.
-                        <span class="radio"></span>
-                    </label></div>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q26" value="S" onclick="updateProgressBar()"> Informales y cotidianas.
-                        <span class="radio"></span>
-                    </label></div>
-            </div>
+                <!--J / P-->
+                <div class="question">
+                    <h2>23. ¿Te gusta trabajar en proyectos a largo plazo o prefieres trabajar en proyectos a corto plazo
+                        con resultados rápidos?</h2>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q23" value="J" onclick="updateProgressBar()"> En proyectos a largo
+                            plazo
+                            con metas definidas y objetivos claros.
+                            <span class="radio"></span>
+                        </label></div>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q23" value="P" onclick="updateProgressBar()"> En proyectos a corto
+                            plazo
+                            con resultados rápidos y más flexibilidad.
+                            <span class="radio"></span>
+                        </label></div>
+                </div>
 
-            <!--E / I-->
-            <div class="question">
-                <h2>27. ¿Te sientes más energizado/a cuando estás en un ambiente tranquilo y pacífico o cuando estás en
-                    un ambiente estimulante y lleno de actividad?</h2>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q27" value="I" onclick="updateProgressBar()"> En un ambiente tranquilo
-                        y
-                        pacífico.
-                        <span class="radio"></span>
-                    </label></div>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q27" value="E" onclick="updateProgressBar()"> En un ambiente
-                        estimulante y
-                        lleno de actividad.
-                        <span class="radio"></span>
-                    </label></div>
-            </div>
-            <!--J / P-->
-            <div class="question">
-                <h2>28. ¿Te gusta tener una rutina establecida y seguir un horario regular o prefieres tener
-                    flexibilidad y adaptarte a los cambios?</h2>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q28" value="F" onclick="updateProgressBar()"> Rutina establecida.
-                        <span class="radio"></span>
-                    </label></div>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q28" value="T" onclick="updateProgressBar()"> Adaptarme a los cambios.
-                        <span class="radio"></span>
-                    </label></div>
-            </div>
+                <!--F / T-->
+                <div class="question">
+                    <h2>24. ¿Eres más analítico o más creativo en la forma en que abordas los problemas?</h2>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q24" value="T" onclick="updateProgressBar()"> Analítico y lógico en la
+                            forma en que aborda los problemas .
+                            <span class="radio"></span>
+                        </label></div>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q24" value="F" onclick="updateProgressBar()"> Creativo e imaginativo.
+                            <span class="radio"></span>
+                        </label></div>
+                </div>
 
-            <!--J / P-->
-            <div class="question">
-                <h2>29. ¿Prefieres completar una tarea antes de comenzar una nueva o te gusta alternar entre múltiples
-                    tareas al mismo tiempo?</h2>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q29" value="J" onclick="updateProgressBar()"> Completar una tarea
-                        antes de
-                        comenzar una nueva.
-                        <span class="radio"></span>
-                    </label></div>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q29" value="T" onclick="updateProgressBar()"> Alternar entre múltiples
-                        tareas al mismo tiempo.
-                        <span class="radio"></span>
-                    </label></div>
-            </div>
+                <!--J / P-->
+                <div class="question">
+                    <h2>25. ¿Te gusta seguir instrucciones paso a paso o prefieres improvisar y encontrar tu propio camino?
+                    </h2>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q25" value="J" onclick="updateProgressBar()"> Seguir instrucciones
+                            paso a
+                            paso.
+                            <span class="radio"></span>
+                        </label></div>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q25" value="P" onclick="updateProgressBar()"> Improvisar y encontrar
+                            mi
+                            propio camino.
+                            <span class="radio"></span>
+                        </label></div>
+                </div>
 
-            <div class="question">
-                <h2>30. ¿Te gusta explorar nuevas ideas y posibilidades o prefieres mantener métodos y enfoques
-                    tradicionales?</h2>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q30" value="N" onclick="updateProgressBar()"> Explorar nuevas ideas y
-                        posibilidades.
-                        <span class="radio"></span>
-                    </label></div>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q30" value="S" onclick="updateProgressBar()"> Mantener métodos y
-                        enfoques
-                        tradicionales.
-                        <span class="radio"></span>
-                    </label></div>
-            </div>
+                <!--S / N-->
+                <div class="question">
+                    <h2>26. ¿Disfrutas más de las conversaciones profundas e intelectuales o de las conversaciones
+                        informales y cotidianas?</h2>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q26" value="N" onclick="updateProgressBar()"> Profundas e
+                            intelectuales.
+                            <span class="radio"></span>
+                        </label></div>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q26" value="S" onclick="updateProgressBar()"> Informales y cotidianas.
+                            <span class="radio"></span>
+                        </label></div>
+                </div>
 
-            <div class="question">
-                <h2>31. ¿Prefieres realizar tareas y actividades teóricas o abstractas?</h2>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q31" value="S" onclick="updateProgressBar()"> Teóricas.
-                        <span class="radio"></span>
-                    </label></div>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q31" value="N" onclick="updateProgressBar()"> Abstractas.
-                        <span class="radio"></span>
-                    </label></div>
-            </div>
+                <!--E / I-->
+                <div class="question">
+                    <h2>27. ¿Te sientes más energizado/a cuando estás en un ambiente tranquilo y pacífico o cuando estás en
+                        un ambiente estimulante y lleno de actividad?</h2>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q27" value="I" onclick="updateProgressBar()"> En un ambiente tranquilo
+                            y
+                            pacífico.
+                            <span class="radio"></span>
+                        </label></div>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q27" value="E" onclick="updateProgressBar()"> En un ambiente
+                            estimulante y
+                            lleno de actividad.
+                            <span class="radio"></span>
+                        </label></div>
+                </div>
+                <!--J / P-->
+                <div class="question">
+                    <h2>28. ¿Te gusta tener una rutina establecida y seguir un horario regular o prefieres tener
+                        flexibilidad y adaptarte a los cambios?</h2>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q28" value="F" onclick="updateProgressBar()"> Rutina establecida.
+                            <span class="radio"></span>
+                        </label></div>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q28" value="T" onclick="updateProgressBar()"> Adaptarme a los cambios.
+                            <span class="radio"></span>
+                        </label></div>
+                </div>
 
-            <div class="question">
-                <h2>32. ¿Qué tan fácil es que comprendas un tema rebuscado?</h2>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q32" value="N" onclick="updateProgressBar()"> No tengo problema para
-                        ello.
-                        <span class="radio"></span>
-                    </label></div>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q32" value="S" onclick="updateProgressBar()"> Se me dificulta
-                        interpretar
-                        ideas abstractas.
-                        <span class="radio"></span>
-                    </label></div>
-            </div>
+                <!--J / P-->
+                <div class="question">
+                    <h2>29. ¿Prefieres completar una tarea antes de comenzar una nueva o te gusta alternar entre múltiples
+                        tareas al mismo tiempo?</h2>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q29" value="J" onclick="updateProgressBar()"> Completar una tarea
+                            antes de
+                            comenzar una nueva.
+                            <span class="radio"></span>
+                        </label></div>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q29" value="T" onclick="updateProgressBar()"> Alternar entre múltiples
+                            tareas al mismo tiempo.
+                            <span class="radio"></span>
+                        </label></div>
+                </div>
 
-            <!--J / P-->
-            <div class="question">
-                <h2>33. ¿Prefieres seguir un plan detallado para alcanzar tus metas o prefieres adaptarte y aprovechar
-                    las oportunidades que se presenten?</h2>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q33" value="J" onclick="updateProgressBar()"> Seguir un plan detallado
-                        <span class="radio"></span>
-                    </label></div>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q33" value="P" onclick="updateProgressBar()"> Adaptarme y aprovechar
-                        las
-                        oportunidades
-                        <span class="radio"></span>
-                    </label></div>
-            </div>
-            <div class="question">
-                <h2>34. ¿Te gusta tener un ambiente de trabajo estructurado y organizado o prefieres un ambiente más
-                    creativo y flexible?</h2>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q34" value="J" onclick="updateProgressBar()"> Un ambiente estructurado
-                        y
-                        organizado
-                        <span class="radio"></span>
-                    </label></div>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q34" value="P" onclick="updateProgressBar()"> Un ambiente creativo y
-                        flexible
-                        <span class="radio"></span>
-                    </label></div>
-            </div>
+                <div class="question">
+                    <h2>30. ¿Te gusta explorar nuevas ideas y posibilidades o prefieres mantener métodos y enfoques
+                        tradicionales?</h2>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q30" value="N" onclick="updateProgressBar()"> Explorar nuevas ideas y
+                            posibilidades.
+                            <span class="radio"></span>
+                        </label></div>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q30" value="S" onclick="updateProgressBar()"> Mantener métodos y
+                            enfoques
+                            tradicionales.
+                            <span class="radio"></span>
+                        </label></div>
+                </div>
 
-            <div class="question">
-                <h2>35. ¿Te gusta tener tiempo suficiente para reflexionar antes de tomar una decisión importante o
-                    prefieres tomar decisiones rápidas basadas en tu intuición?</h2>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q35" value="T" onclick="updateProgressBar()"> Reflexionar antes de
-                        decidir
-                        <span class="radio"></span>
-                    </label></div>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q35" value="F" onclick="updateProgressBar()"> Decidir rápidamente
-                        basándome en mi intuición
-                        <span class="radio"></span>
-                    </label></div>
-            </div>
-            <div class="question">
-                <h2>36. ¿Disfrutas más de las actividades que te permiten interactuar con otras personas y desarrollar
-                    relaciones cercanas o prefieres actividades que te permiten explorar y experimentar de manera
-                    independiente?</h2>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q36" value="E" onclick="updateProgressBar()"> Disfruto de las
-                        actividades
-                        sociales y las relaciones cercanas
-                        <span class="radio"></span>
-                    </label></div>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q36" value="I" onclick="updateProgressBar()"> Disfruto de las
-                        actividades
-                        independientes y la exploración personal
-                        <span class="radio"></span>
-                    </label></div>
-            </div>
+                <div class="question">
+                    <h2>31. ¿Prefieres realizar tareas y actividades teóricas o abstractas?</h2>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q31" value="S" onclick="updateProgressBar()"> Teóricas.
+                            <span class="radio"></span>
+                        </label></div>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q31" value="N" onclick="updateProgressBar()"> Abstractas.
+                            <span class="radio"></span>
+                        </label></div>
+                </div>
 
-            <div class="question">
-                <h2>37. ¿Te sientes más atraído/a por las situaciones estructuradas y predecibles o por las situaciones
-                    desafiantes y que requieren adaptación constante?</h2>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q37" value="J" onclick="updateProgressBar()"> Situaciones
-                        estructuradas y
-                        predecibles
-                        <span class="radio"></span>
-                    </label></div>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q37" value="P" onclick="updateProgressBar()"> Situaciones desafiantes
-                        y
-                        que requieren adaptación constante
-                        <span class="radio"></span>
-                    </label></div>
-            </div>
-            <div class="question">
-                <h2>38. ¿Te sientes más cómodo/a tomando decisiones basadas en datos y evidencias concretas o en tus
-                    propios valores y creencias personales?</h2>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q38" value="T" onclick="updateProgressBar()"> Datos y evidencias
-                        concretas
-                        <span class="radio"></span>
-                    </label></div>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q38" value="F" onclick="updateProgressBar()"> Valores y creencias
-                        personales
-                        <span class="radio"></span>
-                    </label></div>
-            </div>
-            <div class="question">
-                <h2>39. ¿Prefieres tener un horario y una rutina establecidos para tu vida diaria o prefieres ir
-                    adaptándote según surjan las circunstancias?</h2>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q39" value="J" onclick="updateProgressBar()"> Horario y rutina
-                        establecidos
-                        <span class="radio"></span>
-                    </label></div>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q39" value="P" onclick="updateProgressBar()"> Adaptarme según las
-                        circunstancias
-                        <span class="radio"></span>
-                    </label></div>
-            </div>
-            <div class="question">
-                <h2>40. ¿Te sientes más atraído/a por las actividades prácticas y concretas o por las actividades
-                    teóricas y abstractas?</h2>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q40" value="S" onclick="updateProgressBar()"> Actividades prácticas y
-                        concretas
-                        <span class="radio"></span>
-                    </label></div>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q40" value="N" onclick="updateProgressBar()"> Actividades teóricas y
-                        abstractas
-                        <span class="radio"></span>
-                    </label></div>
-            </div>
-            <div class="question">
-                <h2>41. ¿Prefieres seguir un método probado y confiable o experimentar con diferentes enfoques y
-                    soluciones?</h2>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q41" value="S" onclick="updateProgressBar()"> Método probado y
-                        confiable
-                        <span class="radio"></span>
-                    </label></div>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q41" value="N" onclick="updateProgressBar()"> Experimentar con
-                        diferentes
-                        enfoques y soluciones
-                        <span class="radio"></span>
-                    </label></div>
-            </div>
-            <div class="question">
-                <h2>42. ¿Prefieres tener tiempo para reflexionar antes de dar tu opinión en una conversación o prefieres
-                    pensar en voz alta mientras hablas?</h2>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q42" value="I" onclick="updateProgressBar()"> Tener tiempo para
-                        reflexionar antes de dar mi opinión
-                        <span class="radio"></span>
-                    </label></div>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q42" value="E" onclick="updateProgressBar()"> Pensar en voz alta
-                        mientras
-                        hablo
-                        <span class="radio"></span>
-                    </label></div>
-            </div>
-            <div class="question">
-                <h2>43. ¿Te sientes más atraído/a por las actividades que te permiten establecer metas claras y alcanzar
-                    resultados tangibles o por las actividades que te permiten explorar ideas y conceptos abstractos?
-                </h2>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q43" value="J" onclick="updateProgressBar()"> Actividades con metas
-                        claras
-                        y resultados tangibles
-                        <span class="radio"></span>
-                    </label></div>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q43" value="P" onclick="updateProgressBar()"> Actividades que permiten
-                        explorar ideas y conceptos abstractos
-                        <span class="radio"></span>
-                    </label></div>
-            </div>
-            <div class="question">
-                <h2>44. ¿Te gusta tener un plan claro y estructurado antes de comenzar una tarea o prefieres adaptarte
-                    sobre la marcha?</h2>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q44" value="J" onclick="updateProgressBar()"> Un plan claro y
-                        estructurado
-                        antes de comenzar
-                        <span class="radio"></span>
-                    </label></div>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q44" value="P" onclick="updateProgressBar()"> Adaptarme sobre la
-                        marcha
-                        <span class="radio"></span>
-                    </label></div>
-            </div>
+                <div class="question">
+                    <h2>32. ¿Qué tan fácil es que comprendas un tema rebuscado?</h2>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q32" value="N" onclick="updateProgressBar()"> No tengo problema para
+                            ello.
+                            <span class="radio"></span>
+                        </label></div>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q32" value="S" onclick="updateProgressBar()"> Se me dificulta
+                            interpretar
+                            ideas abstractas.
+                            <span class="radio"></span>
+                        </label></div>
+                </div>
 
-            <div class="question">
-                <h2>45. ¿Te sientes más cómodo/a trabajando en un entorno tranquilo y sin interrupciones o en un entorno
-                    dinámico y lleno de estímulos?</h2>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q45" value="I" onclick="updateProgressBar()"> Un entorno tranquilo y
-                        sin
-                        interrupciones
-                        <span class="radio"></span>
-                    </label></div>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q45" value="E" onclick="updateProgressBar()"> Un entorno dinámico y
-                        lleno
-                        de estímulos
-                        <span class="radio"></span>
-                    </label></div>
-            </div>
-            <div class="question">
-                <h2>46. ¿Te gusta tener un enfoque lógico y racional al tomar decisiones o prefieres considerar tus
-                    valores y emociones?</h2>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q46" value="T" onclick="updateProgressBar()"> Un enfoque lógico y
-                        racional
-                        <span class="radio"></span>
-                    </label></div>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q46" value="F" onclick="updateProgressBar()"> Considerar mis valores y
-                        emociones
-                        <span class="radio"></span>
-                    </label></div>
-            </div>
-            <div class="question">
-                <h2>47. ¿Te sientes más satisfecho/a cuando completas una tarea antes de pasar a la siguiente o cuando
-                    tienes múltiples proyectos en curso al mismo tiempo?</h2>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q47" value="J" onclick="updateProgressBar()"> Completar una tarea
-                        antes de
-                        pasar a la siguiente
-                        <span class="radio"></span>
-                    </label></div>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q47" value="P" onclick="updateProgressBar()"> Tener múltiples
-                        proyectos en
-                        curso al mismo tiempo
-                        <span class="radio"></span>
-                    </label></div>
-            </div>
-            <div class="question">
-                <h2>48. ¿Te gusta tener un enfoque sistemático y metódico en tu trabajo o prefieres mantener la
-                    flexibilidad y la espontaneidad?</h2>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q48" value="J" onclick="updateProgressBar()"> Un enfoque sistemático y
-                        metódico
-                        <span class="radio"></span>
-                    </label></div>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q48" value="P" onclick="updateProgressBar()"> Mantener la flexibilidad
-                        y
-                        la espontaneidad
-                        <span class="radio"></span>
-                    </label></div>
-            </div>
-            <div class="question">
-                <h2>49. ¿Prefieres trabajar en equipo y colaborar con otros o prefieres trabajar de manera independiente
-                    y autónoma?</h2>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q49" value="E" onclick="updateProgressBar()"> Trabajar en equipo y
-                        colaborar con otros
-                        <span class="radio"></span>
-                    </label></div>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q49" value="I" onclick="updateProgressBar()"> Trabajar de manera
-                        independiente y autónoma
-                        <span class="radio"></span>
-                    </label></div>
-            </div>
-            <div class="question">
-                <h2>50. ¿Te sientes más atraído/a por las actividades que te permiten seguir un proceso paso a paso o
-                    por las actividades que te permiten explorar nuevas ideas y posibilidades?</h2>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q50" value="S" onclick="updateProgressBar()"> Actividades que siguen
-                        un
-                        proceso paso a paso
-                        <span class="radio"></span>
-                    </label></div>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q50" value="N" onclick="updateProgressBar()"> Actividades que permiten
-                        explorar nuevas ideas y posibilidades
-                        <span class="radio"></span>
-                    </label></div>
-            </div>
-            <div class="question">
-                <h2>51. ¿Te gusta tener tiempo para planificar y organizar tus tareas o prefieres improvisar y adaptarte
-                    sobre la marcha?</h2>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q51" value="J" onclick="updateProgressBar()"> Tiempo para planificar y
-                        organizar mis tareas
-                        <span class="radio"></span>
-                    </label></div>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q51" value="P" onclick="updateProgressBar()"> Improvisar y adaptarme
-                        sobre
-                        la marcha
-                        <span class="radio"></span>
-                    </label></div>
-            </div>
-            <div class="question">
-                <h2>52. ¿Prefieres tener una amplia variedad de opciones antes de tomar una decisión o prefieres tener
-                    una opción clara y definida?</h2>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q52" value="N" onclick="updateProgressBar()"> Una amplia variedad de
-                        opciones
-                        <span class="radio"></span>
-                    </label></div>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q52" value="S" onclick="updateProgressBar()"> Una opción clara y
-                        definida
-                        <span class="radio"></span>
-                    </label></div>
-            </div>
-            <div class="question">
-                <h2>53. ¿Te sientes más atraído/a por las actividades que te permiten usar tus habilidades prácticas y
-                    físicas o por las actividades que te permiten usar tu imaginación y creatividad?</h2>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q53" value="S" onclick="updateProgressBar()"> Actividades que
-                        requieren
-                        habilidades prácticas y físicas
-                        <span class="radio"></span>
-                    </label></div>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q53" value="N" onclick="updateProgressBar()"> Actividades que
-                        requieren
-                        imaginación y creatividad
-                        <span class="radio"></span>
-                    </label></div>
-            </div>
+                <!--J / P-->
+                <div class="question">
+                    <h2>33. ¿Prefieres seguir un plan detallado para alcanzar tus metas o prefieres adaptarte y aprovechar
+                        las oportunidades que se presenten?</h2>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q33" value="J" onclick="updateProgressBar()"> Seguir un plan detallado
+                            <span class="radio"></span>
+                        </label></div>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q33" value="P" onclick="updateProgressBar()"> Adaptarme y aprovechar
+                            las
+                            oportunidades
+                            <span class="radio"></span>
+                        </label></div>
+                </div>
+                <div class="question">
+                    <h2>34. ¿Te gusta tener un ambiente de trabajo estructurado y organizado o prefieres un ambiente más
+                        creativo y flexible?</h2>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q34" value="J" onclick="updateProgressBar()"> Un ambiente estructurado
+                            y
+                            organizado
+                            <span class="radio"></span>
+                        </label></div>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q34" value="P" onclick="updateProgressBar()"> Un ambiente creativo y
+                            flexible
+                            <span class="radio"></span>
+                        </label></div>
+                </div>
 
-            <div class="question">
-                <h2>54. ¿Te sientes más cómodo/a siguiendo instrucciones y directrices establecidas o creando tus
-                    propias reglas y enfoques?</h2>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q54" value="J" onclick="updateProgressBar()"> Siguiendo instrucciones
-                        y
-                        directrices establecidas
-                        <span class="radio"></span>
-                    </label></div>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q54" value="P" onclick="updateProgressBar()"> Creando mis propias
-                        reglas y
-                        enfoques
-                        <span class="radio"></span>
-                    </label></div>
-            </div>
+                <div class="question">
+                    <h2>35. ¿Te gusta tener tiempo suficiente para reflexionar antes de tomar una decisión importante o
+                        prefieres tomar decisiones rápidas basadas en tu intuición?</h2>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q35" value="T" onclick="updateProgressBar()"> Reflexionar antes de
+                            decidir
+                            <span class="radio"></span>
+                        </label></div>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q35" value="F" onclick="updateProgressBar()"> Decidir rápidamente
+                            basándome en mi intuición
+                            <span class="radio"></span>
+                        </label></div>
+                </div>
+                <div class="question">
+                    <h2>36. ¿Disfrutas más de las actividades que te permiten interactuar con otras personas y desarrollar
+                        relaciones cercanas o prefieres actividades que te permiten explorar y experimentar de manera
+                        independiente?</h2>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q36" value="E" onclick="updateProgressBar()"> Disfruto de las
+                            actividades
+                            sociales y las relaciones cercanas
+                            <span class="radio"></span>
+                        </label></div>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q36" value="I" onclick="updateProgressBar()"> Disfruto de las
+                            actividades
+                            independientes y la exploración personal
+                            <span class="radio"></span>
+                        </label></div>
+                </div>
 
-            <div class="question">
-                <h2>55. ¿Te sientes más atraído/a por las actividades que te permiten interactuar con otras personas y
-                    establecer conexiones emocionales o por las actividades que te permiten explorar ideas y conceptos
-                    de manera individual?</h2>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q55" value="E" onclick="updateProgressBar()"> Actividades que implican
-                        interactuar con otras personas y establecer conexiones emocionales
-                        <span class="radio"></span>
-                    </label></div>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q55" value="I" onclick="updateProgressBar()"> Actividades que implican
-                        explorar ideas y conceptos de manera individual
-                        <span class="radio"></span>
-                    </label></div>
-            </div>
+                <div class="question">
+                    <h2>37. ¿Te sientes más atraído/a por las situaciones estructuradas y predecibles o por las situaciones
+                        desafiantes y que requieren adaptación constante?</h2>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q37" value="J" onclick="updateProgressBar()"> Situaciones
+                            estructuradas y
+                            predecibles
+                            <span class="radio"></span>
+                        </label></div>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q37" value="P" onclick="updateProgressBar()"> Situaciones desafiantes
+                            y
+                            que requieren adaptación constante
+                            <span class="radio"></span>
+                        </label></div>
+                </div>
+                <div class="question">
+                    <h2>38. ¿Te sientes más cómodo/a tomando decisiones basadas en datos y evidencias concretas o en tus
+                        propios valores y creencias personales?</h2>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q38" value="T" onclick="updateProgressBar()"> Datos y evidencias
+                            concretas
+                            <span class="radio"></span>
+                        </label></div>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q38" value="F" onclick="updateProgressBar()"> Valores y creencias
+                            personales
+                            <span class="radio"></span>
+                        </label></div>
+                </div>
+                <div class="question">
+                    <h2>39. ¿Prefieres tener un horario y una rutina establecidos para tu vida diaria o prefieres ir
+                        adaptándote según surjan las circunstancias?</h2>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q39" value="J" onclick="updateProgressBar()"> Horario y rutina
+                            establecidos
+                            <span class="radio"></span>
+                        </label></div>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q39" value="P" onclick="updateProgressBar()"> Adaptarme según las
+                            circunstancias
+                            <span class="radio"></span>
+                        </label></div>
+                </div>
+                <div class="question">
+                    <h2>40. ¿Te sientes más atraído/a por las actividades prácticas y concretas o por las actividades
+                        teóricas y abstractas?</h2>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q40" value="S" onclick="updateProgressBar()"> Actividades prácticas y
+                            concretas
+                            <span class="radio"></span>
+                        </label></div>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q40" value="N" onclick="updateProgressBar()"> Actividades teóricas y
+                            abstractas
+                            <span class="radio"></span>
+                        </label></div>
+                </div>
+                <div class="question">
+                    <h2>41. ¿Prefieres seguir un método probado y confiable o experimentar con diferentes enfoques y
+                        soluciones?</h2>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q41" value="S" onclick="updateProgressBar()"> Método probado y
+                            confiable
+                            <span class="radio"></span>
+                        </label></div>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q41" value="N" onclick="updateProgressBar()"> Experimentar con
+                            diferentes
+                            enfoques y soluciones
+                            <span class="radio"></span>
+                        </label></div>
+                </div>
+                <div class="question">
+                    <h2>42. ¿Prefieres tener tiempo para reflexionar antes de dar tu opinión en una conversación o prefieres
+                        pensar en voz alta mientras hablas?</h2>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q42" value="I" onclick="updateProgressBar()"> Tener tiempo para
+                            reflexionar antes de dar mi opinión
+                            <span class="radio"></span>
+                        </label></div>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q42" value="E" onclick="updateProgressBar()"> Pensar en voz alta
+                            mientras
+                            hablo
+                            <span class="radio"></span>
+                        </label></div>
+                </div>
+                <div class="question">
+                    <h2>43. ¿Te sientes más atraído/a por las actividades que te permiten establecer metas claras y alcanzar
+                        resultados tangibles o por las actividades que te permiten explorar ideas y conceptos abstractos?
+                    </h2>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q43" value="J" onclick="updateProgressBar()"> Actividades con metas
+                            claras
+                            y resultados tangibles
+                            <span class="radio"></span>
+                        </label></div>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q43" value="P" onclick="updateProgressBar()"> Actividades que permiten
+                            explorar ideas y conceptos abstractos
+                            <span class="radio"></span>
+                        </label></div>
+                </div>
+                <div class="question">
+                    <h2>44. ¿Te gusta tener un plan claro y estructurado antes de comenzar una tarea o prefieres adaptarte
+                        sobre la marcha?</h2>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q44" value="J" onclick="updateProgressBar()"> Un plan claro y
+                            estructurado
+                            antes de comenzar
+                            <span class="radio"></span>
+                        </label></div>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q44" value="P" onclick="updateProgressBar()"> Adaptarme sobre la
+                            marcha
+                            <span class="radio"></span>
+                        </label></div>
+                </div>
 
-            <div class="question">
-                <h2>56. ¿Prefieres enfocarte en los detalles y las tareas concretas o en la visión general y las ideas
-                    generales?</h2>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q56" value="S" onclick="updateProgressBar()"> En los detalles y las
-                        tareas
-                        concretas
-                        <span class="radio"></span>
-                    </label></div>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q56" value="N" onclick="updateProgressBar()"> En la visión general y
-                        las
-                        ideas generales
-                        <span class="radio"></span>
-                    </label></div>
-            </div>
-            <div class="question">
-                <h2>57. ¿Te sientes más cómodo/a expresando tus emociones y sentimientos abiertamente o prefieres
-                    mantenerlos reservados y controlados?</h2>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q57" value="F" onclick="updateProgressBar()"> Expresando mis emociones
-                        y
-                        sentimientos abiertamente
-                        <span class="radio"></span>
-                    </label></div>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q57" value="T" onclick="updateProgressBar()"> Manteniendo mis
-                        emociones y
-                        sentimientos reservados y controlados
-                        <span class="radio"></span>
-                    </label></div>
-            </div>
+                <div class="question">
+                    <h2>45. ¿Te sientes más cómodo/a trabajando en un entorno tranquilo y sin interrupciones o en un entorno
+                        dinámico y lleno de estímulos?</h2>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q45" value="I" onclick="updateProgressBar()"> Un entorno tranquilo y
+                            sin
+                            interrupciones
+                            <span class="radio"></span>
+                        </label></div>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q45" value="E" onclick="updateProgressBar()"> Un entorno dinámico y
+                            lleno
+                            de estímulos
+                            <span class="radio"></span>
+                        </label></div>
+                </div>
+                <div class="question">
+                    <h2>46. ¿Te gusta tener un enfoque lógico y racional al tomar decisiones o prefieres considerar tus
+                        valores y emociones?</h2>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q46" value="T" onclick="updateProgressBar()"> Un enfoque lógico y
+                            racional
+                            <span class="radio"></span>
+                        </label></div>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q46" value="F" onclick="updateProgressBar()"> Considerar mis valores y
+                            emociones
+                            <span class="radio"></span>
+                        </label></div>
+                </div>
+                <div class="question">
+                    <h2>47. ¿Te sientes más satisfecho/a cuando completas una tarea antes de pasar a la siguiente o cuando
+                        tienes múltiples proyectos en curso al mismo tiempo?</h2>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q47" value="J" onclick="updateProgressBar()"> Completar una tarea
+                            antes de
+                            pasar a la siguiente
+                            <span class="radio"></span>
+                        </label></div>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q47" value="P" onclick="updateProgressBar()"> Tener múltiples
+                            proyectos en
+                            curso al mismo tiempo
+                            <span class="radio"></span>
+                        </label></div>
+                </div>
+                <div class="question">
+                    <h2>48. ¿Te gusta tener un enfoque sistemático y metódico en tu trabajo o prefieres mantener la
+                        flexibilidad y la espontaneidad?</h2>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q48" value="J" onclick="updateProgressBar()"> Un enfoque sistemático y
+                            metódico
+                            <span class="radio"></span>
+                        </label></div>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q48" value="P" onclick="updateProgressBar()"> Mantener la flexibilidad
+                            y
+                            la espontaneidad
+                            <span class="radio"></span>
+                        </label></div>
+                </div>
+                <div class="question">
+                    <h2>49. ¿Prefieres trabajar en equipo y colaborar con otros o prefieres trabajar de manera independiente
+                        y autónoma?</h2>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q49" value="E" onclick="updateProgressBar()"> Trabajar en equipo y
+                            colaborar con otros
+                            <span class="radio"></span>
+                        </label></div>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q49" value="I" onclick="updateProgressBar()"> Trabajar de manera
+                            independiente y autónoma
+                            <span class="radio"></span>
+                        </label></div>
+                </div>
+                <div class="question">
+                    <h2>50. ¿Te sientes más atraído/a por las actividades que te permiten seguir un proceso paso a paso o
+                        por las actividades que te permiten explorar nuevas ideas y posibilidades?</h2>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q50" value="S" onclick="updateProgressBar()"> Actividades que siguen
+                            un
+                            proceso paso a paso
+                            <span class="radio"></span>
+                        </label></div>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q50" value="N" onclick="updateProgressBar()"> Actividades que permiten
+                            explorar nuevas ideas y posibilidades
+                            <span class="radio"></span>
+                        </label></div>
+                </div>
+                <div class="question">
+                    <h2>51. ¿Te gusta tener tiempo para planificar y organizar tus tareas o prefieres improvisar y adaptarte
+                        sobre la marcha?</h2>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q51" value="J" onclick="updateProgressBar()"> Tiempo para planificar y
+                            organizar mis tareas
+                            <span class="radio"></span>
+                        </label></div>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q51" value="P" onclick="updateProgressBar()"> Improvisar y adaptarme
+                            sobre
+                            la marcha
+                            <span class="radio"></span>
+                        </label></div>
+                </div>
+                <div class="question">
+                    <h2>52. ¿Prefieres tener una amplia variedad de opciones antes de tomar una decisión o prefieres tener
+                        una opción clara y definida?</h2>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q52" value="N" onclick="updateProgressBar()"> Una amplia variedad de
+                            opciones
+                            <span class="radio"></span>
+                        </label></div>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q52" value="S" onclick="updateProgressBar()"> Una opción clara y
+                            definida
+                            <span class="radio"></span>
+                        </label></div>
+                </div>
+                <div class="question">
+                    <h2>53. ¿Te sientes más atraído/a por las actividades que te permiten usar tus habilidades prácticas y
+                        físicas o por las actividades que te permiten usar tu imaginación y creatividad?</h2>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q53" value="S" onclick="updateProgressBar()"> Actividades que
+                            requieren
+                            habilidades prácticas y físicas
+                            <span class="radio"></span>
+                        </label></div>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q53" value="N" onclick="updateProgressBar()"> Actividades que
+                            requieren
+                            imaginación y creatividad
+                            <span class="radio"></span>
+                        </label></div>
+                </div>
 
-            <div class="question">
-                <h2>58. ¿Te sientes más atraído/a por las actividades que te permiten ayudar y servir a los demás o por
-                    las actividades que te permiten lograr metas y éxitos personales?</h2>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q58" value="F" onclick="updateProgressBar()"> Actividades que implican
-                        ayudar y servir a los demás
-                        <span class="radio"></span>
-                    </label></div>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q58" value="T" onclick="updateProgressBar()"> Actividades que implican
-                        lograr metas y éxitos personales
-                        <span class="radio"></span>
-                    </label></div>
-            </div>
-            <div class="question">
-                <h2>59. ¿Prefieres seguir un enfoque estructurado y predecible en tu trabajo o prefieres un enfoque más
-                    flexible y adaptable?</h2>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q59" value="J" onclick="updateProgressBar()"> Un enfoque estructurado
-                        y
-                        predecible
-                        <span class="radio"></span>
-                    </label></div>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q59" value="P" onclick="updateProgressBar()"> Un enfoque flexible y
-                        adaptable
-                        <span class="radio"></span>
-                    </label></div>
-            </div>
+                <div class="question">
+                    <h2>54. ¿Te sientes más cómodo/a siguiendo instrucciones y directrices establecidas o creando tus
+                        propias reglas y enfoques?</h2>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q54" value="J" onclick="updateProgressBar()"> Siguiendo instrucciones
+                            y
+                            directrices establecidas
+                            <span class="radio"></span>
+                        </label></div>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q54" value="P" onclick="updateProgressBar()"> Creando mis propias
+                            reglas y
+                            enfoques
+                            <span class="radio"></span>
+                        </label></div>
+                </div>
 
-            <div class="question">
-                <h2>60. ¿Te sientes más motivado/a por la competencia y el logro personal o por la colaboración y el
-                    trabajo en equipo?</h2>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q60" value="T" onclick="updateProgressBar()"> Competencia y logro
-                        personal
-                        <span class="radio"></span>
-                    </label></div>
-                <div class="inputGroup"><label class="radio-button">
-                        <input type="radio" name="q60" value="F" onclick="updateProgressBar()"> Colaboración y trabajo
-                        en
-                        equipo
-                        <span class="radio"></span>
-                    </label></div>
-            </div>
-            <br>
-            <input type="submit" class="button" id="enviar" value="Enviar">
-        </form>
+                <div class="question">
+                    <h2>55. ¿Te sientes más atraído/a por las actividades que te permiten interactuar con otras personas y
+                        establecer conexiones emocionales o por las actividades que te permiten explorar ideas y conceptos
+                        de manera individual?</h2>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q55" value="E" onclick="updateProgressBar()"> Actividades que implican
+                            interactuar con otras personas y establecer conexiones emocionales
+                            <span class="radio"></span>
+                        </label></div>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q55" value="I" onclick="updateProgressBar()"> Actividades que implican
+                            explorar ideas y conceptos de manera individual
+                            <span class="radio"></span>
+                        </label></div>
+                </div>
 
-    </section>
+                <div class="question">
+                    <h2>56. ¿Prefieres enfocarte en los detalles y las tareas concretas o en la visión general y las ideas
+                        generales?</h2>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q56" value="S" onclick="updateProgressBar()"> En los detalles y las
+                            tareas
+                            concretas
+                            <span class="radio"></span>
+                        </label></div>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q56" value="N" onclick="updateProgressBar()"> En la visión general y
+                            las
+                            ideas generales
+                            <span class="radio"></span>
+                        </label></div>
+                </div>
+                <div class="question">
+                    <h2>57. ¿Te sientes más cómodo/a expresando tus emociones y sentimientos abiertamente o prefieres
+                        mantenerlos reservados y controlados?</h2>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q57" value="F" onclick="updateProgressBar()"> Expresando mis emociones
+                            y
+                            sentimientos abiertamente
+                            <span class="radio"></span>
+                        </label></div>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q57" value="T" onclick="updateProgressBar()"> Manteniendo mis
+                            emociones y
+                            sentimientos reservados y controlados
+                            <span class="radio"></span>
+                        </label></div>
+                </div>
 
-</body>
-<!--<script src="contador.js"></script>-->
-<script src="progress-bar.js"></script>
-<script src="validacion.js"></script>
+                <div class="question">
+                    <h2>58. ¿Te sientes más atraído/a por las actividades que te permiten ayudar y servir a los demás o por
+                        las actividades que te permiten lograr metas y éxitos personales?</h2>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q58" value="F" onclick="updateProgressBar()"> Actividades que implican
+                            ayudar y servir a los demás
+                            <span class="radio"></span>
+                        </label></div>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q58" value="T" onclick="updateProgressBar()"> Actividades que implican
+                            lograr metas y éxitos personales
+                            <span class="radio"></span>
+                        </label></div>
+                </div>
+                <div class="question">
+                    <h2>59. ¿Prefieres seguir un enfoque estructurado y predecible en tu trabajo o prefieres un enfoque más
+                        flexible y adaptable?</h2>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q59" value="J" onclick="updateProgressBar()"> Un enfoque estructurado
+                            y
+                            predecible
+                            <span class="radio"></span>
+                        </label></div>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q59" value="P" onclick="updateProgressBar()"> Un enfoque flexible y
+                            adaptable
+                            <span class="radio"></span>
+                        </label></div>
+                </div>
+
+                <div class="question">
+                    <h2>60. ¿Te sientes más motivado/a por la competencia y el logro personal o por la colaboración y el
+                        trabajo en equipo?</h2>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q60" value="T" onclick="updateProgressBar()"> Competencia y logro
+                            personal
+                            <span class="radio"></span>
+                        </label></div>
+                    <div class="inputGroup"><label class="radio-button">
+                            <input type="radio" name="q60" value="F" onclick="updateProgressBar()"> Colaboración y trabajo
+                            en
+                            equipo
+                            <span class="radio"></span>
+                        </label></div>
+                </div>
+                <br>
+                <input type="hidden" name="personalityType" id="personalityType">
+                <input type="hidden" name="accion" value="saveResults">
+                <center>
+                    <button type="submit" class="cta" id="enviar" value="Enviar" style="cursor: pointer;">
+                        <span>Enviar</span>
+                        <svg viewBox="0 0 13 10" height="10px" width="15px">
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                        </svg>
+                    </button></center>
+                <br><br>
+            </form>
+
+        </section>
+
+    </body>
+    <script src="js/progress-bar.js"></script>
+    <script src="js/validacion.js"></script>
 
 </html>

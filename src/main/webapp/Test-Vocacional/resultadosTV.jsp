@@ -101,7 +101,7 @@
                         <c:set var="num" value="${num + 1}"/>
                             <tr>
                                 <td id="number"><b>${num}</b></td>
-                                <td id="carrera"><a href="#">${elementos}</a>   <i class='bx bxs-hand-left' style="color: #03a9f4"></i></td>
+                                <td id="carrera">${elementos}</td>
                                 <td id="insti">
                                     <c:choose>
                                         <c:when test="${areaMayor[status2.index] eq 'HA'}">
