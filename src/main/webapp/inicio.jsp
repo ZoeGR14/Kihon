@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -32,10 +33,13 @@
     </head>
 
     <body>
+        <c:if test="${empty sessionScope.alumno}">
+            <script>location.replace('index.html');</script>
+        </c:if>
         <!-- header section start -->
         <div class="header_section">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <div class="logo"><a href="index.html"><img src="imagenes/KihonPNG.png" style="width: 100px;"></a></div>
+                <div class="logo"><a href="index.html"><img src="imagenes/KihonPNG.png" style="width: 100px;" draggable="false"></a></div>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -80,7 +84,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-6">
-                                        <div class="image_1"><img src="images/aaaa.png"></div>
+                                        <div class="image_1"><img src="images/aaaa.png" draggable="false"></div>
                                     </div>
                                 </div>
                             </div>
@@ -137,7 +141,7 @@
         <!-- health section start -->
         <div class="health_section layout_padding">
             <div class="container">
-                <h1 class="health_taital">¡Alumno del Politécnico, nos interesa tu futuro!</h1>
+                <h1 class="health_taital">¡${sessionScope.alumno}, nos interesa tu futuro!</h1>
                 <p class="health_text">Sabemos el proceso tan complejo que puede llegar a ser tomar
                     una decisión para elección de carrera, así que reaizamos una serie de tests que te darán una mejor idea.
                 </p>
@@ -197,7 +201,7 @@
                         <h1 class="adderss_text">Acerca de Nosotros</h1>
                         <div class="Useful_text"><a href="emn_corp.html" style="color: white;">EMN Corp.</a></div>
                     </div>
-                    <div class="col-lg-3 col-sm-6">
+                    <div class="col-lg-4 col-sm-6" style="width: 350px;">
                         <h1 class="adderss_text">Contáctanos</h1>
                         <div class="map_icon"><img src="images/map-icon.png"><span class="paddlin_left_0">México</span></div>
                         <div class="map_icon"><img src="images/call-icon.png"><span class="paddlin_left_0">+52 55 6874 1814</span></div>
@@ -220,7 +224,7 @@
         <!-- copyright section start -->
         <div class="copyright_section">
             <div class="container">
-                <p class="copyright_text">Todos los derechos reservados © 2022 <b>EMN Corp.</b> </p>
+                <p class="copyright_text">Todos los derechos reservados © 2023 <b>EMN Corp.</b> </p>
             </div>
         </div>
         <!-- copyright section end -->

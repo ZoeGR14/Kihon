@@ -1,6 +1,6 @@
 use Kihon;
 /* SOPORTE */                                
-insert into usuarios values		('asistenteN','asistenteN','1'),
+insert into usuarios (nom_usu, pass_usu, tipo_usu) values		('asistenteN','asistenteN','1'),
 								('asistente2','asistente2','1'),
                                 ('asistente3','asistente3','1'),
 								('gerenSop1','gerenSop1','2'),
