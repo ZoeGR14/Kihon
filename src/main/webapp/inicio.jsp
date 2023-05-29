@@ -48,7 +48,7 @@
                             <a class="nav-link" href="infoGeneral/carreras_A1.jsp">Carreras</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="infoGeneral/tipos_personalidad.jsp">Personalidad</a>
+                            <a class="nav-link" href="infoGeneral/tipos_personalidades.jsp">Personalidad</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="Test-Vocacional/01.jsp">Test Vocacional</a>
@@ -57,7 +57,7 @@
                             <a class="nav-link" href="MBTI/formularioMBTI.jsp">Test de Personalidad</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="contact.html">Contáctanos</a>
+                            <a class="nav-link" href="Soporte/listado_FAQS.jsp">FAQs</a>
                         </li>
                     </ul>
                 </div>
@@ -76,7 +76,7 @@
                                         <p class="banner_text">Aquí te podremos recomendar carreras según tus aptitudes y actitudes.</p>
                                         <div class="btn_main">
                                             <div class="more_bt"><a href="Test-Vocacional/01.jsp">Realizar test vocacional</a></div>
-                                            <div class="contact_bt"><a href="#">Ver resultados del test</a></div>
+                                            <div class="contact_bt"><a href="Test_Vocacional?ver=resultados">Ver resultados del test</a></div>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -96,7 +96,7 @@
                                         <p class="banner_text">Basándonos en tu personalidad te recomendaremos carreras que te favorezcan.</p>
                                         <div class="btn_main">
                                             <div class="more_bt"><a href="MBTI/formularioMBTI.jsp">Realizar test de personalidad</a></div>
-                                            <div class="contact_bt"><a href="#">Ver resultados del test</a></div>
+                                            <div class="contact_bt"><a href="ControlerMBTI?ver=carreras">Ver resultados del test</a></div>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -114,7 +114,7 @@
                                         <h1 class="banner_taital">Establece <br><span style="color: #151515;">metas</span></h1>
                                         <p class="banner_text">Proponte metas para lograr tus objetivos y metas profesionales.</p>
                                         <div class="btn_main">
-                                            <div class="more_bt"><a href="#">Establecer metas</a></div>
+                                            <div class="more_bt"><a href="Habitos-Metas/cuestHabMet.html">Establecer metas</a></div>
                                         </div>
                                     </div>
                                     <div class="col-md-6">

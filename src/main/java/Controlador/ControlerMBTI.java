@@ -67,7 +67,7 @@ public class ControlerMBTI extends HttpServlet {
         String alumno = "";
         alumno = sesion.getAttribute("alumno").toString();
         
-        String ver = request.getParameter("mbti");
+        String ver = request.getParameter("ver");
         switch(ver){ 
             case "carreras": 
                 List<Personalidad> list = pDAO.listar(alumno);

@@ -108,23 +108,23 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="index.html">Home</a>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./index.html">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="infoGeneral/carreras_A1.jsp">Carreras</a>
+                            <a class="nav-link" href="./infoGeneral/carreras_A1.jsp">Carreras</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="infoGeneral/tipos_personalidad.jsp">Personalidad</a>
+                            <a class="nav-link" href="./infoGeneral/tipos_personalidades.jsp">Personalidad</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="Test-Vocacional/01.jsp">Test Vocacional</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item active">
                             <a class="nav-link" href="MBTI/formularioMBTI.jsp">Test de Personalidad</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="contact.html">Contáctanos</a>
+                            <a class="nav-link" href="./Soporte/listado_FAQS.jsp">Contáctanos</a>
                         </li>
                     </ul>
                 </div>
