@@ -182,7 +182,7 @@
             .preguntas .paso p{
                 font-size: 17px;
                 font-weight: 300;
-                color #000;
+                color: #000;
                 margin-bottom: 8px;
                 transition: 0.2s;
             }
