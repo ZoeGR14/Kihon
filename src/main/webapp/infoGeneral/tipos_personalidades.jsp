@@ -22,6 +22,7 @@
 
                 <nav class="navbar">
                     <ul>
+                        <li><a href="../inicio.jsp">Volver al inicio</a></li>
                         <li><a href="tipos_personalidades.jsp#analistas">Analistas</a></li>
                         <li><a href="tipos_personalidades.jsp#diplomaticos">Diplomáticos</a></li>
                         <li><a href="tipos_personalidades.jsp#centinelas">Centinelas</a></li>

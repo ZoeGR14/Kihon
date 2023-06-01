@@ -102,14 +102,14 @@
         <!-- header section start -->
         <div class="header_section">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <div class="logo"><a href="index.html"><img src="imagenes/KihonPNG.png" style="width: 100px;"></a></div>
+                <div class="logo"><a href="index.jsp"><img src="imagenes/KihonPNG.png" style="width: 100px;"></a></div>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="./index.html">Home</a>
+                            <a class="nav-link" href="./index.jsp">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="./infoGeneral/carreras_A1.jsp">Carreras</a>

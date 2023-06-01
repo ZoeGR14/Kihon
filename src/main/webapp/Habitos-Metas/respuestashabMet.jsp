@@ -277,12 +277,12 @@
     <body>
         <header class="headersito">
             <nav>
-                            <a href="../index.jsp">Inicio</a>
+                            <a href="../inicio.jsp">Inicio</a>
                 <a href="habMet.jsp">Menú</a>
                 <a href="cuestHab.jsp">Cuestionario</a>
                 <a href="metasSHabMet.jsp">Metas Sugeridas</a>
                 <a href="misMetasPHabMet.jsp">Mis Metas</a>
-                <a href="cierreSesion.jsp">Cerrar Sesión</a>
+                
             </nav>
         </header>
         <br>
@@ -619,7 +619,6 @@ String r15 = res.getString(17);
                     </div>
                     
                     <div class="pagina movPag cuatro">
-                        <div class="titulo">¿s?</div>
                         <div class="titulo">¿Tienes dificultades con alguna materia en especial?</div>
                         <div class="campo">
                             <div class="labe">
@@ -797,8 +796,7 @@ String r15 = res.getString(17);
                     </div>
                     
                     <div class="pagina movPag siete">
-                        <div class="titulo">¿w?</div>
-                        <div class="titulo">¿Alguna vez has intentado algún método de estuddio como Pomodoro?</div>
+                            <div class="titulo">¿Alguna vez has intentado algún método de estuddio como Pomodoro?</div>
                         <div class="campo">
                             <div class="labe">
                                 <p>A. Sí, y me gustó</p>

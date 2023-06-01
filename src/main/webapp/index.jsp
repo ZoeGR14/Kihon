@@ -1,7 +1,10 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
-
+    <%
+        HttpSession sesion = request.getSession();
+        sesion.invalidate();
+    %>
     <head>
         <!-- basic -->
         <meta charset="utf-8">
@@ -30,12 +33,16 @@
         <link rel="stylesheet" href="css/owl.carousel.min.css">
         <link rel="stylesheet" href="css/owl.theme.default.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+        <style>
+            .logo {
+                width: 45%;
+                float: left;
+            }
+
+        </style>
     </head>
 
     <body>
-        <c:if test="${empty sessionScope.alumno}">
-            <script>location.replace('index.jsp');</script>
-        </c:if>
         <!-- header section start -->
         <div class="header_section">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -46,22 +53,19 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item active">
-                            <a class="nav-link" href="inicio.jsp">Home</a>
+                            <a class="nav-link" href="index.jsp">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="infoGeneral/index.html">Información General</a>
+                            <a class="nav-link" href="infoGeneral/index.html">InformaciÃ³n General</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="Test-Vocacional/01.jsp">Test Vocacional</a>
+                            <a class="nav-link" href="inicioSesion.html">Iniciar sesiÃ³n</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="MBTI/formularioMBTI.jsp">Test de Personalidad</a>
+                            <a class="nav-link" href="registroUsuario.html">RegÃ­strate</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="Soporte/listado_FAQS.jsp">FAQs</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="index.jsp">Cerrar Sesión</a>
                         </li>
                     </ul>
                 </div>
@@ -77,10 +81,10 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <h1 class="banner_taital">Carreras <br><span style="color: #151515;">Profesionales</span></h1>
-                                        <p class="banner_text">Aquí te podremos recomendar carreras según tus aptitudes y actitudes.</p>
+                                        <p class="banner_text">AquÃ­ te podremos recomendar carreras segÃºn tus aptitudes y actitudes.</p>
                                         <div class="btn_main">
-                                            <div class="more_bt"><a href="Test-Vocacional/01.jsp">Realizar test vocacional</a></div>
-                                            <div class="contact_bt"><a href="Test_Vocacional?ver=resultados">Ver resultados del test</a></div>
+                                            <div class="more_bt"><a href="registroUsuario.html">RegÃ­strate</a></div>
+                                            <div class="contact_bt"><a href="inicioSesion.html">Inicia sesiÃ³n</a></div>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -97,10 +101,10 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <h1 class="banner_taital">Personalidad <br><span style="color: #151515;">MBTI</span></h1>
-                                        <p class="banner_text">Basándonos en tu personalidad te recomendaremos carreras que te favorezcan.</p>
+                                        <p class="banner_text">BasÃ¡ndonos en tu personalidad te recomendaremos carreras que te favorezcan.</p>
                                         <div class="btn_main">
-                                            <div class="more_bt"><a href="MBTI/formularioMBTI.jsp">Realizar test de personalidad</a></div>
-                                            <div class="contact_bt"><a href="ControlerMBTI?ver=carreras">Ver resultados del test</a></div>
+                                            <div class="more_bt"><a href="registroUsuario.html">Â¡Quiero registrarme!</a></div>
+                                            <div class="contact_bt"><a href="inicioSesion.html">Iniciar sesiÃ³n</a></div>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -118,7 +122,8 @@
                                         <h1 class="banner_taital">Establece <br><span style="color: #151515;">metas</span></h1>
                                         <p class="banner_text">Proponte metas para lograr tus objetivos y metas profesionales.</p>
                                         <div class="btn_main">
-                                            <div class="more_bt"><a href="Habitos-Metas/cuestHab.jsp">Establecer metas</a></div>
+                                            <div class="more_bt"><a href="registroUsuario.html">Â¡RegÃ­strame ya!</a></div>
+                                            <div class="contact_bt"><a href="inicioSesion.html    ">Iniciar sesiÃ³n</a></div>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -141,9 +146,9 @@
         <!-- health section start -->
         <div class="health_section layout_padding">
             <div class="container">
-                <h1 class="health_taital">¡${sessionScope.alumno}, nos interesa tu futuro!</h1>
+                <h1 class="health_taital">Â¡Alumno del PolitÃ©cnico, nos interesa tu futuro!</h1>
                 <p class="health_text">Sabemos el proceso tan complejo que puede llegar a ser tomar
-                    una decisión para elección de carrera, así que reaizamos una serie de tests que te darán una mejor idea.
+                    una decisiÃ³n para elecciÃ³n de carrera, asÃ­ que reaizamos una serie de tests que te darÃ¡n una mejor idea.
                 </p>
             </div>
         </div>
@@ -153,8 +158,8 @@
             <div class="container">
                 <div class="knowledge_main">
                     <div class="left_main">
-                        <h1 class="knowledge_taital">¿Por qué es importante establecer metas?</h1>
-                        <p class="knowledge_text">Para un mejor desempeño académico y profesional, debes tener un establecimiento de metas básicas, esto te ayudará a organizarte en plazos.</p>
+                        <h1 class="knowledge_taital">Â¿Por quÃ© es importante establecer metas?</h1>
+                        <p class="knowledge_text">Para un mejor desempeÃ±o acadÃ©mico y profesional, debes tener un establecimiento de metas bÃ¡sicas, esto te ayudarÃ¡ a organizarte en plazos.</p>
                     </div>
                     <div class="right_main">
                     </div>
@@ -165,7 +170,7 @@
         <!-- news section start -->
         <div class="news_section layout_padding">
             <div class="container">
-                <h1 class="health_taital">¿Qué herramientas usamos para ayudarte?</h1>
+                <h1 class="health_taital">Â¿QuÃ© herramientas usamos para ayudarte?</h1>
                 <p class="health_text">Debido a que nos importa tu comodidad, elegimos las siguientes herramientas:</p>
                 <div class="news_section_2 layout_padding">
                     <div class="row">
@@ -201,9 +206,9 @@
                         <h1 class="adderss_text">Acerca de Nosotros</h1>
                         <div class="Useful_text"><a href="emn_corp.html" style="color: white;">EMN Corp.</a></div>
                     </div>
-                    <div class="col-lg-4 col-sm-6" style="width: 350px;">
-                        <h1 class="adderss_text">Contáctanos</h1>
-                        <div class="map_icon"><img src="images/map-icon.png"><span class="paddlin_left_0">México</span></div>
+                    <div class="col-lg-4 col-sm-6">
+                        <h1 class="adderss_text">ContÃ¡ctanos</h1>
+                        <div class="map_icon"><img src="images/map-icon.png"><span class="paddlin_left_0">MÃ©xico</span></div>
                         <div class="map_icon"><img src="images/call-icon.png"><span class="paddlin_left_0">+52 55 6874 1814</span></div>
                         <div class="map_icon"><img src="images/mail-icon.png"><span class="paddlin_left_0">comentarios.emn.corp@gmail.com</span></div>
                     </div>
@@ -224,7 +229,7 @@
         <!-- copyright section start -->
         <div class="copyright_section">
             <div class="container">
-                <p class="copyright_text">Todos los derechos reservados © 2023 <b>EMN Corp.</b> </p>
+                <p class="copyright_text">Todos los derechos reservados Â© 2023 <b>EMN Corp.</b> </p>
             </div>
         </div>
         <!-- copyright section end -->

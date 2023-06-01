@@ -66,7 +66,7 @@ background-image: url(../imagenes/metasS.png);
   --check: #4f29f0;
   --disabled: #c3c8de;
   --width: 1080px;
-  --height: 730px;
+  --height: 600px;
   --border-radius: 10px;
   background: var(--background);
   width: var(--width);
@@ -300,12 +300,12 @@ background-image: url(../imagenes/metasS.png);
     <body>
         <header class="headersito">
             <nav>
-                            <a href="../index.jsp">Inicio</a>
+                            <a href="../inicio.jsp">Inicio</a>
                 <a href="habMet.jsp">Menú</a>
                 <a href="cuestHab.jsp">Cuestionario</a>
                 <a href="metasSHabMet.jsp">Metas Sugeridas</a>
                 <a href="misMetasPHabMet.jsp">Mis Metas</a>
-                <a href="cierreSesion.jsp">Cerrar Sesión</a>
+                
             </nav>
         </header>
                 <%

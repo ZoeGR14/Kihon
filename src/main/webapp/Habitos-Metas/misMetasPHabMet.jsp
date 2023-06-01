@@ -221,12 +221,12 @@ h2 {
     <body>
         <header class="headersito">
             <nav>
-                            <a href="../index.jsp">Inicio</a>
+                            <a href="../inicio.jsp">Inicio</a>
                 <a href="habMet.jsp">Menú</a>
                 <a href="cuestHab.jsp">Cuestionario</a>
                 <a href="metasSHabMet.jsp">Metas Sugeridas</a>
                 <a href="misMetasPHabMet.jsp">Mis Metas</a>
-                <a href="cierreSesion.jsp">Cerrar Sesión</a>
+                
             </nav>
         </header>
         <br>

@@ -19,6 +19,7 @@
 
                 <nav class="navbar">
                     <ul>
+                        <li><a href="../inicio.jsp">Volver al inicio</a></li>
                         <li><a href="carreras_A1.jsp">Área 1</a></li>
                         <li><a href="carreras_A2.jsp">Área 2</a></li>
                         <li><a href="carreras_A3.jsp">Área 3</a></li>

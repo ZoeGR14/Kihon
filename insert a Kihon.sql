@@ -1318,6 +1318,7 @@ insert into metasRango values('W', 'Estudiar sobre mis materias de ciencias exac
 /*PRUEBAS*/
 
 insert into test_voc values(null, 50, 40, 80, 80, "pedrito");
+insert into personalidad_usu values ("pedrito", "ENTP");
 # delete from test_voc where usuario = "pedrito";
 #select greatest(ICFM, CSA, CMB, HA) as max_valor from test_voc;
 #SELECT CASE GREATEST(ICFM, CSA, CMB, HA) WHEN ICFM THEN 'ICFM' ELSE 0 END AS max_ICFM, CASE GREATEST(ICFM, CSA, CMB, HA) WHEN CSA THEN 'CSA' ELSE 0 END AS max_CSA, CASE GREATEST(ICFM, CSA, CMB, HA) WHEN CMB THEN 'CMB' ELSE 0 END AS max_CMB, CASE GREATEST(ICFM, CSA, CMB, HA) WHEN HA THEN 'HA' ELSE 0 END AS max_HA FROM test_voc  where usuario="pedrito" and id_res = (select MAX(id_res) from test_voc) HAVING CONCAT(max_ICFM, max_CSA, max_CMB, max_HA) <> '';
