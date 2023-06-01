@@ -25,6 +25,12 @@
                 justify-content: center;
                 min-height: 100vh;
                 background: linear-gradient(to right, #f2fcfe, #1c92d2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+                background-image: url(../imagenes/metasS.png);
+                overflow: hidden;
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                position: relative;
                 overflow: hidden;
             }
             
@@ -438,14 +444,14 @@ String r15 = res.getString(17);
                 <form action="agregaresultadoHM_1.jsp" method="post" name="habitos">
                     
                     <div class="pagina movPag uno" id="uno">
-                        <div class="titulo">¿ola?</div>
+                        <div class="titulo">¿Deseas hacer examen de ingreso a alguna Universidad socilicitada?</div>
                         <div class="campo">
                             <div class="labe">
-                                <p>A. sisi</p>
+                                <p>A. Sí</p>
                                 
-                                <p>B. Non</p>
+                                <p>B. No</p>
                                 
-                                <p>C. sino</p>
+                                <p>C. Lo estoy pensando</p>
                             </div>
                         </div>
                         <div class="campo">
@@ -495,14 +501,14 @@ String r15 = res.getString(17);
                     </div>
                     
                     <div class="pagina movPag dos">
-                        <div class="titulo">¿s?</div>
+                        <div class="titulo">¿De qué Área de conocimiento es la carrera que deseas escoger?</div>
                         <div class="campo">
                             <div class="labe">
-                                <p>A. sisi</p>
+                                <p>A. Ciencias Físico Matemáticas</p>
                                 
-                                <p>B. Non</p>
+                                <p>B. Ciencias Médico Biológicas</p>
                                 
-                                <p>C. sino</p>
+                                <p>C. Ciencias Sociales Administrativas / Arte</p>
                             </div>
                         </div>
                         <div class="campo">
@@ -554,14 +560,14 @@ String r15 = res.getString(17);
                     </div>
                     
                     <div class="pagina movPag tres">
-                        <div class="titulo">¿w?</div>
+                        <div class="titulo">¿Has estudiado para tu entrada a Nivel Superior?</div>
                         <div class="campo">
                             <div class="labe">
-                                <p>A. sisi</p>
+                                <p>A. Sí, ya he comenzado</p>
                                 
-                                <p>B. Non</p>
+                                <p>B. No, pero deseo hacerlo</p>
                                 
-                                <p>C. sino</p>
+                                <p>C. Lo he intentado, sin resultados</p>
                             </div>
                         </div>
                         <div class="campo">
@@ -614,13 +620,14 @@ String r15 = res.getString(17);
                     
                     <div class="pagina movPag cuatro">
                         <div class="titulo">¿s?</div>
+                        <div class="titulo">¿Tienes dificultades con alguna materia en especial?</div>
                         <div class="campo">
                             <div class="labe">
-                                <p>A. sisi</p>
+                                <p>A. Sí, de mi área</p>
                                 
-                                <p>B. Non</p>
+                                <p>B. No, todo me es sencillo</p>
                                 
-                                <p>C. sino</p>
+                                <p>C. Sí, pero de una distinta área de conocimientos</p>
                             </div>
                         </div>
                         <div class="campo">
@@ -672,14 +679,14 @@ String r15 = res.getString(17);
                     </div>
                     
                     <div class="pagina movPag cinco">
-                        <div class="titulo">¿w?</div>
+                        <div class="titulo">¿Sueles descansar el tiempo adecuado para poder estudiar mejor?</div>
                         <div class="campo">
                             <div class="labe">
-                                <p>A. sisi</p>
+                                <p>A. Sí, siempre</p>
                                 
-                                <p>B. Non</p>
+                                <p>B. No, nunca</p>
                                 
-                                <p>C. sino</p>
+                                <p>C. Solo en algunas ocasiones</p>
                             </div>
                         </div>
                         <div class="campo">
@@ -731,14 +738,14 @@ String r15 = res.getString(17);
                     </div>
                     
                     <div class="pagina movPag seis">
-                        <div class="titulo">¿s?</div>
+                        <div class="titulo">¿Eres capaz de identificar aquellas áreas de oportunidad que tienes en el estudio?</div>
                         <div class="campo">
                             <div class="labe">
-                                <p>A. sisi</p>
+                                <p>A. Sí, siempre</p>
                                 
-                                <p>B. Non</p>
+                                <p>B. No realmente</p>
                                 
-                                <p>C. sino</p>
+                                <p>C. Trato de hacerlo, pero sigo sin poder</p>
                             </div>
                         </div>
                         <div class="campo">
@@ -791,13 +798,14 @@ String r15 = res.getString(17);
                     
                     <div class="pagina movPag siete">
                         <div class="titulo">¿w?</div>
+                        <div class="titulo">¿Alguna vez has intentado algún método de estuddio como Pomodoro?</div>
                         <div class="campo">
                             <div class="labe">
-                                <p>A. sisi</p>
+                                <p>A. Sí, y me gustó</p>
                                 
-                                <p>B. Non</p>
+                                <p>B. No, nunca lo he intentado</p>
                                 
-                                <p>C. sino</p>
+                                <p>C. Sí, y no me gustó</p>
                             </div>
                         </div>
                         <div class="campo">
@@ -849,14 +857,14 @@ String r15 = res.getString(17);
                     </div>
                     
                     <div class="pagina movPag ocho">
-                        <div class="titulo">¿s?</div>
+                        <div class="titulo">¿Piensas que es importante realizar repasos generales sobre todas las materias?</div>
                         <div class="campo">
                             <div class="labe">
-                                <p>A. sisi</p>
+                                <p>A. Sí, mucho</p>
                                 
-                                <p>B. Non</p>
+                                <p>B. No lo había pensado</p>
                                 
-                                <p>C. sino</p>
+                                <p>C. No, es más pérdia de tiempo</p>
                             </div>
                         </div>
                         <div class="campo">
@@ -908,14 +916,14 @@ String r15 = res.getString(17);
                     </div>
                     
                     <div class="pagina movPag nueve">
-                        <div class="titulo">¿w?</div>
+                        <div class="titulo">¿Piensas que es importante realizar sesiones largas de estudio?</div>
                         <div class="campo">
                             <div class="labe">
-                                <p>A. sisi</p>
+                                <p>A. Sí, es importante</p>
                                 
-                                <p>B. Non</p>
+                                <p>B. No, es agobiante</p>
                                 
-                                <p>C. sino</p>
+                                <p>C. Sí, solo cuando es muy necesario</p>
                             </div>
                         </div>
                         <div class="campo">
@@ -966,15 +974,16 @@ String r15 = res.getString(17);
                         </div>
                     </div>
                     
+                    
                     <div class="pagina movPag diez">
-                        <div class="titulo">¿s?</div>
+                        <div class="titulo">En tu último año de bachillerato, tus calificaciones...</div>
                         <div class="campo">
                             <div class="labe">
-                                <p>A. sisi</p>
+                                <p>A. Crecieron</p>
                                 
-                                <p>B. Non</p>
+                                <p>B. Decrecieron solo un poco</p>
                                 
-                                <p>C. sino</p>
+                                <p>C. Decrecieron bastante</p>
                             </div>
                         </div>
                         <div class="campo">
@@ -1026,14 +1035,14 @@ String r15 = res.getString(17);
                     </div>
                     
                     <div class="pagina movPag once">
-                        <div class="titulo">¿w?</div>
+                        <div class="titulo">En tu último año de bachillerato, tu rendimiento se vio afectado...</div>
                         <div class="campo">
                             <div class="labe">
-                                <p>A. sisi</p>
+                                <p>A. Positivamente</p>
                                 
-                                <p>B. Non</p>
+                                <p>B. Negativamente</p>
                                 
-                                <p>C. sino</p>
+                                <p>C. No se vio afectado</p>
                             </div>
                         </div>
                         <div class="campo">
@@ -1085,14 +1094,14 @@ String r15 = res.getString(17);
                     </div>
                     
                     <div class="pagina movPag doce">
-                        <div class="titulo">¿s?</div>
+                        <div class="titulo">El factor de la Uiversidad, ha influído en ti de manera...</div>
                         <div class="campo">
                             <div class="labe">
-                                <p>A. sisi</p>
+                                <p>A. Positiva, me anima a estudiar</p>
                                 
-                                <p>B. Non</p>
+                                <p>B. No ha influido</p>
                                 
-                                <p>C. sino</p>
+                                <p>C. Negativa, solo me ha estresado</p>
                             </div>
                         </div>
                         <div class="campo">
@@ -1144,14 +1153,14 @@ String r15 = res.getString(17);
                     </div>
                     
                     <div class="pagina movPag trece">
-                        <div class="titulo">¿w?</div>
+                        <div class="titulo">¿Estudias frecuentemente los tem,as que ves en clases?</div>
                         <div class="campo">
                             <div class="labe">
-                                <p>A. sisi</p>
+                                <p>A. Si, bastante</p>
                                 
-                                <p>B. Non</p>
+                                <p>B. No mucho</p>
                                 
-                                <p>C. sino</p>
+                                <p>C. No, para nada</p>
                             </div>
                         </div>
                         <div class="campo">
@@ -1203,14 +1212,14 @@ String r15 = res.getString(17);
                     </div>
                     
                     <div class="pagina movPag catorce">
-                        <div class="titulo">¿s?</div>
+                        <div class="titulo">¿Te gusta estudiar de manera autónoma?</div>
                         <div class="campo">
                             <div class="labe">
-                                <p>A. sisi</p>
+                                <p>A. Sí, lo prefiero</p>
                                 
-                                <p>B. Non</p>
+                                <p>B. No me afecta</p>
                                 
-                                <p>C. sino</p>
+                                <p>C. No, de esa manera no aprendo</p>
                             </div>
                         </div>
                         <div class="campo">
@@ -1262,14 +1271,14 @@ String r15 = res.getString(17);
                     </div>
                     
                     <div class="pagina movPag quince">
-                        <div class="titulo">¿w?</div>
+                        <div class="titulo">Finalmente, ¿te comprometerías a estudiar arduamente para ser exitoso?</div>
                         <div class="campo">
                             <div class="labe">
-                                <p>A. sisi</p>
+                                <p>A. Sí, es mi objetivo</p>
                                 
-                                <p>B. Non</p>
+                                <p>B. No podría, pero lo intento</p>
                                 
-                                <p>C. sino</p>
+                                <p>C. No, no puedo estudiar así</p>
                             </div>
                         </div>
                         <div class="campo">

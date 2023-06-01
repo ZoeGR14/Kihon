@@ -6,6 +6,8 @@
         <title>Hábitos y Metas académicas</title>
         <style>
             @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+            @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+            
             *{
                 margin: 0;
                 padding: 0;
@@ -26,7 +28,7 @@
             
             header{
                 width: 100%;
-                height: 800px;
+                height: 600px;
                 background: #373B44;  /* fallback for old browsers */
 background: -webkit-linear-gradient(to right, #4286f4, #373B44);  /* Chrome 10-25, Safari 5.1-6 */
 background: linear-gradient(to right, #4286f4, #373B44); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
@@ -65,7 +67,8 @@ background: linear-gradient(to right, #4286f4, #373B44); /* W3C, IE 10+/ Edge, F
             .texto-header h1{
                 font-size: 50px;
                 color: white;
-                font-weight: 900;
+                font-weight: 500;
+                font-family: 'Pacifico', cursive;
             }
             .texto-header h2{
                 font-size: 30px;
@@ -170,7 +173,7 @@ background: linear-gradient(to right, #4286f4, #373B44); /* W3C, IE 10+/ Edge, F
                 <a href="cuestHab.jsp">Cuestionario</a>
                 <a href="metasSHabMet.jsp">Metas Sugeridas</a>
                 <a href="misMetasPHabMet.jsp">Mis Metas</a>
-                <a href="cierreSesion.jsp">Cerrar Sesión</a>
+                <a href="../cierreSesion.jsp">Cerrar Sesión</a>
             </nav>
             <section class="texto-header">
                 <h1>Hábitos y Metas Académicas</h1>
@@ -196,7 +199,7 @@ background: linear-gradient(to right, #4286f4, #373B44); /* W3C, IE 10+/ Edge, F
         </main>
         <%
             } else {
-                out.print("<script>location.replace('Inicio-Cierre/ini_sesion.jsp');</script>");
+                out.print("<script>location.replace('../ini_sesion.jsp');</script>");
             }
         %>
     </body>
