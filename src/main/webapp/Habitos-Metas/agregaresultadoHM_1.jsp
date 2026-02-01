@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="icon" href="../imagenes/logo.ico">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Guarda 115</title>
         <style>@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
@@ -59,7 +60,7 @@
                                                 
                                                 try{
                                                         Class.forName("com.mysql.jdbc.Driver");
-                                                        conx  = DriverManager.getConnection("jdbc:mysql://localhost:3306/Kihon?autoReconnect=true&useSSL=false","root","n0m3l0");                               
+                                                        conx  = DriverManager.getConnection("jdbc:mysql://mysql-db-kihon:3306/Kihon?autoReconnect=true&useSSL=false","root","n0m3l0");                               
                                                         sta = conx.createStatement();
                                                         sta2 = conx.createStatement();
 

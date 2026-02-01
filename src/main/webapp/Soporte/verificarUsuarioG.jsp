@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="icon" href="../imagenes/logo.ico">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Reportes</title>
         <script src="Soporte/sweetalert2.all.min.js"></script>
@@ -34,7 +35,7 @@
                 
                 try{
                     Class.forName("com.mysql.jdbc.Driver");
-                    con  = DriverManager.getConnection("jdbc:mysql://localhost:3306/Kihon?autoReconnect=true&useSSL=false","root","n0m3l0");                               
+                    con  = DriverManager.getConnection("jdbc:mysql://mysql-db-kihon:3306/Kihon?autoReconnect=true&useSSL=false","root","n0m3l0");                               
                     stat = con.createStatement();
                     stat2 = con.createStatement();
                     

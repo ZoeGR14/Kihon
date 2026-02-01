@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="icon" href="../imagenes/logo.ico">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Carreras profesionales- ÁREA 4</title>
         <link rel="stylesheet" href="carreras.css">
@@ -11,7 +12,7 @@
     <body>
         <header>
             <div class="menu container">
-                <a hred="#" class="logo"></a>
+                <a href="#" class="logo"></a>
                 <input type="checkbox" id="menu">
                 <label for="menu">
                     <img src="imagenes/menu-btn.png" class="menu-icono" alt="">
@@ -47,7 +48,7 @@
 
                 try {
                     Class.forName("com.mysql.jdbc.Driver");
-                    cnx = DriverManager.getConnection("jdbc:mysql://localhost:3306/Kihon?autoReconnect=true&useSSL=false", "root", "n0m3l0");
+                    cnx = DriverManager.getConnection("jdbc:mysql://mysql-db-kihon:3306/Kihon?autoReconnect=true&useSSL=false", "root", "n0m3l0");
                     sta = cnx.createStatement();
 
                     rs = sta.executeQuery("select * from carreras_info");

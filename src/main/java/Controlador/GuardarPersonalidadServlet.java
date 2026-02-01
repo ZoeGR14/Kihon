@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class GuardarPersonalidadServlet extends HttpServlet {
 
-    private static final String base = "jdbc:mysql://localhost:3306/Kihon";
+    private static final String base = "jdbc:mysql://mysql-db-kihon:3306/Kihon";
     private static final String usuario = "root";
     private static final String pass = "n0m3l0";
     Conection con = new Conection();

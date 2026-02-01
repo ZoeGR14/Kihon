@@ -3,10 +3,11 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <html lang="en">
     <head>
+        <link rel="icon" href="../imagenes/logo.ico">
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Restaurante</title>
+        <title>Tipos de Personalidades</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
         <link rel="stylesheet" href="style.css">
     </head>
@@ -14,7 +15,7 @@
         <header>
             <div class="menu container">
                 <link rel="stylesheet" href="info_gen.css">
-                <a hred="#" class="logo"></a>
+                <a href="#" class="logo"></a>
                 <input type="checkbox" id="menu">
                 <label for="menu">
                     <img src="imagenes/menu-btn.png" class="menu-icono" alt="">
@@ -51,7 +52,7 @@
 
             try {
                 Class.forName("com.mysql.jdbc.Driver");
-                cnx = DriverManager.getConnection("jdbc:mysql://localhost:3306/Kihon?autoReconnect=true&useSSL=false", "root", "n0m3l0");
+                cnx = DriverManager.getConnection("jdbc:mysql://mysql-db-kihon:3306/Kihon?autoReconnect=true&useSSL=false", "root", "n0m3l0");
                 sta = cnx.createStatement();
                 rs = sta.executeQuery("select * from tipos_perso");
                 while (rs.next()) {

@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="icon" href="../imagenes/logo.ico">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Eliminar FAQ</title>
     </head>
@@ -15,7 +16,7 @@
             
             try{
                 Class.forName("com.mysql.jdbc.Driver");
-                cnx  = DriverManager.getConnection("jdbc:mysql://localhost:3306/Kihon?autoReconnect=true&useSSL=false","root","n0m3l0");
+                cnx  = DriverManager.getConnection("jdbc:mysql://mysql-db-kihon:3306/Kihon?autoReconnect=true&useSSL=false","root","n0m3l0");
                 sta = cnx.createStatement();
                 sta.executeUpdate("delete from editor where id_FAQ ="+id+"");
                 sta.executeUpdate("update cerrado_FAQ set estado = 0 where id_reporte = "+id+"");

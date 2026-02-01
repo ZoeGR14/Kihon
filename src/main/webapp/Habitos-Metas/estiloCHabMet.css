@@ -29,7 +29,6 @@
 }
 
 .radio-input label:before {
-  content: "";
   display: block;
   position: absolute;
   top: 50%;
@@ -96,7 +95,6 @@
 }
 
 .radio-input1 label:before {
-  content: "";
   display: block;
   position: absolute;
   top: 50%;

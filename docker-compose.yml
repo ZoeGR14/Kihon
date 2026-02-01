@@ -1,0 +1,30 @@
+services:
+   # Servicio de Base de Datos
+   database:
+      image: mysql:5.7
+      container_name: mysql-db-kihon
+      environment:
+         MYSQL_ROOT_PASSWORD: n0m3l0
+         MYSQL_DATABASE: Kihon # Crea la DB automáticamente
+      volumes:
+         - ./mysql_data:/var/lib/mysql # Persistencia: para no perder datos si reinicias
+         - ./Database:/docker-entrypoint-initdb.d/ # Opcional: Carga tu script SQL inicial
+      networks:
+         - kihon-net
+      restart: always
+
+   # Servicio de tu Aplicación Web
+   app:
+      build: . # Construye usando el Dockerfile de la carpeta actual
+      container_name: kihon-app
+      depends_on:
+         - database # Espera a que la base de datos inicie (más o menos)
+      ports:
+         - "8080:8080" # Puerto Host : Puerto Contenedor
+      networks:
+         - kihon-net
+      restart: always
+
+networks:
+   kihon-net:
+      driver: bridge

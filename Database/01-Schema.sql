@@ -1,8 +1,7 @@
 drop database if exists Kihon;
-
 create database Kihon;
-
 use Kihon;
+SET NAMES 'utf8mb4';
 
 /* Tipos de Usuario
 	0 - Cliente
@@ -104,12 +103,6 @@ create table tipos_perso(
 id_perso int primary key auto_increment not null,
 nombre_perso varchar (50),
 categoría int,
-	/* Categorías de personalidades:
-			1. Analistas
-            2. Diplomáticos
-            3. Centinelas
-            4. Exploradores
-    */
 abstract varchar (200),
 descripcion_perso varchar (1000),
 resumen_perso varchar (1000),  /*cuadrito del color*/
@@ -119,6 +112,12 @@ link_perso varchar (1000)
 );
 
 
+	/* Categorías de personalidades:
+			1. Analistas
+            2. Diplomáticos
+            3. Centinelas
+            4. Exploradores
+    */
 create table carreras_info(
 id_carrera_info int primary key auto_increment not null,
 nombre_car varchar (100),
@@ -244,4 +243,4 @@ select * from personalidad_usu;
 
 select * from test_voc;
 
-SELECT * FROM carrera_mbti INNER JOIN personalidad_usu ON personalidad_usu.mbti = carrera_mbti.mbti WHERE personalidad_usu.usuario = "ola";
+SELECT * FROM carrera_mbti INNER JOIN personalidad_usu ON personalidad_usu.mbti = carrera_mbti.mbti WHERE personalidad_usu.usuario = "ola"; 

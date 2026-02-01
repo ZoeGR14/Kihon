@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="icon" href="imagenes/logo_nimo.ico">
+        <link rel="icon" href="../imagenes/logo.ico">
         <title>Hábitos y Metas académicas</title>
         <style>
             @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
@@ -168,7 +168,7 @@ background: linear-gradient(to right, #4286f4, #373B44); /* W3C, IE 10+/ Edge, F
         
         <header>
             <nav>
-                <a href="index.jsp">Inicio</a>
+                <a href="../inicio.jsp">Inicio</a>
                 <a href="habMet.jsp">Menú</a>
                 <a href="cuestHab.jsp">Cuestionario</a>
                 <a href="metasSHabMet.jsp">Metas Sugeridas</a>

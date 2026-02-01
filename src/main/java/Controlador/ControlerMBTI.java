@@ -101,7 +101,7 @@ public class ControlerMBTI extends HttpServlet {
                 p.setMbti(personalidad);
                 p.setUsuario(alumno);
                 pDAO.agregar(p);
-                response.sendRedirect("ControlerMBTI?mbti=carreras");
+                response.sendRedirect("ControlerMBTI?ver=carreras");
                 break;
 
         }

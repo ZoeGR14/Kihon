@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="icon" href="../imagenes/logo.ico">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Asistente Menú</title>
         <link rel="stylesheet" href="Soporte/loginn.css">
@@ -25,7 +26,7 @@
         <link rel="stylesheet" href="Soporte/headerStyle.css">
         <header class="headersito" id="header">
         <a href="Soporte/cierreSesion.jsp" class="logoin">
-                <img src="./imagenes/logo_nimo.png" alt="" class="logoni" draggable="false">
+                <img src="./imagenes/logo.png" alt="" class="logoni" draggable="false">
             </a>
             <ul class="nav">
                 

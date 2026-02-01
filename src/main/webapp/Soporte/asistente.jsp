@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="icon" href="../imagenes/logo.ico">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Asistente Menú</title>
 
@@ -27,7 +28,7 @@
             </a>
             <ul class="nav">
                 
-                <a href="cierreSesion.jsp" class="">Cerrar Sesión</a>
+                <li><a href="cierreSesion.jsp" class="">Cerrar Sesión</a></li>
             </ul>
         </header>
         

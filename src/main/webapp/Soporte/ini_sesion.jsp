@@ -3,9 +3,10 @@
 <%@page session="true"%>
 <!DOCTYPE html>
 <html>
-    <head><link rel="icon" href="Soporte/../imagenes/logo_nimo.ico">
+    <head>
+        <link rel="icon" href="Soporte/../imagenes/logo.ico">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Iniciar sesión</title>
         <script src="sweetalert2.all.min.js"></script>
         <style>
             @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
@@ -28,7 +29,7 @@
 
             try {
                 Class.forName("com.mysql.jdbc.Driver");
-                con = DriverManager.getConnection("jdbc:mysql://localhost:3306/Kihon?autoReconnect=true&useSSL=false", "root", "n0m3l0");
+                con = DriverManager.getConnection("jdbc:mysql://mysql-db-kihon:3306/Kihon?autoReconnect=true&useSSL=false", "root", "n0m3l0");
                 stat = con.createStatement();
                 //stat2 = con.createStatement();
 

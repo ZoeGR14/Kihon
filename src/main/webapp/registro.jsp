@@ -2,7 +2,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <head><link rel="icon" href="imagenes/logo_nimo.ico">
+    <head><link rel="icon" href="imagenes/logo.ico">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Registro</title>
         <link rel="stylesheet" href="loginn.css">
@@ -25,7 +25,7 @@
             ResultSet results2 = null;
             try {
                 Class.forName("com.mysql.jdbc.Driver");
-                conec = DriverManager.getConnection("jdbc:mysql://localhost:3306/Kihon?autoReconnect=true&useSSL=false", "root", "n0m3l0");
+                conec = DriverManager.getConnection("jdbc:mysql://mysql-db-kihon:3306/Kihon?autoReconnect=true&useSSL=false", "root", "n0m3l0");
                 pstat = conec.prepareStatement("select * from usuarios where nom_usu=?");
                 String usu = request.getParameter("usuario");
                 //String contras=request.getParameter("contrasenia");
@@ -39,7 +39,7 @@
                 } else {
                     try {
                         Class.forName("com.mysql.jdbc.Driver");
-                        conec2 = DriverManager.getConnection("jdbc:mysql://localhost:3306/Kihon?autoReconnect=true&useSSL=false", "root", "n0m3l0");
+                        conec2 = DriverManager.getConnection("jdbc:mysql://mysql-db-kihon:3306/Kihon?autoReconnect=true&useSSL=false", "root", "n0m3l0");
                         pstat2 = conec2.prepareStatement("select * from usuarios where email_usu=?");
                         String correito = request.getParameter("correo");
                         pstat2.setString(1, correito);

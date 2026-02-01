@@ -6,6 +6,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="icon" href="../imagenes/logo.ico">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Reportes FAQS</title>
         <style>
@@ -27,7 +28,7 @@
 
                     try {
                         Class.forName("com.mysql.jdbc.Driver");
-                        cnx = DriverManager.getConnection("jdbc:mysql://localhost:3306/Kihon?autoReconnect=true&useSSL=false", "root", "n0m3l0");
+                        cnx = DriverManager.getConnection("jdbc:mysql://mysql-db-kihon:3306/Kihon?autoReconnect=true&useSSL=false", "root", "n0m3l0");
                         sta = cnx.createStatement();
                         rs = sta.executeQuery("select * from reportes where id_reporte = '" + id_reporte + "'");
                         rs.next();

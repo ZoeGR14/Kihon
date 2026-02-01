@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="icon" href="../imagenes/logo.ico">
         <title>Cuestionario Hábitos y Metas de Estudio</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -253,7 +254,7 @@ h2 {
 
                 try{
                     Class.forName("com.mysql.jdbc.Driver");
-                    cnx  = DriverManager.getConnection("jdbc:mysql://localhost:3306/Kihon?autoReconnect=true&useSSL=false","root","n0m3l0");                               
+                    cnx  = DriverManager.getConnection("jdbc:mysql://mysql-db-kihon:3306/Kihon?autoReconnect=true&useSSL=false","root","n0m3l0");                               
                     sta = cnx.createStatement();
                     rs = sta.executeQuery("select * from descripcionMetas where nom_usu='"+usuario+"'");
                     while (rs.next()) { 
@@ -266,17 +267,14 @@ h2 {
             <div class="profileDiv">
                 <center>  
                         Meta:<br>
-                       * <%=rs.getString(i)%><br>
-
-
-                        
+                       * <%=rs.getString(i)%><br>     
                  </center>
             </div>
             <div class="infoDiv">
                 <div class="nameDiv"></div>
                 <div class="socialDiv">
-                    <form action="completarM.jsp" method="post" name="completaM">
-                                    <input type="hidden" name="meta" value="<%=rs.getString(i)%>" required>
+                    <form action="" method="post" name="completaM">
+                                    <input type="hidden" name="meta" value="<%=rs.getString(i)%>">
                                     <button type="submit" name="manda" class="bottar">
                                         <img src="../imagenes/palomita.png" alt="alt">
                                     </button>

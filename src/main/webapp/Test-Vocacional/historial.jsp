@@ -4,12 +4,14 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="icon" href="imagenes/logo.ico">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="Test-Vocacional/testVocacional.css">
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
         <title>Historial</title>
     </head>
     <body>
+        <button class="inicio-btn" onclick="location.href = './inicio.jsp'" style="position: fixed; top: 20px; left: 20px; z-index: 1000;"><i class='bx bx-home'></i><b> Inicio</b></button>
         <header>
             <h1>Historial de Resultados</h1><br>
             <p>Aquí se encuentran todos tus resultados obtenidos</p>

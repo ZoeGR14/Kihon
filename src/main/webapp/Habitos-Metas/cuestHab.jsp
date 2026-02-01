@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="icon" href="../imagenes/logo.ico">
         <title>Cuestionario Hábitos y Metas de Estudio</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -95,7 +96,7 @@
             }
             
             .form-princ form .pagina .campo{
-                height: 55px;
+                min-height: 55px;
                 width: 1000px;
                 margin: 40px 0;
                 display: flex;
@@ -115,12 +116,39 @@
             
             .form-princ form .pagina .campo .radio-input{
                 width: 100%;
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+                align-items: flex-start !important;
+                justify-content: flex-start !important;
+            }
+            
+            .form-princ form .pagina .campo .radio-input .option{
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+            
+            .form-princ form .pagina .campo .radio-input input[type="radio"]{
+                width: 20px;
+                height: 20px;
+                cursor: pointer;
+                margin: 0;
+            }
+            
+            .form-princ form .pagina .campo .radio-input label{
+                font-size: 18px;
+                font-weight: 400;
+                color: #f2fcfe;
+                cursor: pointer;
+                margin: 0;
             }
             
             .form-princ form .pagina .campo button{
                 width: 100%;
                 height: calc(100% + 5px);
                 margin-top: -20px;
+                padding: 20px 30px;
                 border: none;
                 color: white;
                 background-color: #373B44;
@@ -300,7 +328,7 @@ Connection conx= null;
                                                 
 try{
                                                         Class.forName("com.mysql.jdbc.Driver");
-                                                        conx  = DriverManager.getConnection("jdbc:mysql://localhost:3306/Kihon?autoReconnect=true&useSSL=false","root","n0m3l0");                               
+                                                        conx  = DriverManager.getConnection("jdbc:mysql://mysql-db-kihon:3306/Kihon?autoReconnect=true&useSSL=false","root","n0m3l0");                               
                                                         sta = conx.createStatement();
                                                         sta2 = conx.createStatement();
 
@@ -425,24 +453,19 @@ try{
                     <div class="pagina movPag uno" id="uno">
                         <div class="titulo">¿Deseas hacer examen de ingreso a alguna Universidad socilicitada?</div>
                         <div class="campo">
-                            <div class="labe">
-                                <p>A. Sí</p>
-                                
-                                <p>B. No</p>
-                                
-                                <p>C. Lo estoy pensando</p>
-                            </div>
-                        </div>
-                        <div class="campo">
-                            <div class="radio-input" style="align-items: center; justify-content: center;">
-                                <input type="radio" id="val1" name="uno" value="1">
-                                <label for="val1">A</label>
-                                
-                                <input type="radio" id="vel1" name="uno" value="2">
-                                <label for="vel1">B</label>
-                                
-                                <input type="radio" id="vil1" name="uno" value="3">
-                                <label for="vil1">C</label>
+                            <div class="radio-input">
+                                <div class="option">
+                                    <input type="radio" id="val1" name="uno" value="1">
+                                    <label for="val1">A. Sí</label>
+                                </div>
+                                <div class="option">
+                                    <input type="radio" id="vel1" name="uno" value="2">
+                                    <label for="vel1">B. No</label>
+                                </div>
+                                <div class="option">
+                                    <input type="radio" id="vil1" name="uno" value="3">
+                                    <label for="vil1">C. Lo estoy pensando</label>
+                                </div>
                             </div>
                         </div>
                         <div class="campo sigPag">
@@ -453,24 +476,19 @@ try{
                     <div class="pagina movPag dos">
                         <div class="titulo">¿De qué Área de conocimiento es la carrera que deseas escoger?</div>
                         <div class="campo">
-                            <div class="labe">
-                                <p>A. Ciencias Físico Matemáticas</p>
-                                
-                                <p>B. Ciencias Médico Biológicas</p>
-                                
-                                <p>C. Ciencias Sociales Administrativas / Arte</p>
-                            </div>
-                        </div>
-                        <div class="campo">
-                            <div class="radio-input" style="align-items: center; justify-content: center;">
-                                <input type="radio" id="val2" name="dos" value="1">
-                                <label for="val2">A</label>
-                                
-                                <input type="radio" id="vel2" name="dos" value="2">
-                                <label for="vel2">B</label>
-                                
-                                <input type="radio" id="vil2" name="dos" value="3">
-                                <label for="vil2">C</label>
+                            <div class="radio-input">
+                                <div class="option">
+                                    <input type="radio" id="val2" name="dos" value="1">
+                                    <label for="val2">A. Ciencias Físico Matemáticas</label>
+                                </div>
+                                <div class="option">
+                                    <input type="radio" id="vel2" name="dos" value="2">
+                                    <label for="vel2">B. Ciencias Médico Biológicas</label>
+                                </div>
+                                <div class="option">
+                                    <input type="radio" id="vil2" name="dos" value="3">
+                                    <label for="vil2">C. Ciencias Sociales Administrativas / Arte</label>
+                                </div>
                             </div>
                         </div>
                         <div class="campo btns">
@@ -482,24 +500,19 @@ try{
                     <div class="pagina movPag tres">
                         <div class="titulo">¿Has estudiado para tu entrada a Nivel Superior?</div>
                         <div class="campo">
-                            <div class="labe">
-                                <p>A. Sí, ya he comenzado</p>
-                                
-                                <p>B. No, pero deseo hacerlo</p>
-                                
-                                <p>C. Lo he intentado, sin resultados</p>
-                            </div>
-                        </div>
-                        <div class="campo">
-                            <div class="radio-input" style="align-items: center; justify-content: center;">
-                                <input type="radio" id="val3" name="tres" value="1">
-                                <label for="val3">A</label>
-                                
-                                <input type="radio" id="vel3" name="tres" value="2">
-                                <label for="vel3">B</label>
-                                
-                                <input type="radio" id="vil3" name="tres" value="3">
-                                <label for="vil3">C</label>
+                            <div class="radio-input">
+                                <div class="option">
+                                    <input type="radio" id="val3" name="tres" value="1">
+                                    <label for="val3">A. Sí, ya he comenzado</label>
+                                </div>
+                                <div class="option">
+                                    <input type="radio" id="vel3" name="tres" value="2">
+                                    <label for="vel3">B. No, pero deseo hacerlo</label>
+                                </div>
+                                <div class="option">
+                                    <input type="radio" id="vil3" name="tres" value="3">
+                                    <label for="vil3">C. Lo he intentado, sin resultados</label>
+                                </div>
                             </div>
                         </div>
                         <div class="campo btns">
@@ -511,24 +524,19 @@ try{
                     <div class="pagina movPag cuatro">
                         <div class="titulo">¿Tienes dificultades con alguna materia en especial?</div>
                         <div class="campo">
-                            <div class="labe">
-                                <p>A. Sí, de mi área</p>
-                                
-                                <p>B. No, todo me es sencillo</p>
-                                
-                                <p>C. Sí, pero de una distinta área de conocimientos</p>
-                            </div>
-                        </div>
-                        <div class="campo">
-                            <div class="radio-input" style="align-items: center; justify-content: center;">
-                                <input type="radio" id="val4" name="cuatro" value="1">
-                                <label for="val4">A</label>
-                                
-                                <input type="radio" id="vel4" name="cuatro" value="2">
-                                <label for="vel4">B</label>
-                                
-                                <input type="radio" id="vil4" name="cuatro" value="3">
-                                <label for="vil4">C</label>
+                            <div class="radio-input">
+                                <div class="option">
+                                    <input type="radio" id="val4" name="cuatro" value="1">
+                                    <label for="val4">A. Sí, de mi área</label>
+                                </div>
+                                <div class="option">
+                                    <input type="radio" id="vel4" name="cuatro" value="2">
+                                    <label for="vel4">B. No, todo me es sencillo</label>
+                                </div>
+                                <div class="option">
+                                    <input type="radio" id="vil4" name="cuatro" value="3">
+                                    <label for="vil4">C. Sí, pero de una distinta área de conocimientos</label>
+                                </div>
                             </div>
                         </div>
                         <div class="campo btns">
@@ -540,24 +548,19 @@ try{
                     <div class="pagina movPag cinco">
                         <div class="titulo">¿Sueles descansar el tiempo adecuado para poder estudiar mejor?</div>
                         <div class="campo">
-                            <div class="labe">
-                                <p>A. Sí, siempre</p>
-                                
-                                <p>B. No, nunca</p>
-                                
-                                <p>C. Solo en algunas ocasiones</p>
-                            </div>
-                        </div>
-                        <div class="campo">
-                            <div class="radio-input" style="align-items: center; justify-content: center;">
-                                <input type="radio" id="val5" name="cinco" value="1">
-                                <label for="val5">A</label>
-                                
-                                <input type="radio" id="vel5" name="cinco" value="2">
-                                <label for="vel5">B</label>
-                                
-                                <input type="radio" id="vil5" name="cinco" value="3">
-                                <label for="vil5">C</label>
+                            <div class="radio-input">
+                                <div class="option">
+                                    <input type="radio" id="val5" name="cinco" value="1">
+                                    <label for="val5">A. Sí, siempre</label>
+                                </div>
+                                <div class="option">
+                                    <input type="radio" id="vel5" name="cinco" value="2">
+                                    <label for="vel5">B. No, nunca</label>
+                                </div>
+                                <div class="option">
+                                    <input type="radio" id="vil5" name="cinco" value="3">
+                                    <label for="vil5">C. Solo en algunas ocasiones</label>
+                                </div>
                             </div>
                         </div>
                         <div class="campo btns">
@@ -569,24 +572,19 @@ try{
                     <div class="pagina movPag seis">
                         <div class="titulo">¿Eres capaz de identificar aquellas áreas de oportunidad que tienes en el estudio?</div>
                         <div class="campo">
-                            <div class="labe">
-                                <p>A. Sí, siempre</p>
-                                
-                                <p>B. No realmente</p>
-                                
-                                <p>C. Trato de hacerlo, pero sigo sin poder</p>
-                            </div>
-                        </div>
-                        <div class="campo">
-                            <div class="radio-input" style="align-items: center; justify-content: center;">
-                                <input type="radio" id="val6" name="seis" value="1">
-                                <label for="val6">A</label>
-                                
-                                <input type="radio" id="vel6" name="seis" value="2">
-                                <label for="vel6">B</label>
-                                
-                                <input type="radio" id="vil6" name="seis" value="3">
-                                <label for="vil6">C</label>
+                            <div class="radio-input">
+                                <div class="option">
+                                    <input type="radio" id="val6" name="seis" value="1">
+                                    <label for="val6">A. Sí, siempre</label>
+                                </div>
+                                <div class="option">
+                                    <input type="radio" id="vel6" name="seis" value="2">
+                                    <label for="vel6">B. No realmente</label>
+                                </div>
+                                <div class="option">
+                                    <input type="radio" id="vil6" name="seis" value="3">
+                                    <label for="vil6">C. Trato de hacerlo, pero sigo sin poder</label>
+                                </div>
                             </div>
                         </div>
                         <div class="campo btns">
@@ -598,24 +596,19 @@ try{
                     <div class="pagina movPag siete">
                         <div class="titulo">¿Alguna vez has intentado algún método de estuddio como Pomodoro?</div>
                         <div class="campo">
-                            <div class="labe">
-                                <p>A. Sí, y me gustó</p>
-                                
-                                <p>B. No, nunca lo he intentado</p>
-                                
-                                <p>C. Sí, y no me gustó</p>
-                            </div>
-                        </div>
-                        <div class="campo">
-                            <div class="radio-input" style="align-items: center; justify-content: center;">
-                                <input type="radio" id="val7" name="siete" value="1">
-                                <label for="val7">A</label>
-                                
-                                <input type="radio" id="vel7" name="siete" value="2">
-                                <label for="vel7">B</label>
-                                
-                                <input type="radio" id="vil7" name="siete" value="3">
-                                <label for="vil7">C</label>
+                            <div class="radio-input">
+                                <div class="option">
+                                    <input type="radio" id="val7" name="siete" value="1">
+                                    <label for="val7">A. Sí, y me gustó</label>
+                                </div>
+                                <div class="option">
+                                    <input type="radio" id="vel7" name="siete" value="2">
+                                    <label for="vel7">B. No, nunca lo he intentado</label>
+                                </div>
+                                <div class="option">
+                                    <input type="radio" id="vil7" name="siete" value="3">
+                                    <label for="vil7">C. Sí, y no me gustó</label>
+                                </div>
                             </div>
                         </div>
                         <div class="campo btns">
@@ -627,24 +620,19 @@ try{
                     <div class="pagina movPag ocho">
                         <div class="titulo">¿Piensas que es importante realizar repasos generales sobre todas las materias?</div>
                         <div class="campo">
-                            <div class="labe">
-                                <p>A. Sí, mucho</p>
-                                
-                                <p>B. No lo había pensado</p>
-                                
-                                <p>C. No, es más pérdia de tiempo</p>
-                            </div>
-                        </div>
-                        <div class="campo">
-                            <div class="radio-input" style="align-items: center; justify-content: center;">
-                                <input type="radio" id="val8" name="ocho" value="1">
-                                <label for="val8">A</label>
-                                
-                                <input type="radio" id="vel8" name="ocho" value="2">
-                                <label for="vel8">B</label>
-                                
-                                <input type="radio" id="vil8" name="ocho" value="3">
-                                <label for="vil8">C</label>
+                            <div class="radio-input">
+                                <div class="option">
+                                    <input type="radio" id="val8" name="ocho" value="1">
+                                    <label for="val8">A. Sí, mucho</label>
+                                </div>
+                                <div class="option">
+                                    <input type="radio" id="vel8" name="ocho" value="2">
+                                    <label for="vel8">B. No lo había pensado</label>
+                                </div>
+                                <div class="option">
+                                    <input type="radio" id="vil8" name="ocho" value="3">
+                                    <label for="vil8">C. No, es más pérdia de tiempo</label>
+                                </div>
                             </div>
                         </div>
                         <div class="campo btns">
@@ -656,24 +644,19 @@ try{
                     <div class="pagina movPag nueve">
                         <div class="titulo">¿Piensas que es importante realizar sesiones largas de estudio?</div>
                         <div class="campo">
-                            <div class="labe">
-                                <p>A. Sí, es importante</p>
-                                
-                                <p>B. No, es agobiante</p>
-                                
-                                <p>C. Sí, solo cuando es muy necesario</p>
-                            </div>
-                        </div>
-                        <div class="campo">
-                            <div class="radio-input" style="align-items: center; justify-content: center;">
-                                <input type="radio" id="val9" name="nueve" value="1">
-                                <label for="val9">A</label>
-                                
-                                <input type="radio" id="vel9" name="nueve" value="2">
-                                <label for="vel9">B</label>
-                                
-                                <input type="radio" id="vil9" name="nueve" value="3">
-                                <label for="vil9">C</label>
+                            <div class="radio-input">
+                                <div class="option">
+                                    <input type="radio" id="val9" name="nueve" value="1">
+                                    <label for="val9">A. Sí, es importante</label>
+                                </div>
+                                <div class="option">
+                                    <input type="radio" id="vel9" name="nueve" value="2">
+                                    <label for="vel9">B. No, es agobiante</label>
+                                </div>
+                                <div class="option">
+                                    <input type="radio" id="vil9" name="nueve" value="3">
+                                    <label for="vil9">C. Sí, solo cuando es muy necesario</label>
+                                </div>
                             </div>
                         </div>
                         <div class="campo btns">
@@ -685,24 +668,19 @@ try{
                     <div class="pagina movPag diez">
                         <div class="titulo">En tu último año de bachillerato, tus calificaciones...</div>
                         <div class="campo">
-                            <div class="labe">
-                                <p>A. Crecieron</p>
-                                
-                                <p>B. Decrecieron solo un poco</p>
-                                
-                                <p>C. Decrecieron bastante</p>
-                            </div>
-                        </div>
-                        <div class="campo">
-                            <div class="radio-input" style="align-items: center; justify-content: center;">
-                                <input type="radio" id="val10" name="diez" value="1">
-                                <label for="val10">A</label>
-                                
-                                <input type="radio" id="vel10" name="diez" value="2">
-                                <label for="vel10">B</label>
-                                
-                                <input type="radio" id="vil10" name="diez" value="3">
-                                <label for="vil10">C</label>
+                            <div class="radio-input">
+                                <div class="option">
+                                    <input type="radio" id="val10" name="diez" value="1">
+                                    <label for="val10">A. Crecieron</label>
+                                </div>
+                                <div class="option">
+                                    <input type="radio" id="vel10" name="diez" value="2">
+                                    <label for="vel10">B. Decrecieron solo un poco</label>
+                                </div>
+                                <div class="option">
+                                    <input type="radio" id="vil10" name="diez" value="3">
+                                    <label for="vil10">C. Decrecieron bastante</label>
+                                </div>
                             </div>
                         </div>
                         <div class="campo btns">
@@ -714,24 +692,19 @@ try{
                     <div class="pagina movPag once">
                         <div class="titulo">En tu último año de bachillerato, tu rendimiento se vio afectado...</div>
                         <div class="campo">
-                            <div class="labe">
-                                <p>A. Positivamente</p>
-                                
-                                <p>B. Negativamente</p>
-                                
-                                <p>C. No se vio afectado</p>
-                            </div>
-                        </div>
-                        <div class="campo">
-                            <div class="radio-input" style="align-items: center; justify-content: center;">
-                                <input type="radio" id="val11" name="once" value="1">
-                                <label for="val11">A</label>
-                                
-                                <input type="radio" id="vel11" name="once" value="2">
-                                <label for="vel11">B</label>
-                                
-                                <input type="radio" id="vil11" name="once" value="3">
-                                <label for="vil11">C</label>
+                            <div class="radio-input">
+                                <div class="option">
+                                    <input type="radio" id="val11" name="once" value="1">
+                                    <label for="val11">A. Positivamente</label>
+                                </div>
+                                <div class="option">
+                                    <input type="radio" id="vel11" name="once" value="2">
+                                    <label for="vel11">B. Negativamente</label>
+                                </div>
+                                <div class="option">
+                                    <input type="radio" id="vil11" name="once" value="3">
+                                    <label for="vil11">C. No se vio afectado</label>
+                                </div>
                             </div>
                         </div>
                         <div class="campo btns">
@@ -743,24 +716,19 @@ try{
                     <div class="pagina movPag doce">
                         <div class="titulo">El factor de la Uiversidad, ha influído en ti de manera...</div>
                         <div class="campo">
-                            <div class="labe">
-                                <p>A. Positiva, me anima a estudiar</p>
-                                
-                                <p>B. No ha influido</p>
-                                
-                                <p>C. Negativa, solo me ha estresado</p>
-                            </div>
-                        </div>
-                        <div class="campo">
-                            <div class="radio-input" style="align-items: center; justify-content: center;">
-                                <input type="radio" id="val12" name="doce" value="1">
-                                <label for="val12">A</label>
-                                
-                                <input type="radio" id="vel12" name="doce" value="2">
-                                <label for="vel12">B</label>
-                                
-                                <input type="radio" id="vil12" name="doce" value="3">
-                                <label for="vil12">C</label>
+                            <div class="radio-input">
+                                <div class="option">
+                                    <input type="radio" id="val12" name="doce" value="1">
+                                    <label for="val12">A. Positiva, me anima a estudiar</label>
+                                </div>
+                                <div class="option">
+                                    <input type="radio" id="vel12" name="doce" value="2">
+                                    <label for="vel12">B. No ha influido</label>
+                                </div>
+                                <div class="option">
+                                    <input type="radio" id="vil12" name="doce" value="3">
+                                    <label for="vil12">C. Negativa, solo me ha estresado</label>
+                                </div>
                             </div>
                         </div>
                         <div class="campo btns">
@@ -772,24 +740,19 @@ try{
                     <div class="pagina movPag trece">
                         <div class="titulo">¿Estudias frecuentemente los tem,as que ves en clases?</div>
                         <div class="campo">
-                            <div class="labe">
-                                <p>A. Si, bastante</p>
-                                
-                                <p>B. No mucho</p>
-                                
-                                <p>C. No, para nada</p>
-                            </div>
-                        </div>
-                        <div class="campo">
-                            <div class="radio-input" style="align-items: center; justify-content: center;">
-                                <input type="radio" id="val13" name="trece" value="1">
-                                <label for="val13">A</label>
-                                
-                                <input type="radio" id="vel13" name="trece" value="2">
-                                <label for="vel13">B</label>
-                                
-                                <input type="radio" id="vil13" name="trece" value="3">
-                                <label for="vil13">C</label>
+                            <div class="radio-input">
+                                <div class="option">
+                                    <input type="radio" id="val13" name="trece" value="1">
+                                    <label for="val13">A. Si, bastante</label>
+                                </div>
+                                <div class="option">
+                                    <input type="radio" id="vel13" name="trece" value="2">
+                                    <label for="vel13">B. No mucho</label>
+                                </div>
+                                <div class="option">
+                                    <input type="radio" id="vil13" name="trece" value="3">
+                                    <label for="vil13">C. No, para nada</label>
+                                </div>
                             </div>
                         </div>
                         <div class="campo btns">
@@ -801,24 +764,19 @@ try{
                     <div class="pagina movPag catorce">
                         <div class="titulo">¿Te gusta estudiar de manera autónoma?</div>
                         <div class="campo">
-                            <div class="labe">
-                                <p>A. Sí, lo prefiero</p>
-                                
-                                <p>B. No me afecta</p>
-                                
-                                <p>C. No, de esa manera no aprendo</p>
-                            </div>
-                        </div>
-                        <div class="campo">
-                            <div class="radio-input" style="align-items: center; justify-content: center;">
-                                <input type="radio" id="val14" name="catorce" value="1">
-                                <label for="val14">A</label>
-                                
-                                <input type="radio" id="vel14" name="catorce" value="2">
-                                <label for="vel14">B</label>
-                                
-                                <input type="radio" id="vil14" name="catorce" value="3">
-                                <label for="vil14">C</label>
+                            <div class="radio-input">
+                                <div class="option">
+                                    <input type="radio" id="val14" name="catorce" value="1">
+                                    <label for="val14">A. Sí, lo prefiero</label>
+                                </div>
+                                <div class="option">
+                                    <input type="radio" id="vel14" name="catorce" value="2">
+                                    <label for="vel14">B. No me afecta</label>
+                                </div>
+                                <div class="option">
+                                    <input type="radio" id="vil14" name="catorce" value="3">
+                                    <label for="vil14">C. No, de esa manera no aprendo</label>
+                                </div>
                             </div>
                         </div>
                         <div class="campo btns">
@@ -830,24 +788,19 @@ try{
                     <div class="pagina movPag quince">
                         <div class="titulo">Finalmente, ¿te comprometerías a estudiar arduamente para ser exitoso?</div>
                         <div class="campo">
-                            <div class="labe">
-                                <p>A. Sí, es mi objetivo</p>
-                                
-                                <p>B. No podría, pero lo intento</p>
-                                
-                                <p>C. No, no puedo estudiar así</p>
-                            </div>
-                        </div>
-                        <div class="campo">
-                            <div class="radio-input" style="align-items: center; justify-content: center;">
-                                <input type="radio" id="val15" name="quince" value="1">
-                                <label for="val15">A</label>
-                                
-                                <input type="radio" id="vel15" name="quince" value="2">
-                                <label for="vel15">B</label>
-                                
-                                <input type="radio" id="vil15" name="quince" value="3">
-                                <label for="vil15">C</label>
+                            <div class="radio-input">
+                                <div class="option">
+                                    <input type="radio" id="val15" name="quince" value="1">
+                                    <label for="val15">A. Sí, es mi objetivo</label>
+                                </div>
+                                <div class="option">
+                                    <input type="radio" id="vel15" name="quince" value="2">
+                                    <label for="vel15">B. No podría, pero lo intento</label>
+                                </div>
+                                <div class="option">
+                                    <input type="radio" id="vil15" name="quince" value="3">
+                                    <label for="vil15">C. No, no puedo estudiar así</label>
+                                </div>
                             </div>
                         </div>
                         <div class="campo btns">

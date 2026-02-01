@@ -719,7 +719,7 @@ insert into carreras_info values
 							
 /* CARRERAS */
 /* Humanidades y Artes */
-insert into carreras values	("Diseño Grafico", true, false, "HA"),
+insert into carreras values	("Diseño Gráfico", true, false, "HA"),
 								("Administración de Archivos y Gestión Documental", true, false, "HA"), 
 								("Arte y Diseño", true, false, "HA"),
 								("Artes Visuales", true, false,  "HA"),
@@ -1313,19 +1313,3 @@ insert into metasRango values('W', 'Estudiar sobre mis materias de ciencias exac
 'Estudiar sin distracciones sobre mis materias más complejas, 4 horas, 1 vez por semana',
 'Practicar lo aprendido cada semana de manera tal que me resulte divertido, por ejemplo, por medio de quizes'
 );
-
-
-/*PRUEBAS*/
-
-insert into test_voc values(null, 50, 40, 80, 80, "pedrito");
-insert into personalidad_usu values ("pedrito", "ENTP");
-# delete from test_voc where usuario = "pedrito";
-#select greatest(ICFM, CSA, CMB, HA) as max_valor from test_voc;
-#SELECT CASE GREATEST(ICFM, CSA, CMB, HA) WHEN ICFM THEN 'ICFM' ELSE 0 END AS max_ICFM, CASE GREATEST(ICFM, CSA, CMB, HA) WHEN CSA THEN 'CSA' ELSE 0 END AS max_CSA, CASE GREATEST(ICFM, CSA, CMB, HA) WHEN CMB THEN 'CMB' ELSE 0 END AS max_CMB, CASE GREATEST(ICFM, CSA, CMB, HA) WHEN HA THEN 'HA' ELSE 0 END AS max_HA FROM test_voc  where usuario="pedrito" and id_res = (select MAX(id_res) from test_voc) HAVING CONCAT(max_ICFM, max_CSA, max_CMB, max_HA) <> '';
-#select id_res, usuario, case greatest(ICFM, CSA, CMB, HA) when ICFM then "ICFM" when CSA then "CSA" when CMB then "CMB" when HA then "HA" end as area_max from test_voc where greatest(ICFM, CSA, CMB, HA) is not null and usuario = "pedrito" and id_res = (select MAX(id_res) from test_voc);
-                                
-/*insert into reportes (descripcion, estatus, encargado, solucion) values	("El apartado de inicio de sesion lamentablemente no funciona en mi ordenador", "Abierto", "", ""),
-																		("No puedo iniciar sesion, ya registre mi usuario y nada", "Abierto", "", ""),
-                                                                        ("¿Cómo puedo registrar a una mascota en el apartado de Nueva Mascota?", "Abierto", "", ""),
-                                                                        ("¿Cómo puedo realizar una cita con un veterinario?", "Abierto", "", ""),
-                                                                        ("Tengo muchos problemas a la hora de agregar una mascota y nota", "Abierto", "", "");

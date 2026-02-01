@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="icon" href="../imagenes/logo.ico">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Registro Reportes</title>
         <script src="sweetalert2.all.min.js"></script>
@@ -30,7 +31,7 @@
             Statement sta = null;
             try{
                 Class.forName("com.mysql.jdbc.Driver");
-                conx  = DriverManager.getConnection("jdbc:mysql://localhost:3306/Kihon?autoReconnect=true&useSSL=false","root","n0m3l0");                 
+                conx  = DriverManager.getConnection("jdbc:mysql://mysql-db-kihon:3306/Kihon?autoReconnect=true&useSSL=false","root","n0m3l0");                 
 
                 sta = conx.createStatement();
             }

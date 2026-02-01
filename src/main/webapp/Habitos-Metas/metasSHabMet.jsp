@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="icon" href="../imagenes/logo.ico">
         <title>Cuestionario Hábitos y Metas de Estudio</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -325,7 +326,7 @@ Connection conx= null;
                                                 
 try{
                                                         Class.forName("com.mysql.jdbc.Driver");
-                                                        conx  = DriverManager.getConnection("jdbc:mysql://localhost:3306/Kihon?autoReconnect=true&useSSL=false","root","n0m3l0");                               
+                                                        conx  = DriverManager.getConnection("jdbc:mysql://mysql-db-kihon:3306/Kihon?autoReconnect=true&useSSL=false","root","n0m3l0");                               
                                                         sta = conx.createStatement();
                                                         sta2 = conx.createStatement();
 
